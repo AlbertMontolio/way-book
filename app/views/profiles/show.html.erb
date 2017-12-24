@@ -1,0 +1,37 @@
+<h1>my employee card</h1>
+
+<h1>my curriculums</h1>
+
+<div class="curriculum-cards">
+	<% @curriculums.each do |curriculum| %>
+		<div class="curriculum-card">
+			<div class="title-date-wrapper">
+				<div class="title">
+					<%= curriculum.title %>
+				</div>
+				<div class="date">
+					<%= curriculum.created_at.strftime("%b %d, %Y") %>
+				</div>
+			</div>
+			<% if curriculum.document? %>
+			  <object class="document" type="text/html" data='<%= curriculum.document.url %>'></object>
+			<% end %>
+		</div>
+	<% end %>
+
+	<div class="curriculum-card-new">
+		<%= simple_form_for @curriculum do |f| %>
+			<%= f.input :title %>
+			<%= f.input :document %>
+			<%= f.input :document_cache, as: :hidden %>
+			<%= f.button :submit %>
+		<% end %>
+	</div>
+</div>
+
+<h1>my skills</h1>
+
+
+
+
+
