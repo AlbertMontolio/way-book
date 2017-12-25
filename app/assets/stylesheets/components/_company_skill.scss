@@ -1,0 +1,62 @@
+.skills {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0px 100px;
+	.link-own-skill:hover {
+		text-decoration: none;
+		.is-included {
+			border: 1px solid rgb(206, 71, 41);
+			color: rgb(206, 71, 41);
+		}
+	}
+
+	// company
+	.link-included:hover {
+		text-decoration: none;
+		.is-included {
+			border: 1px solid rgb(162, 216, 166);
+			color: rgb(162, 216, 166);
+		}
+	}
+	.link-not-included:hover {
+		text-decoration: none;
+		.not-included {
+			
+			border: 1px solid rgb(60, 60, 60);
+			color: rgb(60, 60, 60);
+		}
+		
+	}
+}
+
+.skill {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 14px;
+	margin: 3px 4px;
+	padding: 2px 8px;
+	border-radius: 300px;
+
+	.icon {
+		margin-left: 10px;
+	}
+
+}
+
+
+
+// company
+.is-included {
+	background-color: white;
+	border: 1px solid rgb(25, 183, 36);
+	color: rgb(25, 183, 36);
+}
+
+.not-included {
+	background-color: white;
+	border: 1px solid rgb(180, 180, 180);
+	color: rgb(180, 180, 180);
+}

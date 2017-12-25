@@ -1,0 +1,2 @@
+class CompanySkill < ApplicationRecord
+end

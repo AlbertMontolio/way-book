@@ -1,0 +1,14 @@
+<h1>company skills</h1>
+
+<% @company_skills.each do |company_skill| %>
+	<div class="company-skill">
+		<%= company_skill.name %>
+	</div>
+<% end %>
+
+<div class="">
+	<%= simple_form_for @company_skill do |f| %>
+		<%= f.input :name %>
+		<%= f.button :submit %>
+	<% end %>
+</div>

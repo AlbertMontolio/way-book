@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :profiles, only: [:index, :show]
-  resources :curriculums, only: [:index, :show, :new, :create, :update, :destroy]
+  resources :curriculums, only: [:create]
+
+  resources :own_skills, only: [:create, :destroy]
+  resources :own_company_skills, only: [:create, :destroy]
+
+  resources :company_skills, only: [:index, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

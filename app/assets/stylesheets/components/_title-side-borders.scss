@@ -1,0 +1,32 @@
+.title {
+	font-size: 32px;
+	color: rgb(80,80,80);
+	margin: 60px 0px;
+}
+
+.fancy {
+  line-height: 0.05;
+  text-align: center;
+}
+.fancy span {
+  display: inline-block;
+  position: relative;  
+}
+.fancy span:before,
+.fancy span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-bottom: 1px solid rgb(80,80,80);
+  // border-top: 1px solid rgb(160,160,160);
+  top: 0;
+  width: 400px;
+}
+.fancy span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.fancy span:after {
+  left: 100%;
+  margin-left: 15px;
+}

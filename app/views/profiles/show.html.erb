@@ -1,35 +1,117 @@
-<h1>my employee card</h1>
+<div class="profile-show-page">
+	
 
-<h1>my curriculums</h1>
+	<h1>my employee card</h1>
 
-<div class="curriculum-cards">
-	<% @curriculums.each do |curriculum| %>
-		<div class="curriculum-card">
-			<div class="title-date-wrapper">
-				<div class="title">
-					<%= curriculum.title %>
+	<div class="fancy title"><span>My curriculums</span></div>
+
+	<div class="curriculum-cards">
+		<% @curriculums.each do |curriculum| %>
+			<div class="curriculum-card">
+				<div class="title-date-wrapper">
+					<div class="title">
+						<%= curriculum.title %>
+					</div>
+					<div class="date">
+						<%= curriculum.created_at.strftime("%b %d, %Y") %>
+					</div>
 				</div>
-				<div class="date">
-					<%= curriculum.created_at.strftime("%b %d, %Y") %>
-				</div>
+				<% if curriculum.document? %>
+				  <object class="document" type="text/html" data='<%= curriculum.document.url %>'></object>
+				<% end %>
 			</div>
-			<% if curriculum.document? %>
-			  <object class="document" type="text/html" data='<%= curriculum.document.url %>'></object>
+		<% end %>
+
+		<div class="curriculum-card-new">
+			<%= simple_form_for @curriculum do |f| %>
+				<%= f.input :title %>
+				<%= f.input :document %>
+				<%= f.input :document_cache, as: :hidden %>
+				<%= f.button :submit %>
 			<% end %>
 		</div>
-	<% end %>
+	</div>
 
-	<div class="curriculum-card-new">
-		<%= simple_form_for @curriculum do |f| %>
-			<%= f.input :title %>
-			<%= f.input :document %>
-			<%= f.input :document_cache, as: :hidden %>
-			<%= f.button :submit %>
+
+
+
+	<div class="fancy title"><span>My company skills</span></div>
+
+	<div class="skills">
+		<% @company_skills.each do |company_skill| %>
+
+			<% if @own_company_skills_names.include? company_skill.name %>
+				<% is_included = true %>
+			<% else %>
+				<% is_included = false %>
+			<% end %>
+			
+			
+			<% if is_included %>
+				<%= link_to own_company_skill_path(@own_company_skills.where(name: company_skill.name)[0]), method: :delete, class: "link-included" do  %>
+					<div class="skill is-included %>">
+						<div class="name">
+							<%= company_skill.name %>
+						</div>
+						<i class="fa fa-check-circle-o icon" aria-hidden="true"></i>
+					</div>
+				<% end %>
+				
+			<% else %>
+				
+				<%= link_to own_company_skills_path(company_skill: company_skill), method: :post, class: "link-not-included" do  %>
+					<div class="skill not-included">
+						<div class="name">
+							<%= company_skill.name %>
+						</div>
+						<i class="fa fa-check-circle-o icon" aria-hidden="true"></i>
+					</div>
+				<% end %>
+				
+			<% end %>
+
 		<% end %>
+	</div>
+
+
+
+
+
+	<div class="fancy title"><span>My own skills</span></div>
+
+	
+
+	<div class="skills">
+		
+		<% @own_skills.each do |own_skill| %>
+			<%= link_to own_skill_path(own_skill), method: :delete, class: "link-own-skill" do  %>
+				<div class="skill is-included">
+					<div class="name">
+						<%= own_skill.name %>
+					</div>
+					<i class="fa fa-times icon" aria-hidden="true"></i>
+				</div>
+			<% end %>
+		<% end %>
+
+	</div>
+
+	<div class="round-inline-form">
+		
+		<%= simple_form_for @own_skill do |f| %>
+			<div class="inputs-wrapper">
+				<%= f.input :name, label: false, class: "name" %>
+				<%= button_tag(type: 'submit', class: "submit-btn") do %>
+				    <i class="fa fa-plus icon-plus" aria-hidden="true"></i>
+				  <% end %>				
+			</div>
+
+		<% end %>
+
 	</div>
 </div>
 
-<h1>my skills</h1>
+
 
 
 

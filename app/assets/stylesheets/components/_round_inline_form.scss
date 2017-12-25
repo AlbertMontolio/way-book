@@ -1,0 +1,27 @@
+.round-inline-form {
+	margin: 40px 0px;
+	.inputs-wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: center;
+		// background-color: orange;
+		.form-group {
+			margin-bottom: 0px;
+			.form-control {
+				border-radius: 60px;
+				font-size: 16px;
+			}
+		}
+		.form-control, .submit-btn {
+			height: 35px;
+		}
+		.submit-btn {
+			width: 35px;
+			border-radius: 60px;
+			margin-left: 10px;
+		}
+		
+
+	}
+}
