@@ -33,9 +33,17 @@
 	</div>
 
 
-
-
 	<div class="fancy title"><span>My company skills</span></div>
+
+	<div class="categories">
+		<% @categories.each do |category| %>
+			<div class="category-name">
+				<%= link_to profile_path(current_user.profile, category: category) do %>
+					<%= category.name %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
 
 	<div class="skills">
 		<% @company_skills.each do |company_skill| %>

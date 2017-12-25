@@ -3,6 +3,7 @@ class CompanySkillsController < ApplicationController
 	def index
 		@company_skills = CompanySkill.all
 		@company_skill = CompanySkill.new
+		@pair = Pair.new
 	end
 
 	def create

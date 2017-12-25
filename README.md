@@ -40,7 +40,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="301" y="222" name="profiles">
+</datatypes><table x="183" y="211" name="profiles">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -58,7 +58,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <part>id</part>
 </key>
 </table>
-<table x="605" y="40" name="pdfs">
+<table x="382" y="27" name="pdfs">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -79,7 +79,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <part>id</part>
 </key>
 </table>
-<table x="602" y="261" name="own_skills">
+<table x="385" y="211" name="own_skills">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -94,7 +94,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <part>id</part>
 </key>
 </table>
-<table x="104" y="226" name="users">
+<table x="32" y="204" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -114,7 +114,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <part>id</part>
 </key>
 </table>
-<table x="602" y="404" name="own_company_skills">
+<table x="376" y="357" name="own_company_skills">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -129,13 +129,40 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <part>id</part>
 </key>
 </table>
-<table x="928" y="271" name="company_skills">
+<table x="956" y="545" name="company_skills">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="532" y="557" name="categories">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="742" y="360" name="pairs">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="category_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="categories" row="id" />
+</row>
+<row name="company_skill_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="company_skills" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
