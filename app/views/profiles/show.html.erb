@@ -36,7 +36,7 @@
 
 	<div class="categories">
 		<%= link_to profile_path(current_user.profile, category: "all"), remote: true do %>
-			<div class="category-link-wrapper">
+			<div class="category-link-wrapper active">
 				<div class="category-name">All</div>
 			</div>
 		<% end %>
@@ -59,24 +59,17 @@
 	<div class="fancy title"><span>My own skills</span></div>
 
 
-	<div class="skills">
-		
+	<div class="skills" id="js-own-skills">
+	
 		<% @own_skills.each do |own_skill| %>
-			<%= link_to own_skill_path(own_skill), method: :delete, class: "link-own-skill" do  %>
-				<div class="skill is-included">
-					<div class="name">
-						<%= own_skill.name %>
-					</div>
-					<i class="fa fa-times icon" aria-hidden="true"></i>
-				</div>
-			<% end %>
+			<%= render "own_skills/skill", own_skill: own_skill %>
 		<% end %>
 
 	</div>
 
 	<div class="round-inline-form">
 		
-		<%= simple_form_for @own_skill do |f| %>
+		<%= simple_form_for @own_skill, remote: true do |f| %>
 			<div class="inputs-wrapper">
 				<%= f.input :name, label: false, class: "name" %>
 				<%= button_tag(type: 'submit', class: "submit-btn") do %>

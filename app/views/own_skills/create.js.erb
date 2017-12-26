@@ -1,0 +1,11 @@
+console.log("hello from own_skill#create, i am in create.js.erb");
+
+
+jsOwnSkills = document.getElementById("js-own-skills");
+
+console.log(jsOwnSkills);
+
+jsOwnSkills.insertAdjacentHTML("beforeend", "<%= j render 'own_skills/skill', own_skill: @own_skill %>");
+
+ownSkillName = document.getElementById("own_skill_name");
+ownSkillName.value = "";

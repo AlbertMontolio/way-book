@@ -6,7 +6,11 @@ class OwnSkillsController < ApplicationController
 		@own_skill.save
 
 		profile = current_user.profile
-		redirect_to profile_path(profile)
+		respond_to do |format|
+	        format.html { redirect_to profile_path(profile) }
+	        format.js  # <-- idem
+	    end
+		
 	end
 
 	def destroy
