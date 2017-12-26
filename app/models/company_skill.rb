@@ -1,3 +1,3 @@
 class CompanySkill < ApplicationRecord
-	has_many :pairs, dependent: :destroy
+	belongs_to :category
 end

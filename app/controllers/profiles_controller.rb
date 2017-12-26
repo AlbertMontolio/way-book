@@ -16,9 +16,13 @@ class ProfilesController < ApplicationController
 		# categories
 		@categories = Category.all
 
+		
 		if params[:category].present?
-			@pairs = Pair.where(category: params[:category].to_i)
-			@company_skills = @pairs.map { |pair| CompanySkill.find(pair[:company_skill_id]) }
+			if params[:category].upcase == "ALL"
+				@company_skills = CompanySkill.all
+			else
+				@company_skills = CompanySkill.where(category: params[:category])
+			end
 		else
 			@company_skills = CompanySkill.all
 		end

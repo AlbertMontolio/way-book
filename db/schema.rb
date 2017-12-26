@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171225185840) do
+ActiveRecord::Schema.define(version: 20171225185644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20171225185840) do
 
   create_table "company_skills", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_company_skills_on_category_id", using: :btree
   end
 
   create_table "curriculums", force: :cascade do |t|
@@ -54,15 +56,6 @@ ActiveRecord::Schema.define(version: 20171225185840) do
     t.index ["profile_id"], name: "index_own_skills_on_profile_id", using: :btree
   end
 
-  create_table "pairs", force: :cascade do |t|
-    t.integer  "category_id"
-    t.integer  "company_skill_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["category_id"], name: "index_pairs_on_category_id", using: :btree
-    t.index ["company_skill_id"], name: "index_pairs_on_company_skill_id", using: :btree
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.string   "division"
     t.string   "team"
@@ -89,10 +82,9 @@ ActiveRecord::Schema.define(version: 20171225185840) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "company_skills", "categories"
   add_foreign_key "curriculums", "users", column: "profile_id"
   add_foreign_key "own_company_skills", "profiles"
   add_foreign_key "own_skills", "profiles"
-  add_foreign_key "pairs", "categories"
-  add_foreign_key "pairs", "company_skills"
   add_foreign_key "profiles", "users"
 end

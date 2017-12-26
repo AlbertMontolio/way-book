@@ -1,3 +1,19 @@
+<h1>categories</h1>
+<div class="">
+	<%= simple_form_for @category do |f| %>
+		<%= f.input :name %>
+		<%= f.button :submit %>
+	<% end %>
+</div>
+
+<% @categories.each do |category| %>
+	<div class="category-name">
+		<%= category.name %>
+	</div>
+<% end %>
+
+
+
 <h1>company skills</h1>
 
 <% @company_skills.each do |company_skill| %>
@@ -9,6 +25,7 @@
 <div class="">
 	<%= simple_form_for @company_skill do |f| %>
 		<%= f.input :name %>
+		<%= f.input :category, collection: Category.all %>
 		<%= f.button :submit %>
 	<% end %>
 </div>

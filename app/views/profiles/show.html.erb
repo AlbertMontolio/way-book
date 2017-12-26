@@ -36,6 +36,11 @@
 	<div class="fancy title"><span>My company skills</span></div>
 
 	<div class="categories">
+		<div class="category-name">
+			<%= link_to profile_path(current_user.profile, category: "all") do %>
+				<div class="all">All</div>
+			<% end %>
+		</div>
 		<% @categories.each do |category| %>
 			<div class="category-name">
 				<%= link_to profile_path(current_user.profile, category: category) do %>

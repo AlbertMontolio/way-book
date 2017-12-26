@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-	has_many :pairs
+	has_many :company_skills
 end
