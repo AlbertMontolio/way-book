@@ -5,6 +5,9 @@ jsSkills = document.getElementById("js-skills-wrapper");
 
 companySkill = document.querySelectorAll(`[data-company-skill-id='${companySkillId}']`)[0];
 
-companySkill.innerHTML = "<%= j render 'profiles/company_skill_wrapper', company_skill: @own_company_skill %>";
+console.log(companySkill);
+console.log("<%= @company_skill.name %>");
+
+companySkill.innerHTML = "<%= j render 'profiles/company_skill_render', company_skill: @company_skill %>";
 
 
