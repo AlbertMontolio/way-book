@@ -1,4 +1,10 @@
 class ProfilesController < ApplicationController
+	
+	def index
+		@profiles = Profile.all
+		@categories = Category.all
+	end
+
 	def show
 		# curriculums
 		@curriculums = current_user.profile.curriculums

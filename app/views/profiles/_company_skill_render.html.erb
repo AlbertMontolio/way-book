@@ -10,7 +10,7 @@
 <% if is_included %>
 
 	<%= link_to own_company_skill_path(id: company_skill), method: :delete, remote: true, class: "link-included" do  %>
-		<div class="skill is-included %>">
+		<div class="skill skill-show is-included %>">
 			<div class="name">
 				<%= company_skill.name %>
 			</div>
@@ -21,7 +21,7 @@
 <% else %>
 	
 	<%= link_to own_company_skills_path(company_skill_id: company_skill), method: :post, remote: true, class: "link-not-included" do  %>
-		<div class="skill not-included">
+		<div class="skill skill-show not-included">
 			<div class="name">
 				<%= company_skill.name %>
 			</div>

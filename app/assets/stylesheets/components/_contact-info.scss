@@ -1,0 +1,25 @@
+.contact-info	{
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-size: 14px;
+	font-weight: lighter;
+	.avatar {
+		background-color: rgb(200,200,200);
+		width: 60px;
+		height: 60px;
+		border-radius: 400px;
+		margin-left: 10px;
+	}
+	.block {
+		padding-left: 30px;
+	}
+	.name {
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.position {
+
+	}
+}

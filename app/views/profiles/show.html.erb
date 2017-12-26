@@ -4,7 +4,7 @@
 
 	<div class="fancy title"><span>My curriculums</span></div>
 
-	<div class="curriculum-cards">
+	<div class="curriculum-cards curriculum-card-margins-show">
 		<% @curriculums.each do |curriculum| %>
 			<div class="curriculum-card">
 				<div class="title-date-wrapper">
@@ -51,7 +51,7 @@
 		<% end %>
 	</div>
 
-	<div class="skills" id="js-skills-wrapper">
+	<div class="skills skills-margins-show" id="js-skills-wrapper">
 		<%= render "skills", company_skills: @company_skills %>
 	</div>
 

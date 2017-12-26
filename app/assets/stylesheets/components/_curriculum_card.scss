@@ -3,7 +3,6 @@
 }
 
 .curriculum-card {
-	margin: 20px;
 	.title-date-wrapper {
 		background-color: white;
 		height: 80px;
@@ -27,8 +26,15 @@
 	}
 }
 
+// show page
+.curriculum-card-margins-show {
+	margin: 20px;
+}
+
 .curriculum-card-new {
 	margin: 20px;
 	height: 340px;
 	background-color: white;
 }
+
+// index page

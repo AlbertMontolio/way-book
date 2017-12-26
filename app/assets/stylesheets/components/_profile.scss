@@ -1,0 +1,26 @@
+.contact-info {
+	margin: 10px 60px;
+	background-color: white;
+}
+
+.profile-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 6px 60px;
+	.skills-wrapper, .projects-wrapper {
+		height: 340px;
+	} 
+	.skills-wrapper {
+		background-color: white;
+		flex-grow: 1;
+		margin: 0px 10px;
+	}
+	.skills-profils {
+		padding: 0px 6px;
+	}
+	.projects-wrapper {
+		width: 400px;
+		background-color: white;
+	}
+}

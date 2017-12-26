@@ -1,6 +1,7 @@
 .categories {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: center;
 	margin-bottom: 20px;
 	
@@ -59,5 +60,24 @@
 
 	
 }
+
+.categories-profile {
+	margin: 15px 0px 10px 0px;
+	.category-link-wrapper {
+		font-size: 12px;
+		margin: 0px 3px;
+		padding: 2px 2px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
 
 

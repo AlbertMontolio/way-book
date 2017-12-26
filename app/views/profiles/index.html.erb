@@ -1,0 +1,84 @@
+<h1>profile index</h1>
+
+<% @profiles.each do |profile| %>
+	<div class="contact-info">
+		<div class="avatar"></div>
+		<div class="block">
+			<div class="info name">Albert Montolio</div>
+			<div class="info position">Engineer & Web Developer</div>
+		</div>
+		<div class="block">
+			<div class="info">albert.montolio@waygroup.de</div>
+			<div class="info">+491764834563</div>
+		</div>
+	</div>
+	<div class="profile-wrapper">
+		
+		<div class="curriculum-card">
+			<div class="title-date-wrapper">
+				<div class="title">
+					<%= profile.curriculums.last.title %>
+				</div>
+				<div class="date">
+					<%= profile.curriculums.last.created_at.strftime("%b %d, %Y") %>
+				</div>
+			</div>
+			<% if profile.curriculums.last.document? %>
+			  <object class="document" type="text/html" data='<%= profile.curriculums.last.document.url %>'></object>
+			<% end %>
+		</div>
+
+		<div class="skills-wrapper">
+
+			<div class="categories categories-profile">
+				<%= link_to profile_path(current_user.profile, category: "all"), remote: true do %>
+					<div class="category-link-wrapper active">
+						<div class="category-name">All</div>
+					</div>
+				<% end %>
+				<% @categories.each do |category| %>
+
+					<%= link_to profile_path(current_user.profile, category: category), remote: true do %>
+						<div class="category-link-wrapper">
+							<div class="category-name"><%= category.name %></div>
+						</div>
+					<% end %>
+
+				<% end %>
+			</div>
+
+			<div class="skills skills-profils">
+				<% profile.own_company_skills.each do |own_skill| %>
+					<div class="skill skill-profile is-included %>">
+						<div class="name">
+							<%= own_skill.name %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="projects-wrapper">
+			<div class="project-card">
+				<div class="header">
+					<div class="client">BMW Group</div>
+					<div class="period">5.6.2016 - 7.2.2018</div>
+				</div>
+				<div class="title-description">
+					SE-Team Leiter Abteilung EK40 i15 Carbon Fiber Parts
+				</div>
+			</div>
+			<div class="project-card">
+				<div class="header">
+					<div class="client">BMW Group</div>
+					<div class="period">5.6.2016 - 7.2.2018</div>
+				</div>
+				<div class="title-description">
+					SE-Team Leiter Abteilung EK40 i15 Carbon Fiber Parts
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+<% end %>

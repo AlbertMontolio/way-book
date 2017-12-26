@@ -3,7 +3,7 @@
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap: wrap;
-	margin: 0px 100px;
+	
 	.link-own-skill:hover {
 		text-decoration: none;
 		.is-included {
@@ -31,19 +31,35 @@
 	}
 }
 
+// skills show margins
+.skills-margins-show {
+	margin: 0px 100px;
+}
+
 .skill {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	font-size: 14px;
-	margin: 3px 4px;
-	padding: 2px 8px;
+	
 	border-radius: 300px;
 
 	.icon {
-		margin-left: 10px;
+		margin-left: 6px;
 	}
+
+}
+
+.skill-show {
+	font-size: 14px;
+	margin: 3px 4px;
+	padding: 2px 8px;
+}
+
+.skill-profile {
+	font-size: 12px;
+	margin: 3px 4px;
+	padding: 2px 8px;
 
 }
 
