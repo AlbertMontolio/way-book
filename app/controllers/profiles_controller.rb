@@ -26,6 +26,11 @@ class ProfilesController < ApplicationController
 		else
 			@company_skills = CompanySkill.all
 		end
+
+		respond_to do |format|
+	        format.html
+	        format.js  # <-- idem
+	    end
 		
 	end
 end

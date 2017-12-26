@@ -67,7 +67,7 @@ COMPANY_SKILLS_BUSINESS_DEVELOPER = ["Excel", "Market analyse", "Konkurrenz Anal
 
 business_developer = Category.where(name: "Business Developer")[0]
 
-COMPANY_SKILLS_PROJECT_MANAGEMENT.each do |name|
+COMPANY_SKILLS_BUSINESS_DEVELOPER.each do |name|
 	skill = CompanySkill.new(name: name)
 	skill.category = business_developer
 	skill.save

@@ -1,0 +1,34 @@
+<% company_skills.each do |company_skill| %>
+
+	<% if @own_company_skills_names.include? company_skill.name %>
+		<% is_included = true %>
+	<% else %>
+		<% is_included = false %>
+	<% end %>
+	
+	
+	<% if is_included %>
+
+		<%= link_to own_company_skill_path(@own_company_skills.where(name: company_skill.name)[0]), method: :delete, class: "link-included" do  %>
+			<div class="skill is-included %>">
+				<div class="name">
+					<%= company_skill.name %>
+				</div>
+				<i class="fa fa-check-circle-o icon" aria-hidden="true"></i>
+			</div>
+		<% end %>
+		
+	<% else %>
+		
+		<%= link_to own_company_skills_path(company_skill: company_skill), method: :post, remote: true, class: "link-not-included" do  %>
+			<div class="skill not-included">
+				<div class="name">
+					<%= company_skill.name %>
+				</div>
+				<i class="fa fa-check-circle-o icon" aria-hidden="true"></i>
+			</div>
+		<% end %>
+		
+	<% end %>
+
+<% end %>

@@ -1,0 +1,5 @@
+console.log("response from the profile#show");
+
+jsSkills = document.getElementById("js-skills-wrapper");
+
+jsSkills.innerHTML = "<%= j render 'profiles/skills', company_skills: @company_skills %>";

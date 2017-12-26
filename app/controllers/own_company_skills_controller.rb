@@ -8,7 +8,12 @@ class OwnCompanySkillsController < ApplicationController
 		@own_company_skill.profile = current_user.profile
 		@own_company_skill.save
 
-		redirect_to profile_path(current_user.profile)
+		respond_to do |format|
+	        format.html { redirect_to profile_path(current_user.profile) }
+	        format.js  # <-- idem
+	    end
+
+		# redirect_to profile_path(current_user.profile)
 	end
 
 	def destroy
