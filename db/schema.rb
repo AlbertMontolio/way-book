@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171225185644) do
+ActiveRecord::Schema.define(version: 20171226113538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,11 @@ ActiveRecord::Schema.define(version: 20171225185644) do
 
   create_table "own_company_skills", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "check",      default: true
+    t.boolean  "check",       default: true
     t.integer  "profile_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "category_id"
     t.index ["profile_id"], name: "index_own_company_skills_on_profile_id", using: :btree
   end
 
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 20171225185644) do
 
   add_foreign_key "company_skills", "categories"
   add_foreign_key "curriculums", "users", column: "profile_id"
+  add_foreign_key "own_company_skills", "categories"
   add_foreign_key "own_company_skills", "profiles"
   add_foreign_key "own_skills", "profiles"
   add_foreign_key "profiles", "users"

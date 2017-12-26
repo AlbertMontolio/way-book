@@ -10,8 +10,6 @@ class ProfilesController < ApplicationController
 
 		# own_company_skills
 		@own_company_skill = OwnCompanySkill.new
-		@own_company_skills = current_user.profile.own_company_skills	
-		@own_company_skills_names = @own_company_skills.map { |skill| skill.name }
 
 		# categories
 		@categories = Category.all
