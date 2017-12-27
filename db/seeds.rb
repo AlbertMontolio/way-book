@@ -1,9 +1,103 @@
-albert = User.new(email: "albert.montolio@gmail.com", password: "albert.montolio@gmail.com")
-albert.save
+employees = [
+	{
+		email: "albert.montolio@waygroup.de",
+		password: "albert.montolio@waygroup.de",
+		division: "Engineering",
+		team: "Brigitte Schulz",
+		first_name: "Albert",
+		last_name: "Montolio",
+		phone_number: "+4917638450434",
+		position: "Mechanical Engineer & Web Developer",
+		title: "Lebenslauf Deutsch",
+		document: "image/upload/v1514324187/edzm3iz0vfzn3fte8vw6.pdf"
+	},
+	{
+		email: "linda.rinaldi@waygroup.de",
+		password: "linda.rinaldi@waygroup.de",
+		division: "Engineering",
+		team: "Christian Sailer",
+		first_name: "Linda",
+		last_name: "Rinaldi",
+		phone_number: "+491546430434",
+		position: "Account Manager",
+		title: "Lebenslauf English",
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+	},
+	{
+		email: "matthew.lane@waygroup.de",
+		password: "matthew.lane@waygroup.de",
+		division: "Engineering",
+		team: "Christian Sailer",
+		first_name: "Matthew",
+		last_name: "Lane",
+		phone_number: "+491546858585",
+		position: "SE-Team Leiter",
+		title: "Lebenslauf Deutsch",
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+	},
+	{
+		email: "jane.hiat@waygroup.de",
+		password: "jane.hiat@waygroup.de",
+		division: "Engineering",
+		team: "Brigitte Schulz",
+		first_name: "Jane",
+		last_name: "Hiat",
+		phone_number: "+491324298756",
+		position: "SE-Team Leiter",
+		title: "Lebenslauf Deutsch",
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+	},
+	{
+		email: "bill.weekly@waygroup.de",
+		password: "bill.weekly@waygroup.de",
+		division: "Personal Wesen",
+		team: "Brigitte Schulz",
+		first_name: "Bill",
+		last_name: "Weekly",
+		phone_number: "+491526792656",
+		position: "Recruting Manager",
+		title: "Lebenslauf English",
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+	},
+	{
+		email: "sarah.sample@waygroup.de",
+		password: "sarah.sample@waygroup.de",
+		division: "Personal Wesen",
+		team: "Brigitte Schulz",
+		first_name: "Sarah",
+		last_name: "Sample",
+		phone_number: "+491523333656",
+		position: "Modul Leiter",
+		title: "Lebenslauf English",
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+	},
+	{
+		email: "william.ackerman@waygroup.de",
+		password: "william.ackerman@waygroup.de",
+		division: "Personal Wesen",
+		team: "Brigitte Schulz",
+		first_name: "William",
+		last_name: "Ackerman",
+		phone_number: "+4915239876",
+		position: "SE-Team Leiter",
+		title: "Lebenslauf English",
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+	},
+]
 
-profile = Profile.new
-profile.user = albert
-profile.save
+employees.each do |employee|
+	user = User.new(email: employee[:email], password: employee[:password])
+	user.save
+
+	profile = Profile.new(division: employee[:division], team: employee[:team], first_name: employee[:first_name], last_name: employee[:last_name], phone_number: employee[:phone_number], position: employee[:position])
+	profile.user = user
+	profile.save
+end
+
+
+
+
+
 
 CATEGORIES = ["SE-Team Leiter", "Modul Leiter", "Sales", "Programmierer", "Project Management", "Business Developer", "Konstruktor"]
 

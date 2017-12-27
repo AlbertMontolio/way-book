@@ -4,27 +4,33 @@
 	<div class="contact-info">
 		<div class="avatar"></div>
 		<div class="block">
-			<div class="info name">Albert Montolio</div>
-			<div class="info position">Engineer & Web Developer</div>
+			<div class="info name"><%= "#{profile.first_name} #{profile.last_name}" %></div>
+			<div class="info position"><%= profile.position %></div>
 		</div>
 		<div class="block">
-			<div class="info">albert.montolio@waygroup.de</div>
-			<div class="info">+491764834563</div>
+			<div class="info"><%= profile.user.email %></div>
+			<div class="info"><%= profile.phone_number %></div>
+		</div>
+		<div class="block">
+			<div class="info"><%= profile.division %></div>
+			<div class="info"><%= profile.team %></div>
 		</div>
 	</div>
 	<div class="profile-wrapper">
 		
 		<div class="curriculum-card">
-			<div class="title-date-wrapper">
-				<div class="title">
-					<%= profile.curriculums.last.title %>
+			<% unless profile.curriculums.length == 0 %>
+				<div class="title-date-wrapper">
+					<div class="title">
+						<%= profile.curriculums.last.title %>
+					</div>
+					<div class="date">
+						<%= profile.curriculums.last.created_at.strftime("%b %d, %Y") %>
+					</div>
 				</div>
-				<div class="date">
-					<%= profile.curriculums.last.created_at.strftime("%b %d, %Y") %>
-				</div>
-			</div>
-			<% if profile.curriculums.last.document? %>
-			  <object class="document" type="text/html" data='<%= profile.curriculums.last.document.url %>'></object>
+				<% if profile.curriculums.last.document? %>
+				  <object class="document" type="text/html" data='<%= profile.curriculums.last.document.url %>'></object>
+				<% end %>
 			<% end %>
 		</div>
 
