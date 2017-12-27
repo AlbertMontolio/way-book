@@ -172,7 +172,7 @@ COMPANY_SKILLS_KONSTRUKTUR = ["CATIA", "Automotive Erfahrung", "Bauteiel Kenntni
 
 konstruktor = Category.where(name: "Konstruktor")[0]
 
-COMPANY_SKILLS_PROJECT_MANAGEMENT.each do |name|
+COMPANY_SKILLS_KONSTRUKTUR.each do |name|
 	skill = CompanySkill.new(name: name)
 	skill.category = konstruktor
 	skill.save

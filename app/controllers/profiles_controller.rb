@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 	def index
 		@profiles = Profile.all
 		@categories = Category.all
+		# @own_company_skills = current_user.profile.own_company_skills
 	end
 
 	def show
@@ -20,20 +21,11 @@ class ProfilesController < ApplicationController
 		# categories
 		@categories = Category.all
 
-		
-		if params[:category].present?
-			if params[:category].upcase == "ALL"
-				@company_skills = CompanySkill.all
-			else
-				@company_skills = CompanySkill.where(category: params[:category])
-			end
-		else
-			@company_skills = CompanySkill.all
-		end
+		@company_skills = CompanySkill.all
 
 		respond_to do |format|
 	        format.html
-	        format.js  # <-- idem
+	        format.js
 	    end
 		
 	end

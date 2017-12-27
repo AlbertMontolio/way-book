@@ -1,0 +1,5 @@
+console.log("hello filter.js.erb. controller categories#filter");
+
+jsSkills = document.getElementById("js-skills-wrapper");
+
+jsSkills.innerHTML = "<%= j render 'profiles/skills', company_skills: @company_skills %>";

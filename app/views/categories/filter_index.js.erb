@@ -1,0 +1,8 @@
+console.log("hello filter_index.js.erb");
+
+filteredProfileId = "<%= @filtered_profile_id %>";
+
+ownSkillsWrapper = document.querySelectorAll(`[data-profile-skills-id='${filteredProfileId}']`)[0];
+
+console.log(ownSkillsWrapper);
+ownSkillsWrapper.innerHTML = "<%= j render 'profiles/own_company_skills', own_company_skills: @own_company_skills %>";

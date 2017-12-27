@@ -35,14 +35,14 @@
 	<div class="fancy title"><span>My company skills</span></div>
 
 	<div class="categories">
-		<%= link_to profile_path(current_user.profile, category: "all"), remote: true do %>
+		<%= link_to filter_categories_profile_path(category: "all"), remote: true do %>
 			<div class="category-link-wrapper active">
 				<div class="category-name">All</div>
 			</div>
 		<% end %>
 		<% @categories.each do |category| %>
 
-			<%= link_to profile_path(current_user.profile, category: category), remote: true do %>
+			<%= link_to filter_categories_profile_path(category: category), remote: true do %>
 				<div class="category-link-wrapper">
 					<div class="category-name"><%= category.name %></div>
 				</div>
