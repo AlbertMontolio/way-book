@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   resources :company_skills, only: [:index, :create]
   resources :categories, only: [:create]
+
+  resources :projects, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

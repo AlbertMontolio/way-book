@@ -9,7 +9,57 @@ employees = [
 		phone_number: "+4917638450434",
 		position: "Mechanical Engineer & Web Developer",
 		title: "Lebenslauf Deutsch",
-		document: "image/upload/v1514324187/edzm3iz0vfzn3fte8vw6.pdf"
+		document: "image/upload/v1514324187/edzm3iz0vfzn3fte8vw6.pdf",
+		projects: [
+			{
+				title: "SE-Team Leiter i15 Türen",
+				client: "BMW Group",
+				start: Date.new(2016,1,2),
+				finish: Date.new(2017,12,20),
+			},
+			{
+				title: "Business Developer Carbon Fiber parts",
+				client: "Carbures Group",
+				start: Date.new(2015,4,12),
+				finish: Date.new(2016,1,2),
+			},
+			{
+				title: "Entwicklungsingenieur Karrosserie Lkvs",
+				client: "MAN AG",
+				start: Date.new(2014,3,22),
+				finish: Date.new(2015,4,12),
+			},
+			{
+				title: "Berechnungssingenieur",
+				client: "BMW AG",
+				start: Date.new(2011,1,1),
+				finish: Date.new(2014,3,22),
+			},
+			{
+				title: "Berechnungssingenieur",
+				client: "Altran",
+				start: Date.new(2010,3,10),
+				finish: Date.new(2011,1,1),
+			},
+			{
+				title: "Berechnungssingenieur",
+				client: "IndustrieHansa",
+				start: Date.new(2009,6,16),
+				finish: Date.new(2010,3,10),
+			},
+			{
+				title: "Praktikum Project Management, Planning",
+				client: "Daimler AG",
+				start: Date.new(2008,7,20),
+				finish: Date.new(2009,6,16),
+			},
+			{
+				title: "Master Thesis: Finite Elemente Method. Struktur Berechnung",
+				client: "Universität Stuttgart",
+				start: Date.new(2008,7,20),
+				finish: Date.new(2009,6,16),
+			}
+		],
 	},
 	{
 		email: "linda.rinaldi@waygroup.de",
@@ -21,7 +71,33 @@ employees = [
 		phone_number: "+491546430434",
 		position: "Account Manager",
 		title: "Lebenslauf English",
-		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf",
+		projects: [
+			{
+				title: "Amazon Customer Service",
+				client: "Amazon",
+				start: Date.new(2016,1,2),
+				finish: Date.new(2017,12,20),
+			},
+			{
+				title: "Sales Responsible Digital Market",
+				client: "Media Markt",
+				start: Date.new(2015,4,12),
+				finish: Date.new(2016,1,2),
+			},
+			{
+				title: "Entwicklungsingenieur Karrosserie Lkvs",
+				client: "MAN AG",
+				start: Date.new(2014,3,22),
+				finish: Date.new(2015,4,12),
+			},
+			{
+				title: "Berechnungssingenieur",
+				client: "BMW AG",
+				start: Date.new(2011,1,1),
+				finish: Date.new(2014,3,22),
+			}
+		],
 	},
 	{
 		email: "matthew.lane@waygroup.de",
@@ -33,7 +109,33 @@ employees = [
 		phone_number: "+491546858585",
 		position: "SE-Team Leiter",
 		title: "Lebenslauf Deutsch",
-		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf",
+		projects: [
+			{
+				title: "SE-Team Leiter i15 Türen",
+				client: "BMW Grouop",
+				start: Date.new(2016,1,2),
+				finish: Date.new(2017,12,20),
+			},
+			{
+				title: "Business Developer Carbon Fiber parts",
+				client: "Carbures Group",
+				start: Date.new(2015,4,12),
+				finish: Date.new(2016,1,2),
+			},
+			{
+				title: "Entwicklungsingenieur Karrosserie Lkvs",
+				client: "MAN AG",
+				start: Date.new(2014,3,22),
+				finish: Date.new(2015,4,12),
+			},
+			{
+				title: "Berechnungssingenieur",
+				client: "BMW AG",
+				start: Date.new(2011,1,1),
+				finish: Date.new(2014,3,22),
+			}
+		],
 	},
 	{
 		email: "jane.hiat@waygroup.de",
@@ -45,7 +147,33 @@ employees = [
 		phone_number: "+491324298756",
 		position: "SE-Team Leiter",
 		title: "Lebenslauf Deutsch",
-		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf",
+		projects: [
+			{
+				title: "SE-Team Leiter i15 Türen",
+				client: "BMW Grouop",
+				start: Date.new(2016,1,2),
+				finish: Date.new(2017,12,20),
+			},
+			{
+				title: "Business Developer Carbon Fiber parts",
+				client: "Carbures Group",
+				start: Date.new(2015,4,12),
+				finish: Date.new(2016,1,2),
+			},
+			{
+				title: "Entwicklungsingenieur Karrosserie Lkvs",
+				client: "MAN AG",
+				start: Date.new(2014,3,22),
+				finish: Date.new(2015,4,12),
+			},
+			{
+				title: "Berechnungssingenieur",
+				client: "BMW AG",
+				start: Date.new(2011,1,1),
+				finish: Date.new(2014,3,22),
+			}
+		],
 	},
 	{
 		email: "bill.weekly@waygroup.de",
@@ -57,7 +185,33 @@ employees = [
 		phone_number: "+491526792656",
 		position: "Recruting Manager",
 		title: "Lebenslauf English",
-		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf",
+		projects: [
+			{
+				title: "SE-Team Leiter i15 Türen",
+				client: "BMW Grouop",
+				start: Date.new(2016,1,2),
+				finish: Date.new(2017,12,20),
+			},
+			{
+				title: "Business Developer Carbon Fiber parts",
+				client: "Carbures Group",
+				start: Date.new(2015,4,12),
+				finish: Date.new(2016,1,2),
+			},
+			{
+				title: "Entwicklungsingenieur Karrosserie Lkvs",
+				client: "MAN AG",
+				start: Date.new(2014,3,22),
+				finish: Date.new(2015,4,12),
+			},
+			{
+				title: "Berechnungssingenieur",
+				client: "BMW AG",
+				start: Date.new(2011,1,1),
+				finish: Date.new(2014,3,22),
+			}
+		],
 	},
 	{
 		email: "sarah.sample@waygroup.de",
@@ -69,7 +223,33 @@ employees = [
 		phone_number: "+491523333656",
 		position: "Modul Leiter",
 		title: "Lebenslauf English",
-		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf",
+		projects: [
+			{
+				title: "SE-Team Leiter i15 Türen",
+				client: "BMW Grouop",
+				start: Date.new(2016,1,2),
+				finish: Date.new(2017,12,20),
+			},
+			{
+				title: "Business Developer Carbon Fiber parts",
+				client: "Carbures Group",
+				start: Date.new(2015,4,12),
+				finish: Date.new(2016,1,2),
+			},
+			{
+				title: "Entwicklungsingenieur Karrosserie Lkvs",
+				client: "MAN AG",
+				start: Date.new(2014,3,22),
+				finish: Date.new(2015,4,12),
+			},
+			{
+				title: "Berechnungssingenieur",
+				client: "BMW AG",
+				start: Date.new(2011,1,1),
+				finish: Date.new(2014,3,22),
+			}
+		],
 	},
 	{
 		email: "william.ackerman@waygroup.de",
@@ -81,7 +261,33 @@ employees = [
 		phone_number: "+4915239876",
 		position: "SE-Team Leiter",
 		title: "Lebenslauf English",
-		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf"
+		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf",
+		projects: [
+			{
+				title: "SE-Team Leiter i15 Türen",
+				client: "BMW Grouop",
+				start: Date.new(2016,1,2),
+				finish: Date.new(2017,12,20),
+			},
+			{
+				title: "Business Developer Carbon Fiber parts",
+				client: "Carbures Group",
+				start: Date.new(2015,4,12),
+				finish: Date.new(2016,1,2),
+			},
+			{
+				title: "Entwicklungsingenieur Karrosserie Lkvs",
+				client: "MAN AG",
+				start: Date.new(2014,3,22),
+				finish: Date.new(2015,4,12),
+			},
+			{
+				title: "Berechnungssingenieur",
+				client: "BMW AG",
+				start: Date.new(2011,1,1),
+				finish: Date.new(2014,3,22),
+			}
+		],
 	},
 ]
 
@@ -92,10 +298,13 @@ employees.each do |employee|
 	profile = Profile.new(division: employee[:division], team: employee[:team], first_name: employee[:first_name], last_name: employee[:last_name], phone_number: employee[:phone_number], position: employee[:position])
 	profile.user = user
 	profile.save
+
+	employee[:projects].each do |project|
+		project = Project.new(title: project[:title], client: project[:client], start: project[:start], finish: project[:finish])
+		project.profile = profile
+		project.save
+	end
 end
-
-
-
 
 
 

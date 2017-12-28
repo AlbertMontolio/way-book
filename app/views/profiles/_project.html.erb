@@ -1,0 +1,9 @@
+<div class="project-card">
+	<div class="header">
+		<div class="client"><%= project.client %></div>
+		<div class="period"><%= project.start.strftime("%b, %y") %> - <%= project.finish.strftime("%b, %y") %></div>
+	</div>
+	<div class="title-description">
+		<%= project.title %>
+	</div>
+</div>

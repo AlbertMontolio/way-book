@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226211918) do
+ActiveRecord::Schema.define(version: 20171227144231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(version: 20171226211918) do
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string   "title"
+    t.string   "client"
+    t.date     "start"
+    t.date     "finish"
+    t.integer  "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_projects_on_profile_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -93,4 +104,5 @@ ActiveRecord::Schema.define(version: 20171226211918) do
   add_foreign_key "own_company_skills", "profiles"
   add_foreign_key "own_skills", "profiles"
   add_foreign_key "profiles", "users"
+  add_foreign_key "projects", "profiles"
 end

@@ -31,7 +31,6 @@
 		</div>
 	</div>
 
-
 	<div class="fancy title"><span>My company skills</span></div>
 
 	<div class="categories">
@@ -80,6 +79,28 @@
 		<% end %>
 
 	</div>
+
+
+	<div class="fancy title"><span>My projects</span></div>
+
+	<div class="projects-wrapper projects-wrapper-show">
+		<%= simple_form_for @project, remote: true do |f| %>
+			<%= f.input :title, label: false, placeholder: "Project title" %>
+			<%= f.input :client, label: false, placeholder: "Client" %>
+			<%= f.input :start, as: :date, label: false %>
+			<div class="to">to</div>
+			<%= f.input :finish, as: :date, label: false %>
+			<%= f.button :submit, class: "btn-submit" %>
+		<% end %>
+
+		<div id="projects-show-wrapper">
+			<% current_user.profile.projects.each do |project| %>
+				<%= render "profiles/project", project: project %>
+			<% end %>
+		</div>
+
+	</div>
+
 </div>
 
 

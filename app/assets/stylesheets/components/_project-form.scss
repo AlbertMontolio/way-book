@@ -1,0 +1,38 @@
+#new_project {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 20px;
+
+	.project_title {
+		flex-grow: 1;
+	}
+
+	.project_client {
+		width: 130px;
+		margin: 0px 20px;
+	}
+	.form-control, .btn-submit {
+		border-radius: 300px;
+		height: 30px;
+		font-size: 14px;
+		color: rgb(80,80,80);
+	}
+	.to {
+		margin: 0px 10px;
+		height: 30px;
+		font-size: 14px;
+		color: rgb(80,80,80);
+		line-height: 30px;
+	}
+	.btn-submit {
+		margin: 0px 0px 0px 20px;
+		line-height: 16px;
+		background-color: #19b724;
+		color: white;
+		&:hover {
+			background-color: green;
+		}
+	}
+
+}

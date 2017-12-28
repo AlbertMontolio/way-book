@@ -1,6 +1,5 @@
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 
-
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
 <!-- Active URL: http://db.lewagon.com/ -->
@@ -58,7 +57,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <part>id</part>
 </key>
 </table>
-<table x="382" y="27" name="pdfs">
+<table x="382" y="27" name="curriculums">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -125,11 +124,15 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <row name="name" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="category_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="categories" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="859" y="365" name="company_skills">
+<table x="934" y="362" name="company_skills">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -144,13 +147,37 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <part>id</part>
 </key>
 </table>
-<table x="662" y="369" name="categories">
+<table x="730" y="220" name="categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="385" y="508" name="projects">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="title" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="client" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="start" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="finish" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="profile_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="profiles" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>

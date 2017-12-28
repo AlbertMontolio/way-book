@@ -1,0 +1,14 @@
+console.log("hello from projects#create");
+
+projectsShowWrapper = document.getElementById("projects-show-wrapper");
+
+
+projectsShowWrapper.insertAdjacentHTML("afterbegin", "<%= j render 'profiles/project', project: @project %>");
+
+projectTitle = document.getElementById("project_title");
+projectTitle.value = "";
+
+projectClient = document.getElementById("project_client");
+projectClient.value = "";
+
+console.log(projectsShowWrapper);

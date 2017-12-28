@@ -59,24 +59,18 @@
 		</div>
 
 		<div class="projects-wrapper">
-			<div class="project-card">
-				<div class="header">
-					<div class="client">BMW Group</div>
-					<div class="period">5.6.2016 - 7.2.2018</div>
+			<% profile.projects.each do |project| %>
+				<div class="project-card">
+					<div class="header">
+						<div class="client"><%= project.client %></div>
+						<div class="period"><%= project.start.strftime("%b, %y") %> - <%= project.finish.strftime("%b, %y") %></div>
+					</div>
+					<div class="title-description">
+						<%= project.title %>
+					</div>
 				</div>
-				<div class="title-description">
-					SE-Team Leiter Abteilung EK40 i15 Carbon Fiber Parts
-				</div>
-			</div>
-			<div class="project-card">
-				<div class="header">
-					<div class="client">BMW Group</div>
-					<div class="period">5.6.2016 - 7.2.2018</div>
-				</div>
-				<div class="title-description">
-					SE-Team Leiter Abteilung EK40 i15 Carbon Fiber Parts
-				</div>
-			</div>
+			<% end %>
+
 		</div>
 
 	</div>

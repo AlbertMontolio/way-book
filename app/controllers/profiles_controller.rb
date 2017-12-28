@@ -23,6 +23,10 @@ class ProfilesController < ApplicationController
 
 		@company_skills = CompanySkill.all
 
+		# projects
+		@project = Project.new
+		@projects = current_user.profile.projects
+
 		respond_to do |format|
 	        format.html
 	        format.js

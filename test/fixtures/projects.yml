@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  client: MyString
+  start: 2017-12-27 15:42:38
+  finish: 2017-12-27 15:42:38
+  profile: one
+
+two:
+  title: MyString
+  client: MyString
+  start: 2017-12-27 15:42:38
+  finish: 2017-12-27 15:42:38
+  profile: two
