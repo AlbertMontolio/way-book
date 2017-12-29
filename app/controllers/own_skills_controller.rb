@@ -21,6 +21,8 @@ class OwnSkillsController < ApplicationController
 		redirect_to profile_path(current_user.profile)
 	end
 
+	
+
 	private
 
 	def own_skill_strong_params

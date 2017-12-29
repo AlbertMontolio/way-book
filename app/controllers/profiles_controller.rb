@@ -3,11 +3,16 @@ class ProfilesController < ApplicationController
 	def index
 		@profiles = Profile.all
 		@categories = Category.all
+		@company_skills = CompanySkill.all
+		# raise
+
 		# @own_company_skills = current_user.profile.own_company_skills
 	end
 
 	def show
+		session[:company_skills] = []
 		# curriculums
+
 		@curriculums = current_user.profile.curriculums
 		@curriculum = Curriculum.new
 

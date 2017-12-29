@@ -32,4 +32,6 @@ class OwnCompanySkillsController < ApplicationController
 	    end
 	end
 
+	
+
 end

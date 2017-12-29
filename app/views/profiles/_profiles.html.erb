@@ -1,0 +1,76 @@
+<% profiles.each do |profile| %>
+	<div class="contact-info">
+		<div class="avatar"></div>
+		<div class="block">
+			<div class="info name"><%= "#{profile.first_name} #{profile.last_name}" %></div>
+			<div class="info position"><%= profile.position %></div>
+		</div>
+		<div class="block">
+			<div class="info"><%= profile.user.email %></div>
+			<div class="info"><%= profile.phone_number %></div>
+		</div>
+		<div class="block">
+			<div class="info"><%= profile.division %></div>
+			<div class="info"><%= profile.team %></div>
+		</div>
+	</div>
+	<div class="profile-wrapper">
+		
+		<div class="curriculum-card">
+			<% unless profile.curriculums.length == 0 %>
+				<div class="title-date-wrapper">
+					<div class="title">
+						<%= profile.curriculums.last.title %>
+					</div>
+					<div class="date">
+						<%= profile.curriculums.last.created_at.strftime("%b %d, %Y") %>
+					</div>
+				</div>
+				<% if profile.curriculums.last.document? %>
+				  <object class="document" type="text/html" data='<%= profile.curriculums.last.document.url %>'></object>
+				<% end %>
+			<% end %>
+		</div>
+
+		<div class="skills-wrapper">
+
+			<div class="categories categories-profile">
+				<%= link_to filter_categories_profiles_path(category: "all", profile_id: profile), remote: true do %>
+					<div class="category-link-wrapper active">
+						<div class="category-name">All</div>
+					</div>
+				<% end %>
+				<% Category.all.each do |category| %>
+
+					<%= link_to filter_categories_profiles_path(category: category, profile_id: profile), remote: true do %>
+						<div class="category-link-wrapper">
+							<div class="category-name"><%= category.name %></div>
+						</div>
+					<% end %>
+
+				<% end %>
+			</div>
+
+			<div class="skills skills-profils" data-profile-skills-id="<%= profile.id %>">
+				<%= render "profiles/own_company_skills", own_company_skills: profile.own_company_skills %>
+			</div>
+		</div>
+
+		<div class="projects-wrapper">
+			<% profile.projects.each do |project| %>
+				<div class="project-card">
+					<div class="header">
+						<div class="client"><%= project.client %></div>
+						<div class="period"><%= project.start.strftime("%b, %y") %> - <%= project.finish.strftime("%b, %y") %></div>
+					</div>
+					<div class="title-description">
+						<%= project.title %>
+					</div>
+				</div>
+			<% end %>
+
+		</div>
+
+	</div>
+
+<% end %>

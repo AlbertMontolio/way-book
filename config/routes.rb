@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get "filter_categories_profile", to: "categories#filter_show"
   get "filter_categories_profiles", to: "categories#filter_index"
+  get "profiles/filter/categories", to: "categories#filter_index_all_profiles", as: :filter_index_all_profiles_categories
+  
+  get "profiles/filter/company_skills_add_to_session", to: "company_skills#filter_index_all_profiles_add_to_session", as: :filter_index_all_profiles_add_to_session
+  get "profiles/filter/company_skills_remove_from_session", to: "company_skills#filter_index_all_profiles_remove_from_session", as: :filter_index_all_profiles_remove_from_session
 
   resources :profiles, only: [:index, :show]
   resources :curriculums, only: [:create]
