@@ -59,6 +59,8 @@ class CategoriesController < ApplicationController
 			@profiles = @filtered_profiles
 		end
 
+		@company_skills = CompanySkill.order(:name).unique_name
+
 		respond_to do |format|
 	        format.html
 	        format.js 
