@@ -32,6 +32,7 @@
 			<% end %>
 		</div>
 
+		<!-- profile own company skills -->
 		<div class="skills-wrapper">
 
 			<div class="categories categories-profile">
@@ -51,8 +52,17 @@
 				<% end %>
 			</div>
 
-			<div class="skills skills-profils" data-profile-skills-id="<%= profile.id %>">
-				<%= render "profiles/own_company_skills", own_company_skills: profile.own_company_skills %>
+			<div class="round-btns-grid margin-sides" data-profile-skills-id="<%= profile.id %>">
+
+				<div class="round-btns-grid" id="js-company-skills">
+					<% @company_skills.each do |company_skill| %>
+						<div>
+							<%= render "profiles/company_skill_wo_links", company_skill: company_skill, profile: profile %>
+						</div>
+					<% end %>
+				</div>
+
+				
 			</div>
 		</div>
 

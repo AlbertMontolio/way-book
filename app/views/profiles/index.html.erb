@@ -15,37 +15,23 @@
 	<% end %>
 </div>
 
-<% company_skills_names = session[:company_skills].map { |company_skill| company_skill["name"] } %>
-<% company_skills_names.each do |company_skill_name| %>
-	<%= company_skill_name %>
-	<p>******************************</p>
+<% session[:company_skills].each do |company_skill| %>
+	<%= company_skill["name"] %>
+	<p>i</p>
 <% end %>
 
-<div class="skills skills-profils">
-
+<div class="round-btns-grid">
 	<% @company_skills.each do |company_skill| %>
-		<div class="js-skill-all-profiles-btn-wrapper hide js-is-active">
-			<%= link_to filter_index_all_profiles_remove_from_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "link-not-included" do  %>
-				<div class="skill skill-profile is-included js-skill-all-profiles-btn %>">
-					<div class="name">
-						<%= company_skill.name %>
-					</div>
-				</div>
-			<% end %>
+		<div data-company-skill-index-id="<%= company_skill.id %>">
+			<%= render "profiles/company_skill_index", company_skill: company_skill %>
 		</div>
-		<div class="js-category-skill-all-profiles-btn-wrapper is-not-active">
-			<%= link_to filter_index_all_profiles_add_to_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "link-not-included" do  %>
-				<div class="skill skill-profile not-included js-skill-all-profiles-btn">
-					<div class="name">
-						<%= company_skill.name %>
-					</div>
-				</div>
-			<% end %>
-		</div>
-
 	<% end %>
 </div>
 
 <div id="js-profiles-wrapper">
 	<%= render "profiles/profiles", profiles: @profiles  %>
 </div>
+
+
+
+

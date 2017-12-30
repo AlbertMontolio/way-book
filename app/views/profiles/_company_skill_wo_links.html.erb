@@ -1,0 +1,23 @@
+<% own_company_skills = profile.own_company_skills %>
+<% own_company_skills_names = own_company_skills.map { |skill| skill.name } %>	
+		
+<% is_included = own_company_skills_names.include? company_skill.name %>
+
+<% if is_included %>
+	<div class="btn-round sm green">
+		<div class="name">
+			<%= company_skill.name %>
+		</div>
+		<i class="fa fa-check-circle-o icon" aria-hidden="true"></i>
+	</div>
+<% else %>
+	<div class="btn-round sm gray">
+		<div class="name">
+			<%= company_skill.name %>
+		</div>
+		<i class="fa fa-check-circle-o icon" aria-hidden="true"></i>
+	</div>
+<% end %>
+
+
+

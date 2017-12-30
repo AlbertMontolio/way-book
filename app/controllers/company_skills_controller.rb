@@ -21,6 +21,7 @@ class CompanySkillsController < ApplicationController
 		session[:company_skills] = session[:company_skills].uniq
 		# raise
 		@profiles = get_filtered_profiles
+		@company_skills = CompanySkill.order(:name).unique_name
 
 		respond_to do |format|
 	        format.html
@@ -39,6 +40,7 @@ class CompanySkillsController < ApplicationController
 		end
 
 		@profiles = get_filtered_profiles
+		@company_skills = CompanySkill.order(:name).unique_name
 
 		respond_to do |format|
 	        format.html

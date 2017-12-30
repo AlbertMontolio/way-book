@@ -1,0 +1,5 @@
+<% company_skills.each do |company_skill| %>
+	<div data-company-skill-id="<%= company_skill.id %>">
+		<%= render "profiles/company_skill", company_skill: company_skill %>
+	</div>
+<% end %>

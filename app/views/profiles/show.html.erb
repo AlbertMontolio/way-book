@@ -2,6 +2,7 @@
 	
 	<h1>my employee card</h1>
 
+	<!-- Curriculum cards -->
 	<div class="fancy title"><span>My curriculums</span></div>
 
 	<div class="curriculum-cards curriculum-card-margins-show">
@@ -31,6 +32,7 @@
 		</div>
 	</div>
 
+	<!-- My company skills -->
 	<div class="fancy title"><span>My company skills</span></div>
 
 	<div class="categories">
@@ -40,34 +42,28 @@
 			</div>
 		<% end %>
 		<% @categories.each do |category| %>
-
 			<%= link_to profile_filter_profile_per_categories_path(@profile, category: category), remote: true do %>
 				<div class="category-link-wrapper">
 					<div class="category-name"><%= category.name %></div>
 				</div>
 			<% end %>
-
 		<% end %>
 	</div>
 
-	<div class="skills skills-margins-show" id="js-skills-wrapper">
-		<%= render "skills", company_skills: @company_skills %>
+	<div class="round-btns-grid margin-sides" id="js-company-skills">
+		<%= render "company_skills_show", company_skills: @company_skills %>
 	</div>
 
-
+	<!-- My own skills -->
 	<div class="fancy title"><span>My own skills</span></div>
 
-
-	<div class="skills" id="js-own-skills">
-	
+	<div class="round-btns-grid margin-sides" id="js-own-skills">
 		<% @own_skills.each do |own_skill| %>
-			<%= render "own_skills/skill", own_skill: own_skill %>
+			<%= render "own_skills/own_skill", own_skill: own_skill %>
 		<% end %>
-
 	</div>
 
 	<div class="round-inline-form">
-		
 		<%= simple_form_for @own_skill, remote: true do |f| %>
 			<div class="inputs-wrapper">
 				<%= f.input :name, label: false, class: "name" %>
@@ -75,12 +71,10 @@
 				    <i class="fa fa-plus icon-plus" aria-hidden="true"></i>
 				  <% end %>				
 			</div>
-
 		<% end %>
-
 	</div>
 
-
+	<!-- My projects -->
 	<div class="fancy title"><span>My projects</span></div>
 
 	<div class="projects-wrapper projects-wrapper-show">

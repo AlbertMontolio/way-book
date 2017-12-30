@@ -1,0 +1,47 @@
+.btn-round {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	border-radius: 300px;
+	.icon {
+		margin-left: 6px;
+	}
+	&.green:hover, &.gray:hover {
+		text-decoration: none;
+
+	}
+	&.green:hover {
+		border: 1px solid rgb(162, 216, 166);
+		color: rgb(162, 216, 166);
+	}
+	&.gray:hover {
+		border: 1px solid rgb(60, 60, 60);
+		color: rgb(60, 60, 60);
+	}
+}
+
+.btn-round.md {
+	font-size: 14px;
+	margin: 3px 4px;
+	padding: 2px 8px;
+}
+
+.btn-round.sm {
+	font-size: 12px;
+	margin: 3px 4px;
+	padding: 2px 8px;
+
+}
+
+.btn-round.green {
+	background-color: white;
+	border: 1px solid rgb(25, 183, 36);
+	color: rgb(25, 183, 36);
+}
+
+.btn-round.gray {
+	background-color: white;
+	border: 1px solid rgb(180, 180, 180);
+	color: rgb(180, 180, 180);
+}

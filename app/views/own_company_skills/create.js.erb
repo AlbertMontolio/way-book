@@ -1,13 +1,6 @@
-console.log("hello from own_company_skill#create, i am in create.js.erb");
-
-companySkillId = "<%= @company_skill_id %>";
+companySkillId = <%= @company_skill_id %>;
 
 companySkill = document.querySelectorAll(`[data-company-skill-id='${companySkillId}']`)[0];
-companySkill.innerHTML = "<%= j render 'profiles/company_skill_render', company_skill: @company_skill %>";
 
-
-
-
-
-
+companySkill.innerHTML = "<%= j render 'profiles/company_skill', company_skill: @company_skill %>";
 

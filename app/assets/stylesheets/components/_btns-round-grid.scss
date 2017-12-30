@@ -1,0 +1,13 @@
+.round-btns-grid {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	overflow-y: scroll;
+}
+
+// skills show margins
+.round-btns-grid.margin-sides {
+	margin: 0px 100px;
+}
+

@@ -1,5 +1,5 @@
-const jsSkillAllProfilesBtn = document.querySelectorAll(".js-skill-all-profiles-btn");
-// console.log(jsCategorySkillAllProfilesBtn);
+const companySkillBtns = document.querySelectorAll(".js-company-skill-btn");
+console.log(companySkillBtns);
 
 const putActiveClass = () => {
 	let clickedBtn = event.target.parentElement;
@@ -11,34 +11,28 @@ const putActiveClass = () => {
 }
 
 const toggleAddRemoveSessionBtn = () => {
-	// let clickedWrapper = event.target.closest(".js-category-skill-all-profiles-btn-wrapper");
-	let clickedWrapper = event.target.parentElement.parentElement.parentElement;
+	
+	let clickedElement = event.target;
+	let adjacentSibling;
 
-	console.log("event.target");
-	console.log(event.target);
-
-	console.log("clickedWrapper");
-	console.log(clickedWrapper);
-
-	let adjacentSiblingWrapper;
-
-	if ( clickedWrapper.classList.contains("js-is-active") ) {
-		console.log("js-is-active");
-		console.log("clickedWrapper");
-		console.log(clickedWrapper);
-		adjacentSiblingWrapper = clickedWrapper.nextSibling.nextSibling;
+	if ( clickedElement.classList.contains("green") ) {
+		console.log("clickedElement");
+		console.log(clickedElement);
+		adjacentSibling = clickedElement.nextSibling.nextSibling;
 	} else {
-		console.log("js-is-not-active");
-		adjacentSiblingWrapper = clickedWrapper.previousSibling.previousSibling;
+		console.log("gray");
+		console.log("clickedElement");
+		console.log(clickedElement);
+		adjacentSibling = clickedElement.previousSibling.previousSibling;
 		console.log("adjcentSibling");
-		console.log(adjacentSiblingWrapper);
+		console.log(adjacentSibling);
 	}
 
-    clickedWrapper.classList.add("hide");
-    adjacentSiblingWrapper.classList.remove("hide");
+	clickedElement.classList.add("hide");
+	adjacentSibling.classList.remove("hide");
 }
 
-jsSkillAllProfilesBtn.forEach((btn) => {
+companySkillBtns.forEach((btn) => {
 	// btn.addEventListener("click", putActiveClass);
-	btn.addEventListener("click", toggleAddRemoveSessionBtn);
+	// btn.addEventListener("click", toggleAddRemoveSessionBtn);
 });

@@ -5,3 +5,14 @@ console.log("<%= session[:company_skills] %>");
 jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
 
 jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
+
+
+companySkillId = <%= @company_skill.id %>;
+
+companySkill = document.querySelectorAll(`[data-company-skill-index-id='${companySkillId}']`)[0];
+
+companySkill.innerHTML = "<%= j render 'profiles/company_skill_index', company_skill: @company_skill %>";
+
+
+
+
