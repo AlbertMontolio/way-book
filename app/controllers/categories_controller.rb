@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
 
 	# services!
 	def filter_show
+		@profile = Profile.find(params[:profile_id].to_i)
 		if params[:category].upcase == "ALL"
 			@company_skills = CompanySkill.all
 		else

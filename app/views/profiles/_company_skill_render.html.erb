@@ -1,6 +1,6 @@
-<% own_company_skills = current_user.profile.own_company_skills %>
-<% own_company_skills_names = own_company_skills.map { |skill| skill.name } %>
-
+<% own_company_skills = @profile.own_company_skills %>
+<% own_company_skills_names = own_company_skills.map { |skill| skill.name } %>	
+		
 <% if own_company_skills_names.include? company_skill.name %>
 	<% is_included = true %>
 <% else %>
@@ -9,7 +9,7 @@
 
 <% if is_included %>
 
-	<%= link_to own_company_skill_path(id: company_skill), method: :delete, remote: true, class: "link-included" do  %>
+	<%= link_to profile_own_company_skill_path(@profile, id: company_skill), method: :delete, remote: true, class: "link-included" do  %>
 		<div class="skill skill-show is-included %>">
 			<div class="name">
 				<%= company_skill.name %>
@@ -20,7 +20,7 @@
 	
 <% else %>
 	
-	<%= link_to own_company_skills_path(company_skill_id: company_skill), method: :post, remote: true, class: "link-not-included" do  %>
+	<%= link_to profile_own_company_skills_path(@profile, company_skill_id: company_skill), method: :post, remote: true, class: "link-not-included" do  %>
 		<div class="skill skill-show not-included">
 			<div class="name">
 				<%= company_skill.name %>
