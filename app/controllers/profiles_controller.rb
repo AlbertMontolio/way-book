@@ -1,17 +1,23 @@
 class ProfilesController < ApplicationController
 	
 	def index
-		@profiles = Profile.all
+		profiles = Profile.all
+		selected_company_skills = session[:company_skills]
+		selected_category = session[:category]
+
+		profiles = Profile.filter_by_category(profiles, selected_category)
+		@profiles = Profile.filter_by_company_skills(profiles, selected_company_skills)
+		# raise
 		@categories = Category.all
 		@company_skills = CompanySkill.order(:name).unique_name
-		# raise
-
+		
 		# @own_company_skills = current_user.profile.own_company_skills
 	end
 
 	def show
 		@profile = Profile.find(params[:id].to_i)
 		session[:company_skills] = []
+		session[:category] = Category.new
 		
 		# curriculums
 		@curriculums = current_user.profile.curriculums

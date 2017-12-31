@@ -35,29 +35,16 @@ class CategoriesController < ApplicationController
 	    end
 	end
 
+	# index page
 	def filter_index_all_profiles
+		category = Category.find(params[:category].to_i)
+		session[:category] = category
+		selected_category = category
+		selected_company_skills = session[:company_skills]
 
-		if params[:category].upcase == "ALL"
-			@profiles = Profile.all
-		else
-			category = Category.find(params[:category].to_i)
-			@all_profiles = Profile.all
-			@filtered_profiles = []
-
-			# refactor with include please
-			@all_profiles.each do |profile|
-				has_category = false
-				profile.own_company_skills.each do |own_company_skill|
-					if has_category == false
-						if own_company_skill.category == category
-							@filtered_profiles << profile
-							has_category = true
-						end
-					end
-				end
-			end
-			@profiles = @filtered_profiles
-		end
+		profiles = Profile.all
+		profiles = Profile.filter_by_category(profiles, selected_category)
+		@profiles = Profile.filter_by_company_skills(profiles, selected_company_skills)
 
 		@company_skills = CompanySkill.order(:name).unique_name
 
@@ -67,8 +54,24 @@ class CategoriesController < ApplicationController
 	    end
 	end
 
+	def remove_category_session
+		@profiles = Profile.all
+		@company_skills = CompanySkill.order(:name).unique_name
+		
+		session[:category] = Category.new
+		respond_to do |format|
+	        format.html { redirect_to profiles_path }
+	        format.js { render template: "categories/filter_index_all_profiles" }
+	    end
+	end
+
 	private
 	def category_strong_params
 		params.require(:category).permit(:name)
 	end
 end
+
+
+
+
+

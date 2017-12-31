@@ -1,8 +1,12 @@
 console.log("hello filter_index_all_profiles_add_to_session");
 
 console.log("<%= session[:company_skills] %>");
+console.log("<%= session[:category] %>");
 
 jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
+
+console.log("<%= @profiles %>");
+console.log(jsProfilesWrapper);
 
 jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
 

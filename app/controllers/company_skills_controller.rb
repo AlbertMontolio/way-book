@@ -19,8 +19,13 @@ class CompanySkillsController < ApplicationController
 		@company_skill = CompanySkill.find(params[:company_skill_id].to_i)
 		session[:company_skills] << @company_skill
 		session[:company_skills] = session[:company_skills].uniq
-		# raise
-		@profiles = get_filtered_profiles
+		selected_company_skills = session[:company_skills]
+		selected_category = session[:category]
+
+		profiles = Profile.all
+		profiles = Profile.filter_by_category(profiles, selected_category)
+		@profiles = Profile.filter_by_company_skills(profiles, selected_company_skills)
+
 		@company_skills = CompanySkill.order(:name).unique_name
 
 		respond_to do |format|
@@ -31,6 +36,7 @@ class CompanySkillsController < ApplicationController
 
 	def filter_index_all_profiles_remove_from_session
 		@company_skill = CompanySkill.find(params[:company_skill_id].to_i)
+		selected_category = session[:category]
 
 		session[:company_skills].each_with_index do |company_skill, index|
 			if company_skill["name"] == @company_skill.name
@@ -39,7 +45,12 @@ class CompanySkillsController < ApplicationController
 			end
 		end
 
-		@profiles = get_filtered_profiles
+		selected_company_skills = session[:company_skills]
+
+		profiles = Profile.all
+		profiles = Profile.filter_by_category(profiles, selected_category)
+		@profiles = Profile.filter_by_company_skills(profiles, selected_company_skills)
+		
 		@company_skills = CompanySkill.order(:name).unique_name
 
 		respond_to do |format|
@@ -48,35 +59,8 @@ class CompanySkillsController < ApplicationController
 	    end
 	end
 
-	def get_filtered_profiles
-		
-		@selected_company_skills = session[:company_skills]
-
-		filtered_profiles = []
-		Profile.all.each do |profile|
-
-			has_all_company_skills = true
-			@selected_company_skills.each do |company_skill|
-
-				own_company_skills_names = profile.own_company_skills.map { |own_company_skill| own_company_skill.name }
-			
-				if own_company_skills_names.include? company_skill["name"]
-					# nothing
-				else
-					has_all_company_skills = false
-				end
-
-			end
-
-			if has_all_company_skills
-				filtered_profiles << profile
-			end
-		end
-
-		return filtered_profiles
-	end
-
 	private
+
 	def company_skills_strong_params
 		params.require(:company_skill).permit(:name)
 	end
