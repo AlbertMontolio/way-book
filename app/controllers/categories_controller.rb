@@ -46,8 +46,11 @@ class CategoriesController < ApplicationController
 		profiles = Profile.filter_by_category(profiles, selected_category)
 		@profiles = Profile.filter_by_company_skills(profiles, selected_company_skills)
 
-		# show company skills just for the category
-		@company_skills = CompanySkill.order(:name).unique_name
+		### 1 refactor, DRI
+		@company_skills = []
+		CompanySkill.all.each do |company_skill|
+			@company_skills << company_skill if company_skill.category.id == category["id"]
+		end
 
 		respond_to do |format|
 	        format.html

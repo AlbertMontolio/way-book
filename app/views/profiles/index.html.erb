@@ -20,7 +20,7 @@
 </div>
 
 <div class="round-btns-grid">
-	<% @company_skills.each do |company_skill| %>
+	<% @all_company_skills.each do |company_skill| %>
 		<div data-company-skill-index-id="<%= company_skill.id %>">
 			<%= render "profiles/company_skill_index", company_skill: company_skill %>
 		</div>

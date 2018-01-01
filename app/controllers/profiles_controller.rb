@@ -7,9 +7,19 @@ class ProfilesController < ApplicationController
 
 		profiles = Profile.filter_by_category(profiles, selected_category)
 		@profiles = Profile.filter_by_company_skills(profiles, selected_company_skills)
-		# raise
+		
 		@categories = Category.all
-		@company_skills = CompanySkill.order(:name).unique_name
+
+		if session[:category]["id"].nil?
+			@company_skills = CompanySkill.order(:name).unique_name
+		else
+			@company_skills = []
+			CompanySkill.all.each do |company_skill|
+				@company_skills << company_skill if company_skill.category.id == session[:category]["id"]
+			end
+		end
+
+		@all_company_skills = CompanySkill.order(:name).unique_name
 		
 		# @own_company_skills = current_user.profile.own_company_skills
 	end
