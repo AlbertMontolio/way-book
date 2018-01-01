@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # get "filter_categories_profile", to: "categories#filter_show"
-  get "filter_categories_profiles", to: "categories#filter_index"
+  get "filter_profile_by_category", to: "categories#filter_profile_by_category"
   
   # index
   #   categories
