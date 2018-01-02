@@ -12,6 +12,21 @@ class Profile < ApplicationRecord
   # 	return self.filter_by_company_skills(profiles, selected_company_skills)
   # end
 
+  def self.filter_by_category_by_company_skills
+    session[:company_skills] = session[:company_skills].uniq
+    selected_company_skills = session[:company_skills]
+    selected_category = session[:category]
+
+    profiles = Profile.all
+    profiles = Profile.filter_by_category(profiles, selected_category)
+    @profiles = Profile.filter_by_company_skills(profiles, selected_company_skills)
+
+    @company_skills = []
+    CompanySkill.all.each do |company_skill|
+      @company_skills << company_skill if company_skill.category.id == selected_category["id"]
+    end
+  end
+
   def self.filter_by_category(profiles, selected_category)
     if selected_category["id"].nil?
   		profiles

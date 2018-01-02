@@ -36,7 +36,8 @@ class CategoriesController < ApplicationController
 	end
 
 	# index page
-	def filter_index_all_profiles
+	# def filter_index_all_profiles
+	def filter_profiles_by_category_by_company_skill
 		category = Category.find(params[:category].to_i)
 		session[:category] = category
 		selected_category = category

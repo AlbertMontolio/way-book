@@ -11,7 +11,7 @@
 		</div>
 	<% end %>
 	<% @categories.each do |category| %>
-		<%= link_to filter_index_all_profiles_categories_path(category: category), remote: true do %>
+		<%= link_to filter_profiles_by_category_by_company_skill_path(category: category), remote: true do %>
 			<div class="category-link-wrapper <%= "active" if session[:category]["name"] == category.name %>">
 				<div class="category-name"><%= category.name %></div>
 			</div>
