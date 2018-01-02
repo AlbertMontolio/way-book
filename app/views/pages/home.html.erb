@@ -1,2 +1,73 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% pic_urls = [] %>
+<% 30.times do |i| %>
+	<% pic_urls << "pic#{i + 1}.png" %>
+<% end %>
+
+<% skills = ["gAMS", "NAELs", "SE-Team Leiter", "Modul Leiter", "R", "Visual Basic", "JavaScript", "Java", "HTML" "CSS", "ActiveRecord", "Ruby", "Ruby on Rails", "Heroku", "Rspec", "Negotiation", "Lieferanten", "Idias", "F.E.M.", "Carbon Fiber", "Industrialisierung", "Project Management", "Sales", "MAN", "Entwicklungsingenieur", "Kunstoff", "Adhesive", "Presswerkstoffe", "Internet of things", "selbstfahrende Autos" ] %>
+	
+<div class="landing-page">
+	
+	<div class="banner">
+		<div class="pics-grid">
+			<% j = 0 %>
+			<% 5.times do |i| %>
+				<div class="roww">
+					<% 6.times do |i| %>
+						<%= image_tag(pic_urls[j], size: "110x110") %>
+						<div class="pic-skill hide">
+							<%= skills[j] %>
+						</div>
+						<% j = j + 1 %>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+		<div class="slogan">
+			<div class="l1">
+				WAY Book
+			</div>
+			<div class="l2">
+				Find the skills that you need
+			</div>
+		</div>
+	</div>
+
+	<div class="title">How it works</div>
+	<div class="blocks">
+		<div class="block1">
+			<div class="title">
+				if you are a manager...
+			</div>
+			<div class="description">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum porro laboriosam vero magnam tempora repellendus commodi accusamus quis neque velit enim, praesentium perferendis suscipit iusto voluptatem, voluptatum recusandae nulla, assumenda.
+			</div>
+		</div>
+		<div class="block1">
+			<div class="title">
+				if you are an employee...
+			</div>
+			<div class="description">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda tenetur unde, perferendis ad nulla deleniti praesentium dignissimos nemo accusantium, totam esse fuga hic expedita atque in eius ut inventore culpa.
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="examples">
+		examples
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,16 +2,19 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  get "filter_profile_by_category", to: "categories#filter_profile_by_category"
-  
-  # index
-  #   categories
-  get "filter_profiles_by_category_by_company_skill", to: "categories#filter_profiles_by_category_by_company_skill"
-  
+  # - index
+  # -- all profiles
+  # ---- categories
+  get "add_category_session", to: "categories#add_category_session"
   get "remove_category_session", to: "categories#remove_category_session"
-  #   company skills
-  get "profiles/filter/company_skills_add_to_session", to: "company_skills#filter_index_all_profiles_add_to_session", as: :filter_index_all_profiles_add_to_session
-  get "profiles/filter/company_skills_remove_from_session", to: "company_skills#filter_index_all_profiles_remove_from_session", as: :filter_index_all_profiles_remove_from_session
+
+  # ---- company skills
+  get "add_company_skill_session", to: "company_skills#add_company_skill_session"
+  get "remove_company_skill_session", to: "company_skills#remove_company_skill_session"
+
+  # -- profile
+  get "filter_profile_by_category", to: "categories#filter_profile_by_category"
+
 
   resources :profiles, only: [:index, :show] do
     resources :own_company_skills, only: [:create, :destroy]

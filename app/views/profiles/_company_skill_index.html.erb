@@ -1,13 +1,13 @@
 <% company_skills_names = session[:company_skills].map { |company_skill| company_skill["name"] } %>
 
 <% if company_skills_names.include? company_skill.name %>
-	<%= link_to filter_index_all_profiles_remove_from_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "btn-round sm green js-company-skill-btn" do  %>
+	<%= link_to remove_company_skill_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "btn-round sm green js-company-skill-btn" do  %>
 		<%= company_skill.name %>
 	<% end %>
 
 <% else %>
 
-	<%= link_to filter_index_all_profiles_add_to_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "btn-round sm gray js-company-skill-btn" do  %>
+	<%= link_to add_company_skill_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "btn-round sm gray js-company-skill-btn" do  %>
 		<%= company_skill.name %>
 	<% end %>
 

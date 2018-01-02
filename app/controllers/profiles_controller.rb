@@ -2,26 +2,21 @@ class ProfilesController < ApplicationController
 	
 	def index
 		profiles = Profile.all
-		selected_company_skills = session[:company_skills]
-		selected_category = session[:category]
+		sel_company_skills = session[:company_skills]
+		sel_category = session[:category]
 
-		profiles = Profile.filter_by_category(profiles, selected_category)
-		@profiles = Profile.filter_by_company_skills(profiles, selected_company_skills)
+		profiles = Profile.filter_by_category(profiles, sel_category)
+		@profiles = Profile.filter_by_company_skills(profiles, sel_company_skills)
 		
 		@categories = Category.all
 
-		if session[:category]["id"].nil?
-			@company_skills = CompanySkill.order(:name).unique_name
+		if session[:category]["id"] != nil and session[:company_skills].length == 0
+			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
 		else
-			@company_skills = []
-			CompanySkill.all.each do |company_skill|
-				@company_skills << company_skill if company_skill.category.id == session[:category]["id"]
-			end
+			@company_skills = CompanySkill.order(:name).unique_name
 		end
 
 		@all_company_skills = CompanySkill.order(:name).unique_name
-		
-		# @own_company_skills = current_user.profile.own_company_skills
 	end
 
 	def show

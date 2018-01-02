@@ -1,1 +1,50 @@
-// Specific CSS for your home-page
+.banner {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	.pics-grid {
+		display: flex;
+		flex-direction: column;
+		.roww {
+			display: flex;
+			flex-direction: row;
+		}
+		.pic {
+			width: 110px;
+			height: 110px;
+			border: 1px solid rgb(200,200,200);
+		}
+	}
+	.slogan {
+		background-color: white;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.l1 {
+			font-size: 60px;
+		}
+		.l2 {
+			font-size: 40px;
+		}
+	}
+}
+
+.landing-page.title {
+	text-align: center;
+}
+
+.blocks {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	.block1, .block2, .block3 {
+		width: 300px;
+		height: 400px;
+		margin: 30px;
+	}
+	.block1 {
+		background-color: orange;
+	}
+}
