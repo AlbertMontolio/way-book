@@ -43,9 +43,9 @@ class CompanySkillsController < ApplicationController
 		@profiles = Profile.filter_by_category_by_company_skills(sel_category, sel_company_skills)
 
 		if session[:company_skills].length == 0
-			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
-		else
 			@company_skills = CompanySkill.order(:name).unique_name
+		else
+			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
 		end
 		
 		respond_to do |format|

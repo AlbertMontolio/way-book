@@ -3,3 +3,12 @@ console.log("hello from categories#filter_index_all_profiles");
 jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
 
 jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
+
+// ### DRY afdafda
+const jsIndexProfileCategoriesBtns2 = document.querySelectorAll(".js-index-profile-categories-btn");
+
+jsIndexProfileCategoriesBtns2.forEach((indexProfileCategoriesBtn) => {
+	indexProfileCategoriesBtn.addEventListener("click", updateActiveClassIndexProfile);
+});
+
+console.log("muahahaha");

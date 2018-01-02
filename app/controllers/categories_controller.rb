@@ -21,11 +21,14 @@ class CategoriesController < ApplicationController
 
 	def filter_profile_by_category
 		@filtered_profile_id = params[:profile_id].to_i
+		@filtered_profile = Profile.find(@filtered_profile_id)
+		@category = params[:category]
+		# @company_skills = CompanySkill.order(:name).unique_name
 
 		if params[:category].upcase == "ALL"
-			@own_company_skills = Profile.find(@filtered_profile_id).own_company_skills
+			@company_skills = CompanySkill.order(:name).unique_name
 		else
-			@own_company_skills = Profile.find(@filtered_profile_id).own_company_skills.where(category: params[:category])
+			@company_skills = CompanySkill.where(category: params[:category])
 		end
 
 		respond_to do |format|
