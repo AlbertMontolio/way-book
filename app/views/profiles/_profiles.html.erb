@@ -38,13 +38,14 @@
 
 			<div class="categories categories-profile js-categories">
 				<%= link_to filter_profile_by_category_path(category: "all", profile_id: profile), remote: true do %>
-					<div class="category-link-wrapper <%= "active" if session[:category]["id"].nil? or session[:company_skills].length != 0 %> js-index-profile-categories-btn">
+					<div class="category-link-wrapper <%= "active" if session[:category]["id"].nil? %> js-index-profile-categories-btn">
 						<div class="category-name">All</div>
 					</div>
 				<% end %>
 				<% Category.all.each do |category| %>
 					<%= link_to filter_profile_by_category_path(category: category, profile_id: profile), remote: true do %>
-						<div class="category-link-wrapper <%= "active" if category.name == session[:category]["name"] and session[:company_skills].length == 0 %> js-index-profile-categories-btn">
+						<div class="category-link-wrapper <%= "active" if category.name == session[:category]["name"] %> js-index-profile-categories-btn">
+
 							<div class="category-name"><%= category.name %></div>
 						</div>
 					<% end %>

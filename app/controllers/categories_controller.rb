@@ -38,13 +38,12 @@ class CategoriesController < ApplicationController
 	end
 
 	# index page
-	# def filter_profiles_by_category_by_company_skills
 	def add_category_session
 		sel_category = Category.find(params[:category].to_i)
 		session[:category] = sel_category
 		sel_company_skills = session[:company_skills]
 		
-		# @profiles = Profile.filter_by_category_by_company_skills(sel_category, sel_company_skills)
+		@profiles = Profile.all
 		@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
 
 		respond_to do |format|

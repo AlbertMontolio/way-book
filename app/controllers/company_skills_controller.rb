@@ -20,7 +20,7 @@ class CompanySkillsController < ApplicationController
 		@sel_company_skills = session[:company_skills].uniq
 		sel_category = session[:category]
 		
-		@profiles = Profile.filter_by_category_by_company_skills(sel_category, @sel_company_skills)
+		@profiles = Profile.filter_by_company_skills(@sel_company_skills)
 		@company_skills = CompanySkill.order(:name).unique_name
 		
 		respond_to do |format|
@@ -40,7 +40,7 @@ class CompanySkillsController < ApplicationController
 		sel_company_skills = session[:company_skills]
 		sel_category = session[:category]
 
-		@profiles = Profile.filter_by_category_by_company_skills(sel_category, sel_company_skills)
+		@profiles = Profile.all
 
 		if session[:company_skills].length == 0
 			@company_skills = CompanySkill.order(:name).unique_name

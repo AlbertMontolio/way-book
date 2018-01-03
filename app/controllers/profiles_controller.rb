@@ -5,17 +5,15 @@ class ProfilesController < ApplicationController
 		sel_company_skills = session[:company_skills]
 		sel_category = session[:category]
 
-		profiles = Profile.filter_by_category(profiles, sel_category)
-		@profiles = Profile.filter_by_company_skills(profiles, sel_company_skills)
-		
+		@profiles = Profile.filter_by_company_skills(sel_company_skills)
 		@categories = Category.all
 
-		if session[:category]["id"] != nil and session[:company_skills].length == 0
-			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category).unique_name
+		if session[:category]["id"] != nil
+			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
 		else
 			@company_skills = CompanySkill.order(:name).unique_name
 		end
-
+		# @company_skills = CompanySkill.order(:name).unique_name
 		@all_company_skills = CompanySkill.order(:name).unique_name
 	end
 
