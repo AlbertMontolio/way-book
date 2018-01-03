@@ -1,0 +1,6 @@
+companySkillId = <%= @company_skill_id %>;
+
+companySkill = document.querySelectorAll(`[data-company-skill-id='${companySkillId}']`)[0];
+
+companySkill.innerHTML = "<%= j render 'profiles/company_skill', company_skill: @company_skill %>";
+

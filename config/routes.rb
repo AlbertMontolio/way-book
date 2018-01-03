@@ -15,9 +15,8 @@ Rails.application.routes.draw do
   # -- profile
   get "filter_profile_by_category", to: "categories#filter_profile_by_category"
 
-
   resources :profiles, only: [:index, :show] do
-    resources :own_company_skills, only: [:create, :destroy]
+    resources :own_company_skills, only: [:create, :destroy, :edit, :update]
     get "filter_profile_per_categories", to: "categories#filter_show"
   end
   resources :curriculums, only: [:create]

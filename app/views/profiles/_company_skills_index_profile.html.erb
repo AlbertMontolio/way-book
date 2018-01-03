@@ -4,19 +4,26 @@
 			
 	<% is_included = own_company_skills_names.include? company_skill.name %>
 
+	<% own_company_skill = own_company_skills.where(name: company_skill.name)[0] %>
+
 	<% if is_included %>
 		<div class="btn-round sm green">
 			<div class="name">
 				<%= company_skill.name %>
 			</div>
-			<i class="fa fa-check-circle-o icon" aria-hidden="true"></i>
+			<% is_painted = own_company_skill.rating >= 1 %>
+			<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
+			<% is_painted = own_company_skill.rating >= 2 %>
+			<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
+			<% is_painted = own_company_skill.rating >= 3 %>
+			<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
+
 		</div>
 	<% else %>
 		<div class="btn-round sm gray">
 			<div class="name">
 				<%= company_skill.name %>
 			</div>
-			<i class="fa fa-check-circle-o icon" aria-hidden="true"></i>
 		</div>
 	<% end %>
 <% end %>
