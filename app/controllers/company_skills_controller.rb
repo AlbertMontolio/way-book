@@ -40,7 +40,7 @@ class CompanySkillsController < ApplicationController
 		sel_company_skills = session[:company_skills]
 		sel_category = session[:category]
 
-		@profiles = Profile.all
+		@profiles = Profile.filter_by_company_skills(sel_company_skills)
 
 		if session[:company_skills].length == 0
 			@company_skills = CompanySkill.order(:name).unique_name
