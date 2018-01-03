@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
 		session[:category] = sel_category
 		sel_company_skills = session[:company_skills]
 		
-		@profiles = Profile.filter_by_category_by_company_skills(sel_category, sel_company_skills)
+		# @profiles = Profile.filter_by_category_by_company_skills(sel_category, sel_company_skills)
 		@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
 
 		respond_to do |format|

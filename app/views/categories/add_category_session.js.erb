@@ -1,14 +1,14 @@
-console.log("hello from categories#filter_index_all_profiles");
+console.log("hello from categories#add_category_session");
 
-jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
+jsIndexGeneralCompanySkills = document.getElementById("js-index-general-company-skills");
 
-jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
+jsIndexGeneralCompanySkills.innerHTML = "<%= j render 'profiles/index-general-company-skills', company_skills: @company_skills %>";
 
-// ### DRY afdafda
-const jsIndexProfileCategoriesBtns2 = document.querySelectorAll(".js-index-profile-categories-btn");
+// // ### DRY afdafda
+// jsIndexProfileCategoriesBtns2 = document.querySelectorAll(".js-index-profile-categories-btn");
 
-jsIndexProfileCategoriesBtns2.forEach((indexProfileCategoriesBtn) => {
-	indexProfileCategoriesBtn.addEventListener("click", updateActiveClassIndexProfile);
-});
+// jsIndexProfileCategoriesBtns2.forEach((indexProfileCategoriesBtn) => {
+// 	indexProfileCategoriesBtn.addEventListener("click", updateActiveClassIndexProfile);
+// });
 
 console.log("muahahaha");

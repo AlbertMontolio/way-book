@@ -19,12 +19,8 @@
 	<% end %>
 </div>
 
-<div class="round-btns-grid">
-	<% @all_company_skills.each do |company_skill| %>
-		<div data-company-skill-index-id="<%= company_skill.id %>">
-			<%= render "profiles/company_skill_index", company_skill: company_skill %>
-		</div>
-	<% end %>
+<div class="round-btns-grid" id="js-index-general-company-skills">
+	<%= render "profiles/index-general-company-skills", company_skills: @company_skills %>
 </div>
 
 <div id="js-profiles-wrapper">
