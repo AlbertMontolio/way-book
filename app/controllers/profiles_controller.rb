@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
 		@categories = Category.all
 
 		if session[:category]["id"] != nil and session[:company_skills].length == 0
-			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
+			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category).unique_name
 		else
 			@company_skills = CompanySkill.order(:name).unique_name
 		end

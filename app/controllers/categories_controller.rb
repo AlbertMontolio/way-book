@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
 		if params[:category].upcase == "ALL"
 			@company_skills = CompanySkill.order(:name).unique_name
 		else
-			@company_skills = CompanySkill.where(category: params[:category])
+			@company_skills = CompanySkill.where(category: params[:category]).unique_name
 		end
 
 		respond_to do |format|

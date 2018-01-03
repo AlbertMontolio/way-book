@@ -1,9 +1,29 @@
+<!-- sort company_skills, first, own, later, not own -->
+<% first_company_skills = [] %>
+<% last_company_skills = [] %>
 <% company_skills.each do |company_skill| %>
 	<% own_company_skills = profile.own_company_skills %>
 	<% own_company_skills_names = own_company_skills.map { |skill| skill.name } %>	
 			
 	<% is_included = own_company_skills_names.include? company_skill.name %>
+	<% own_company_skill = own_company_skills.where(name: company_skill.name)[0] %>
 
+	<% if is_included %>
+		<% first_company_skills << own_company_skill %>
+	<% else %>
+		<% last_company_skills << company_skill %>
+	<% end %>
+<% end %>
+
+<% first_company_skills = first_company_skills.sort_by { |skill| skill.rating }.reverse %>
+
+<% company_skills = first_company_skills + last_company_skills %>
+
+<% company_skills.each do |company_skill| %>
+	<% own_company_skills = profile.own_company_skills %>
+	<% own_company_skills_names = own_company_skills.map { |skill| skill.name } %>	
+			
+	<% is_included = own_company_skills_names.include? company_skill.name %>
 	<% own_company_skill = own_company_skills.where(name: company_skill.name)[0] %>
 
 	<% if is_included %>
