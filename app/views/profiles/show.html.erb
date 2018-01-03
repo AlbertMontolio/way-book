@@ -35,6 +35,7 @@
 	<!-- My company skills -->
 	<div class="fancy title"><span>My company skills</span></div>
 
+	
 	<div class="categories">
 		<%= link_to profile_filter_profile_per_categories_path(@profile, category: "all"), remote: true do %>
 			<div class="category-link-wrapper active">
@@ -50,14 +51,14 @@
 		<% end %>
 	</div>
 
-	<div class="round-btns-grid margin-sides" id="js-company-skills">
+	<div class="round-btns-grid margin-sides-100" id="js-company-skills">
 		<%= render "company_skills_show", company_skills: @company_skills %>
 	</div>
 
 	<!-- My own skills -->
 	<div class="fancy title"><span>My own skills</span></div>
 
-	<div class="round-btns-grid margin-sides" id="js-own-skills">
+	<div class="round-btns-grid margin-sides-100" id="js-own-skills">
 		<% @own_skills.each do |own_skill| %>
 			<%= render "own_skills/own_skill", own_skill: own_skill %>
 		<% end %>
