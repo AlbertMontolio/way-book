@@ -1,6 +1,7 @@
 .contact-info {
 	margin: 10px 60px;
 	background-color: white;
+	box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
 }
 
 .profile-wrapper {
@@ -12,6 +13,7 @@
 	margin: 6px 0px 30px 0px;
 	.skills-wrapper, .projects-wrapper {
 		height: 340px;
+		box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
 	} 
 	.skills-wrapper {
 		background-color: white;
@@ -27,5 +29,22 @@
 		width: 300px;
 		background-color: white;
 		overflow-y: scroll;
+		box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
+	}
+	.projects-wrapper > .projects-empty {
+		height: 340px;
+		background-color: white;
+		color: rgb(150,150,150);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.message {
+			padding: 0px 20px;
+			text-align: center;
+		}
+		i {
+			font-size: 30px;
+		}
 	}
 }

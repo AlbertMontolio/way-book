@@ -23,6 +23,13 @@
 		<%= render "profiles/index-general-company-skills", company_skills: @company_skills %>
 	</div>
 </div>
+<div class="filter_results">
+	<i class="fa fa-filter" aria-hidden="true"></i>
+	<div class="message">
+		number of matched profiles: 200
+	</div>
+	
+</div>
 
 <div id="js-profiles-wrapper">
 	<%= render "profiles/profiles", profiles: @profiles  %>

@@ -18,7 +18,16 @@
 	<div class="profile-wrapper">
 		
 		<div class="curriculum-card">
-			<% unless profile.curriculums.length == 0 %>
+			<% if profile.curriculums.length == 0 %>
+				<div class="empty-cv">
+					<div class="message">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+						<div class="text">
+							no curriculum vitae available
+						</div>
+					</div>
+				</div>
+			<% else %>
 				<div class="title-date-wrapper">
 					<div class="title">
 						<%= profile.curriculums.last.title %>
@@ -58,6 +67,15 @@
 		</div>
 
 		<div class="projects-wrapper">
+			<% if profile.projects.length == 0 %>
+				<div class="projects-empty">
+					<i class="fa fa-clock-o" aria-hidden="true"></i>
+					<div class="text">
+						no projects for this user
+					</div>
+				</div>
+			<% end %>
+
 			<% profile.projects.each do |project| %>
 				<div class="project-card">
 					<div class="header">
