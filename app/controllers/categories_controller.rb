@@ -57,8 +57,8 @@ class CategoriesController < ApplicationController
 		sel_category = session[:category]
 		sel_company_skills = session[:company_skills]
 
-		# @profiles = Profile.filter_by_category_by_company_skills(sel_category, sel_company_skills)
 		@profiles = Profile.filter_by_company_skills(sel_company_skills)
+
 		@company_skills = CompanySkill.order(:name).unique_name
 
 		respond_to do |format|

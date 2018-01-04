@@ -7,6 +7,8 @@ class Profile < ApplicationRecord
   has_many :projects
   
   def self.filter_by_company_skills(sel_company_skills)
+    ### refactor with activerecord or sql. it takes too long ifi all profiles!
+    ### yo
   	filtered_profiles = []
   	Profile.all.each do |profile|
   		has_all_company_skills = true

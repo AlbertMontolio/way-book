@@ -23,3 +23,12 @@ jsFilteredCompanySkills.innerHTML = "<%= j render 'company_skills/filtered_compa
 // update num profiles filtered
 numProfiles = document.getElementById("js-num-profiles");
 numProfiles.innerHTML = "<%= @profiles.count %>";
+
+// hide spinner
+companySkillBtns2 = document.querySelectorAll(".js-company-skill-btn");
+
+companySkillBtns2.forEach((btn) => {
+	btn.addEventListener("click", showSpinner);
+});
+
+hideSpinner();

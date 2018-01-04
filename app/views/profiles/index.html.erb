@@ -3,6 +3,14 @@
 <%# end %>
 <%#= session[:category]["name"] %>
 
+<div class="spinner-wrapper hide" id="js-spinner-wrapper">
+	<div class="spinner spinner-1">
+		<div class="text">
+			loading...
+		</div>
+	</div>
+</div>
+
 <div class="general-filter-all-profiles">
 	<div class="categories js-categories">
 		<%= link_to remove_category_session_path, remote: true do %>

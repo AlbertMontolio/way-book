@@ -2,10 +2,6 @@ console.log("hello filter_index_all_profiles_remove_from_session");
 
 console.log("<%= session[:company_skills] %>");
 
-jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
-
-jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
-
 companySkillId = <%= @sel_company_skill.id %>;
 
 companySkill = document.querySelectorAll(`[data-company-skill-index-id='${companySkillId}']`)[0];
@@ -20,3 +16,21 @@ jsFilteredCompanySkills.innerHTML = "<%= j render 'company_skills/filtered_compa
 // update num profiles filtered
 numProfiles = document.getElementById("js-num-profiles");
 numProfiles.innerHTML = "<%= @profiles.count %>";
+console.log("done with number profiles and labels");
+
+// update profiles
+console.log("init update profiles");
+jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
+jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
+console.log("finish update profile");
+
+// hide spinner
+companySkillBtns3 = document.querySelectorAll(".js-company-skill-btn");
+
+companySkillBtns3.forEach((btn) => {
+	btn.addEventListener("click", showSpinner);
+});
+
+hideSpinner();
+
+
