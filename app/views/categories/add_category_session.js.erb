@@ -7,3 +7,21 @@ jsIndexGeneralCompanySkills.innerHTML = "<%= j render 'profiles/index-general-co
 // update profiles
 jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
 jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
+
+// hide spinner
+companySkillBtns2 = document.querySelectorAll(".js-company-skill-btn");
+
+showSpinner3 = () => {
+	console.log("i am cliking .js-company-skill-btn");
+	jsSpinnerWrapper = document.getElementById("js-spinner-wrapper");
+    jsSpinnerWrapper.classList.remove("hide");
+}
+
+
+
+companySkillBtns2 = document.querySelectorAll(".js-company-skill-btn");
+companySkillBtns2.forEach((btn) => {
+	btn.addEventListener("click", showSpinner3);
+});
+
+hideSpinner();

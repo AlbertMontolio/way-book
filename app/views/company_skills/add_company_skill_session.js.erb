@@ -25,10 +25,14 @@ numProfiles = document.getElementById("js-num-profiles");
 numProfiles.innerHTML = "<%= @profiles.count %>";
 
 // hide spinner
+showSpinner2 = () => {
+	console.log("i am cliking .js-company-skill-btn");
+	jsSpinnerWrapper = document.getElementById("js-spinner-wrapper");
+    jsSpinnerWrapper.classList.remove("hide");
+}
+
 companySkillBtns2 = document.querySelectorAll(".js-company-skill-btn");
-
 companySkillBtns2.forEach((btn) => {
-	btn.addEventListener("click", showSpinner);
+	btn.addEventListener("click", showSpinner2);
 });
-
 hideSpinner();

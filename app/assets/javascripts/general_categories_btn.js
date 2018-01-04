@@ -14,6 +14,14 @@ const updateActiveClassIndexProfiles = () => {
     clickedBtn.classList.toggle("active");
 }
 
+showSpinner4 = () => {
+	console.log("i am cliking .js-company-skill-btn");
+	jsSpinnerWrapper = document.getElementById("js-spinner-wrapper");
+    jsSpinnerWrapper.classList.remove("hide");
+}
+
 jsIndexGeneralCategoryBtn.forEach((indexGeneralCategoryBtn) => {
 	indexGeneralCategoryBtn.addEventListener("click", updateActiveClassIndexProfiles);
+	indexGeneralCategoryBtn.addEventListener("click", showSpinner4);
 });
+
