@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: row;
 	width: 100%;
+	background-color: rgb(245,245,245);
 	.pics-grid {
 		display: flex;
 		flex-direction: column;
@@ -16,7 +17,7 @@
 		}
 	}
 	.slogan {
-		background-color: white;
+		// background-color: white;
 		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
@@ -24,9 +25,15 @@
 		align-items: center;
 		.l1 {
 			font-size: 60px;
+			font-family: 'Satisfy', cursive;
+
+
 		}
 		.l2 {
 			font-size: 40px;
+			font-family: 'Satisfy', cursive;
+
+
 		}
 	}
 }
@@ -35,16 +42,61 @@
 	text-align: center;
 }
 
-.blocks {
+.landing-skills-block {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	.block1, .block2, .block3 {
-		width: 300px;
-		height: 400px;
-		margin: 30px;
+	padding-top: 140px;
+	background-color: white;
+	.skills {
+		display: flex;
+		flex-direction: column;
+		.srow {
+			display: flex;
+		}
 	}
-	.block1 {
-		background-color: orange;
+	.skill {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background-color: rgb(40,40,40);
+		color: white;
+		font-size: 14px;
+		margin: 8px;
+		padding: 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	.explanation {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 500px;
+		.title {
+			font-weight: bold;
+			font-size: 34px;
+			color: black;
+		}
+		.text {
+			margin-top: 20px;
+			font-size: 18px;
+			color: black;
+		}
+	}
+	.padding-explanation-left {
+		padding-left: 100px;
 	}
 }
+
+.montserrat {
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+
+
+

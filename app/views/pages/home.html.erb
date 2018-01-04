@@ -3,7 +3,7 @@
 	<% pic_urls << "pic#{i + 1}.png" %>
 <% end %>
 
-<% skills = ["gAMS", "NAELs", "SE-Team Leiter", "Modul Leiter", "R", "Visual Basic", "JavaScript", "Java", "HTML" "CSS", "ActiveRecord", "Ruby", "Ruby on Rails", "Heroku", "Rspec", "Negotiation", "Lieferanten", "Idias", "F.E.M.", "Carbon Fiber", "Industrialisierung", "Project Management", "Sales", "MAN", "Entwicklungsingenieur", "Kunstoff", "Adhesive", "Presswerkstoffe", "Internet of things", "selbstfahrende Autos" ] %>
+<% skills = ["gAMS", "NAELs", "SE-Team Leiter", "Modul Leiter", "R", "Visual Basic", "JavaScript", "Java", "HTML", "CSS", "ActiveRecord", "Ruby", "Ruby on Rails", "Heroku", "Rspec", "Negotiation", "Lieferanten", "Idias", "F.E.M.", "Carbon Fiber", "Industrialisierung", "Project Management", "Sales", "MAN", "Entwicklungsingenieur", "Kunstoff", "Adhesive", "Presswerkstoffe", "Internet of things", "selbstfahrende Autos" ] %>
 	
 <div class="landing-page">
 	
@@ -32,35 +32,56 @@
 		</div>
 	</div>
 
-	<div class="title">How it works</div>
-	<div class="blocks">
-		<div class="block1">
+	<div class="landing-skills-block">
+		<div class="skills">
+			<% j = 0 %>
+			<% 4.times do |i| %>
+				<div class="srow">
+					<% 4.times do |i| %>
+						<div class="skill">
+							<%= skills[j] %>
+						</div>
+						<% j = j + 1 %>
+					<% end %>
+				</div>
+			<% end %>
+
+		</div>
+		<div class="explanation padding-explanation-left">
 			<div class="title">
-				if you are a manager...
+				Find what you are looking for
 			</div>
-			<div class="description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum porro laboriosam vero magnam tempora repellendus commodi accusamus quis neque velit enim, praesentium perferendis suscipit iusto voluptatem, voluptatum recusandae nulla, assumenda.
+			<div class="text montserrat">	
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum numquam, commodi officia sapiente quibusdam dolor maxime sunt. Iste nemo ex aliquam eligendi impedit est, accusantium, voluptatem sed quam tempore sapiente?
 			</div>
 		</div>
-		<div class="block1">
-			<div class="title">
-				if you are an employee...
-			</div>
-			<div class="description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda tenetur unde, perferendis ad nulla deleniti praesentium dignissimos nemo accusantium, totam esse fuga hic expedita atque in eius ut inventore culpa.
-			</div>
-		</div>
-		
 	</div>
 
-	<div class="examples">
-		<div class="pic1">
-			<%= image_tag("filter") %>
+	<div class="landing-skills-block">
+		<div class="explanation">
+			<div class="title">
+				Find what you are looking for
+			</div>
+			<div class="text montserrat">	
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum numquam, commodi officia sapiente quibusdam dolor maxime sunt. Iste nemo ex aliquam eligendi impedit est, accusantium, voluptatem sed quam tempore sapiente?
+			</div>
 		</div>
-		<div class="pic2">	
-			<%= image_tag("profile") %>
+
+		<div class="skills padding-explanation-left">
+			<% j = 0 %>
+			<% 4.times do |i| %>
+				<div class="srow">
+					<% 4.times do |i| %>
+						<div class="skill">
+							<%= image_tag(pic_urls[j], size: "80x80") %>
+						</div>
+						<% j = j + 1 %>
+					<% end %>
+				</div>
+			<% end %>
+
 		</div>
-		examples
+		
 	</div>
 
 </div>
