@@ -21,7 +21,11 @@ class CompanySkillsController < ApplicationController
 		sel_category = session[:category]
 		
 		@profiles = Profile.filter_by_company_skills(@sel_company_skills)
-		@company_skills = CompanySkill.order(:name).unique_name
+		if sel_category["id"].nil?
+			@company_skills = CompanySkill.order(:name).unique_name
+		else
+			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
+		end
 		
 		respond_to do |format|
 	        format.html
