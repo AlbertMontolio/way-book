@@ -37,10 +37,10 @@ class CompanySkillsController < ApplicationController
 				session[:company_skills].delete_at(index)
 			end
 		end
-		sel_company_skills = session[:company_skills]
+		@sel_company_skills = session[:company_skills]
 		sel_category = session[:category]
 
-		@profiles = Profile.filter_by_company_skills(sel_company_skills)
+		@profiles = Profile.filter_by_company_skills(@sel_company_skills)
 
 		if session[:company_skills].length == 0
 			@company_skills = CompanySkill.order(:name).unique_name
