@@ -32,7 +32,10 @@
 <div class="filter_results index-filter-results-panels">
 	<i class="fa fa-filter" aria-hidden="true"></i>
 	<div class="message">
-		number of matched profiles: 200
+		number of matched profiles: 
+		<div id="js-num-profiles" class="num-profiles">
+			<%= @profiles.count %>
+		</div>
 	</div>
 </div>
 

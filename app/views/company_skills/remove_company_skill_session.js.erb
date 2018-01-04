@@ -16,3 +16,7 @@ companySkill.innerHTML = "<%= j render 'profiles/company_skill_index', company_s
 jsFilteredCompanySkills = document.getElementById("js-filtered_company_skills");
 
 jsFilteredCompanySkills.innerHTML = "<%= j render 'company_skills/filtered_company_skills', company_skills: @sel_company_skills %>";
+
+// update num profiles filtered
+numProfiles = document.getElementById("js-num-profiles");
+numProfiles.innerHTML = "<%= @profiles.count %>";
