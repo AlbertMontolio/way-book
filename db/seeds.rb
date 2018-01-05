@@ -822,6 +822,32 @@ employees = [
 		own_company_skills: [],
 		projects: [],
 	},
+	{
+		email: "albert.aguado@waygroup.de",
+		password: "albert.aguado@waygroup.de",
+		division: "TBD",
+		team: "TBD",
+		first_name: "Albert",
+		last_name: "Aguado",
+		phone_number: "TBD",
+		position: "TBD",
+		title: "TBD",
+		own_company_skills: [],
+		projects: [],
+	},
+	{
+		email: "carlos.montolio@waygroup.de",
+		password: "carlos.montolio@waygroup.de",
+		division: "TBD",
+		team: "TBD",
+		first_name: "Carlos",
+		last_name: "Montolio",
+		phone_number: "TBD",
+		position: "TBD",
+		title: "TBD",
+		own_company_skills: [],
+		projects: [],
+	},
 ]
 
 employees.each do |employee|

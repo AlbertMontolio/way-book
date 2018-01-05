@@ -4,6 +4,12 @@
 		<div class="logo">
 			<%= image_tag("way-book-edited", size: "100x25") %>
 		</div>
+
+		<form action="/search_employee">
+		  <input type="text" name="name" placeholder="Search employee">
+		  <input type="submit" value="Submit">
+		</form>
+
 		<div class="search">
 		  <input type="text" name="firstname" placeholder="Search">
 		  <div class="icon">

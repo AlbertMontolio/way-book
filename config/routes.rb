@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :own_company_skills, only: [:create, :destroy, :edit, :update]
     get "filter_profile_per_categories", to: "categories#filter_show"
   end
+
   resources :curriculums, only: [:create]
 
   resources :own_skills, only: [:create, :destroy]
@@ -28,5 +29,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:create]
 
   resources :projects, only: [:new, :create]
+
+  get "search_employee", to: "searchs#search_employee"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
