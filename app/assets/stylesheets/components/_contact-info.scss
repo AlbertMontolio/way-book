@@ -14,12 +14,15 @@
 	}
 	.block {
 		padding-left: 30px;
+		.info {
+			i {
+				margin-right: 10px;
+			}
+		}
 	}
 	.name {
 		font-size: 14px;
 		font-weight: bold;
 	}
-	.position {
 
-	}
 }

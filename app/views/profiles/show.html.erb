@@ -1,18 +1,48 @@
 <div class="profile-show-page">
 
-	<div class="contact-info">
-		<div class="avatar"></div>
-		<div class="block">
-			<div class="info name"><%= "#{@profile.first_name} #{@profile.last_name}" %></div>
-			<div class="info position"><%= @profile.position %></div>
+	<div class="banner-profile">
+		<div class="landscape" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+			<%= image_tag "http://kitt.lewagon.com/placeholder/users/albertmontolio", class: "avatar-big pos-avatar" %>
+			<div class="borders-big pos-borders-big"></div>
 		</div>
-		<div class="block">
-			<div class="info"><%= @profile.user.email %></div>
-			<div class="info"><%= @profile.phone_number %></div>
-		</div>
-		<div class="block">
-			<div class="info"><%= @profile.division %></div>
-			<div class="info"><%= @profile.team %></div>
+		
+		<div class="info-wrapper">
+			<div class="header">
+				<div class="name"><%= "#{@profile.first_name} #{@profile.last_name}" %></div>
+				<div class="stelle"><%= @profile.position %></div>
+			</div>
+			<div class="details">
+				<div class="block1 block">
+					<div class="detail">
+						<i class="fa fa-envelope-o" aria-hidden="true"></i>
+						<%= @profile.user.email %>
+					</div>
+					<div class="detail">
+						<i class="fa fa-phone" aria-hidden="true"></i>
+						<%= @profile.phone_number %>
+					</div>
+				</div>
+				<div class="block2 block">
+					<div class="detail">
+						<i class="fa fa-users" aria-hidden="true"></i>
+						I belong to the <%= @profile.division %> division
+					</div>
+					<div class="detail">
+						<i class="fa fa-male" aria-hidden="true"></i>
+						My boss is <%= @profile.team %>
+					</div>
+				</div>
+				<div class="block3 block">
+					<div class="detail">
+						<i class="fa fa-flag" aria-hidden="true"></i>
+						I am from Spain
+					</div>
+					<div class="detail">
+						<i class="fa fa-map-marker" aria-hidden="true"></i>
+						I work in Germany
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 

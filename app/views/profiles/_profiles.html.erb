@@ -3,16 +3,32 @@
 	<div class="contact-info">
 		<div class="avatar"></div>
 		<div class="block">
-			<div class="info name"><%= "#{profile.first_name} #{profile.last_name}" %></div>
-			<div class="info position"><%= profile.position %></div>
+			<div class="info name">
+				<%= "#{profile.first_name} #{profile.last_name}" %>
+			</div>
+			<div class="info position">
+				<%= profile.position %>
+			</div>
 		</div>
 		<div class="block">
-			<div class="info"><%= profile.user.email %></div>
-			<div class="info"><%= profile.phone_number %></div>
+			<div class="info">
+				<i class="fa fa-envelope-o" aria-hidden="true"></i>
+				<%= profile.user.email %>
+				</div>
+			<div class="info">
+				<i class="fa fa-phone" aria-hidden="true"></i>
+				<%= profile.phone_number %>
+			</div>
 		</div>
 		<div class="block">
-			<div class="info"><%= profile.division %></div>
-			<div class="info"><%= profile.team %></div>
+			<div class="info">
+				<i class="fa fa-users" aria-hidden="true"></i>
+				<%= profile.division %>
+			</div>
+			<div class="info">
+				<i class="fa fa-male" aria-hidden="true"></i>
+				<%= profile.team %>
+			</div>
 		</div>
 	</div>
 	<div class="profile-wrapper">
