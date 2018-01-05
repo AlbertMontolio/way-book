@@ -11,15 +11,17 @@
 	width: 100%;
 	padding: 0px 60px;
 	margin: 6px 0px 30px 0px;
-	.skills-wrapper, .projects-wrapper {
+	.skills-wrapper.fixed-height, .projects-wrapper.fixed-height {
 		height: 340px;
-		box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
 	} 
 	.skills-wrapper {
 		background-color: white;
 		width: 600px;
 		margin: 0px 10px;
 		padding: 30px 20px;
+		box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
+	}
+	.overflow-y {
 		overflow-y: scroll;
 	}
 	.skills-profils {
@@ -28,7 +30,7 @@
 	.projects-wrapper {
 		width: 300px;
 		background-color: white;
-		overflow-y: scroll;
+		// overflow-y: scroll;
 		box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
 	}
 	.projects-wrapper > .projects-empty {

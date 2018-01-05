@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
 		@all_company_skills = CompanySkill.order(:name).unique_name
 	end
 
-	def show
+	def edit
 		@profile = Profile.find(params[:id].to_i)
 		session[:company_skills] = []
 		session[:category] = Category.new
@@ -47,6 +47,31 @@ class ProfilesController < ApplicationController
 	        format.html
 	        format.js
 	    end
-		
+	end
+
+	def show
+			@profile = Profile.find(params[:id].to_i)
+			
+			# curriculums
+			@curriculums = current_user.profile.curriculums
+
+			# own skills
+			@own_skills = current_user.profile.own_skills
+
+			# own company skills
+
+			# categories
+			@categories = Category.all
+
+			# company skills
+			@company_skills = CompanySkill.order(:name).unique_name
+
+			# projects
+			@projects = current_user.profile.projects
+
+			respond_to do |format|
+		        format.html
+		        format.js
+		    end
 	end
 end

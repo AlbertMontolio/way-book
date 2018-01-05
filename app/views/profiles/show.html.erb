@@ -1,99 +1,71 @@
 <div class="profile-show-page">
-	
-	<h1>my employee card</h1>
 
-	<!-- Curriculum cards -->
-	<div class="fancy title"><span>My curriculums</span></div>
-
-	<div class="curriculum-cards curriculum-card-margins-show">
-		<% @curriculums.each do |curriculum| %>
-			<div class="curriculum-card">
-				<div class="title-date-wrapper">
-					<div class="title">
-						<%= curriculum.title %>
-					</div>
-					<div class="date">
-						<%= curriculum.created_at.strftime("%b %d, %Y") %>
-					</div>
-				</div>
-				<% if curriculum.document? %>
-				  <object class="document" type="text/html" data='<%= curriculum.document.url %>'></object>
-				<% end %>
-			</div>
-		<% end %>
-
-		<div class="curriculum-card-new">
-			<%= simple_form_for @curriculum do |f| %>
-				<%= f.input :title %>
-				<%= f.input :document %>
-				<%= f.input :document_cache, as: :hidden %>
-				<%= f.button :submit %>
-			<% end %>
+	<div class="contact-info">
+		<div class="avatar"></div>
+		<div class="block">
+			<div class="info name"><%= "#{@profile.first_name} #{@profile.last_name}" %></div>
+			<div class="info position"><%= @profile.position %></div>
+		</div>
+		<div class="block">
+			<div class="info"><%= @profile.user.email %></div>
+			<div class="info"><%= @profile.phone_number %></div>
+		</div>
+		<div class="block">
+			<div class="info"><%= @profile.division %></div>
+			<div class="info"><%= @profile.team %></div>
 		</div>
 	</div>
 
-	<!-- My company skills -->
-	<div class="fancy title"><span>My company skills</span></div>
-
-	
-	<div class="categories">
-		<%= link_to profile_filter_profile_per_categories_path(@profile, category: "all"), remote: true do %>
-			<div class="category-link-wrapper active">
-				<div class="category-name">All</div>
+	<div class="profile-wrapper">
+		<div class="curriculum-card">
+			<div class="">
+				<% @curriculums.each do |curriculum| %>
+					<div class="curriculum-card">
+						<div class="title-date-wrapper">
+							<div class="title">
+								<%= curriculum.title %>
+							</div>
+							<div class="date">
+								<%= curriculum.created_at.strftime("%b %d, %Y") %>
+							</div>
+						</div>
+						<% if curriculum.document? %>
+						  <object class="document" type="text/html" data='<%= curriculum.document.url %>'></object>
+						<% end %>
+					</div>
+				<% end %>
 			</div>
-		<% end %>
-		<% @categories.each do |category| %>
-			<%= link_to profile_filter_profile_per_categories_path(@profile, category: category), remote: true do %>
-				<div class="category-link-wrapper">
-					<div class="category-name"><%= category.name %></div>
-				</div>
-			<% end %>
-		<% end %>
-	</div>
+		</div>
 
-	<div class="round-btns-grid margin-sides-100" id="js-company-skills">
-		<%= render "company_skills_show", company_skills: @company_skills %>
-	</div>
-
-	<!-- My own skills -->
-	<div class="fancy title"><span>My own skills</span></div>
-
-	<div class="round-btns-grid margin-sides-100" id="js-own-skills">
-		<% @own_skills.each do |own_skill| %>
-			<%= render "own_skills/own_skill", own_skill: own_skill %>
-		<% end %>
-	</div>
-
-	<div class="round-inline-form">
-		<%= simple_form_for @own_skill, remote: true do |f| %>
-			<div class="inputs-wrapper">
-				<%= f.input :name, label: false, class: "name" %>
-				<%= button_tag(type: 'submit', class: "submit-btn") do %>
-				    <i class="fa fa-plus icon-plus" aria-hidden="true"></i>
-				  <% end %>				
+		<div class="skills-wrapper">
+			<div class="">
+				<%= link_to profile_filter_profile_per_categories_path(@profile, category: "all"), remote: true do %>
+					<div class="category-link-wrapper big active">
+						<div class="category-name">All</div>
+					</div>
+				<% end %>
+				<% @categories.each do |category| %>
+					<%= link_to profile_filter_profile_per_categories_path(@profile, category: category), remote: true do %>
+						<div class="category-link-wrapper big">
+							<div class="category-name"><%= category.name %></div>
+						</div>
+					<% end %>
+				<% end %>
 			</div>
-		<% end %>
-	</div>
 
-	<!-- My projects -->
-	<div class="fancy title"><span>My projects</span></div>
+			<div class="round-btns-grid" id="js-company-skills">
+				<%= render "company_skills_show", company_skills: @company_skills %>
+			</div>
+		</div>
 
-	<div class="projects-wrapper projects-wrapper-show">
-		<%= simple_form_for @project, remote: true do |f| %>
-			<%= f.input :title, label: false, placeholder: "Project title" %>
-			<%= f.input :client, label: false, placeholder: "Client" %>
-			<%= f.input :start, as: :date, label: false %>
-			<div class="to">to</div>
-			<%= f.input :finish, as: :date, label: false %>
-			<%= f.button :submit, class: "btn-submit" %>
-		<% end %>
 
-		<div id="projects-show-wrapper">
+
+		<!-- My projects -->
+		<div class="projects-wrapper">
 			<% current_user.profile.projects.each do |project| %>
 				<%= render "profiles/project", project: project %>
 			<% end %>
 		</div>
-
 	</div>
 
 </div>

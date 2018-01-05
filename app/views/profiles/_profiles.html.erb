@@ -43,17 +43,17 @@
 		</div>
 
 		<!-- profile own company skills -->
-		<div class="skills-wrapper">
+		<div class="skills-wrapper overflow-y fixed-height">
 
 			<div class="categories categories-profile js-categories">
 				<%= link_to filter_profile_by_category_path(category: "all", profile_id: profile), remote: true do %>
-					<div class="category-link-wrapper <%= "active" if session[:category]["id"].nil? %> js-index-profile-categories-btn">
+					<div class="category-link-wrapper small <%= "active" if session[:category]["id"].nil? %> js-index-profile-categories-btn">
 						<div class="category-name">All</div>
 					</div>
 				<% end %>
 				<% Category.all.each do |category| %>
 					<%= link_to filter_profile_by_category_path(category: category, profile_id: profile), remote: true do %>
-						<div class="category-link-wrapper <%= "active" if category.name == session[:category]["name"] %> js-index-profile-categories-btn">
+						<div class="category-link-wrapper small <%= "active" if category.name == session[:category]["name"] %> js-index-profile-categories-btn">
 
 							<div class="category-name"><%= category.name %></div>
 						</div>
@@ -66,7 +66,7 @@
 			</div>
 		</div>
 
-		<div class="projects-wrapper">
+		<div class="projects-wrapper overflow-y fixed-height">
 			<% if profile.projects.length == 0 %>
 				<div class="projects-empty">
 					<i class="fa fa-clock-o" aria-hidden="true"></i>
