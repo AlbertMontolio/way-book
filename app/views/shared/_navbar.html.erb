@@ -5,19 +5,26 @@
 			<%= image_tag("way-book-edited", size: "100x25") %>
 		</div>
 
-		<form action="/search_employee">
-		  <input type="text" name="name" placeholder="Search employee">
-		  <input type="submit" value="Submit">
+		<form action="/search_employee" class="search-form">
+		  <input type="text" name="name" placeholder="Search employee" class="input-text">
+		  <div class="submit-btn-wrapper">
+		  	<button type="submit" value="Submit" class="search-btn">
+				<i class="fa fa-search" aria-hidden="true"></i>
+		  	</button>
+		  </div>
 		</form>
 
-		<div class="search">
-		  <input type="text" name="firstname" placeholder="Search">
-		  <div class="icon">
-		  	<i class="fa fa-search" aria-hidden="true"></i>
+		<form action="/search_employee" class="search-form">
+		  <input type="text" name="name" placeholder="Search employee" class="input-text">
+		  <div class="submit-btn-wrapper">
+		  	<button type="submit" value="Submit" class="search-btn">
+				<i class="fa fa-search" aria-hidden="true"></i>
+		  	</button>
 		  </div>
-		</div>
+		</form>
 	</div>
 
+	
 
 
 	<div class="right-navbar">
