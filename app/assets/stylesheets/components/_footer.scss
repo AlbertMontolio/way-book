@@ -1,0 +1,110 @@
+.footer-wrapper-web {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 60px;
+  border-top: 1px solid rgb(230,230,230);
+  position: relative;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+  height: 100px;
+  // background-color: gray;
+}
+
+.links-wrapper-web-pos-left {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  li {
+    margin-left: 30px;
+  }
+
+}
+
+.links-wrapper-web-pos-right {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  li {
+    padding-right: 0px !important;
+    margin-right: 30px;
+  }
+}
+
+
+.links-wrapper-web {
+  height: 100px;
+  // background-color: rgb(200,200,200);
+  li {
+    display: inline;
+    list-style-type: none;
+    // padding-right: 20px;
+
+    float: left;
+    line-height: 100px;
+  }
+}
+
+.logo-wrapper-web {
+  height: 100px;
+  // background-color: rgb(220,220,220);
+  position: absolute;
+  left: 50%;
+  margin-left: -75px;
+  width: 150px
+}
+
+// ----------------------------------------------
+// misscelanius
+// ----------------------------------------------
+.footer-web-font {
+  font-size: 14px;
+  color: rgb(200,200,200);
+}
+
+.footer-web-font:hover {
+  cursor: pointer;
+  color: black;
+}
+
+
+
+.footer-web-icon {
+  font-size: 20px;
+  color: rgb(200,200,200);
+}
+
+.footer-web-icon:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.logo-wrapper-web {
+  position: relative;
+}
+
+.logo-footer-web {
+  position: absolute;
+  left: 50%;
+  margin-left: -65px;
+  top: 50%;
+  margin-top: -21px;
+  width: 130px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
