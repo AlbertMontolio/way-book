@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:new, :create]
 
   get "search_employee", to: "searchs#search_employee"
+  get "search_skills", to: "searchs#search_skills"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -41,4 +41,36 @@ class SearchsController < ApplicationController
 
 	end
 
+	def search_skills
+
+		session[:category] = Category.new
+		sel_company_skill_name = params[:skills]
+		sel_company_skill = CompanySkill.where(name: sel_company_skill_name)[0]
+
+		session[:company_skills] = []
+		session[:company_skills] << sel_company_skill
+
+
+		# @profiles = []
+		# Profile.all.each do |profile|
+		# 	profile.own_company_skills.each do |own_company_skill|
+		# 		if own_company_skill.name == sel_company_skill
+		# 			@profiles << profile
+		# 		end
+		# 	end
+		# end
+
+		redirect_to profiles_path
+	end
+
 end
+
+
+
+
+
+
+
+
+
+
