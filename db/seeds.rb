@@ -13,7 +13,7 @@ skills = [
 		category_skills: ["Windows Clients 7/10", "Windows Server 2008", "Windows Server 2012", "Android", "iOS", "Microsoft Exchange", "Microsoft SQL", "Virtualisierung VMware", "Virtualisierung HyperV", "IPv4", "IPv6", "Firewalls", "DHCP", "DNS", "VLAN", "Internet-Domains", "DNS Verwaltung", "Email-Workflow", "Antispam"]
 	},
 	{
-		category: "Progammierer",
+		category: "Programmierer",
 		category_skills: ["Ruby", "Rails", "JavaScript", "HTML", "CSS", "Daten Banken", "Java", "Python", "R", "Visual Basic", "Android", "Swift", "iOS", "Linux", "Active Record", "MySql", "Node.js"]
 	},
 	{
@@ -62,7 +62,7 @@ employees = [
 		document: "image/upload/v1514324187/edzm3iz0vfzn3fte8vw6.pdf",
 		own_company_skills: [
 			{
-				category: "Progammierer",
+				category: "Programmierer",
 				names: ["Ruby", "Rails", "JavaScript", "HTML", "CSS", "Active Record"]
 			},
 			{

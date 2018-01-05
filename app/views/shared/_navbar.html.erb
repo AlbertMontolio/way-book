@@ -1,9 +1,11 @@
 <div class="navbar">
 
 	<div class="left-navbar">
-		<div class="logo">
-			<%= image_tag("way-book-edited", size: "100x25") %>
-		</div>
+		<%= link_to profiles_path do  %>
+			<div class="logo">
+				<%= image_tag("way-book-edited", size: "100x25") %>
+			</div>
+		<% end %>
 
 		<form action="/search_employee" class="search-form">
 		  <input type="text" name="name" placeholder="Search employee" class="input-text">
@@ -32,8 +34,10 @@
 			<i class="fa fa-th" aria-hidden="true"></i>
 		</div>
 		
+		<!-- 
 		<img class="avatar" id="" src="http://kitt.lewagon.com/placeholder/users/albertmontolio" alt="Albertmontolio">
-		
+		-->
+		<img class="avatar" id="" src="" alt="">
 	</div>
 	  
 </div>

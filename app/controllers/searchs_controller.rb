@@ -4,7 +4,6 @@ class SearchsController < ApplicationController
 	### chained methods?
 	### are there better alternatives?
 	def search_employee
-
 		if params[:name].nil?
 			@profiles = [Profile.new]
 		else
@@ -43,9 +42,12 @@ class SearchsController < ApplicationController
 
 	def search_skills
 
-		session[:category] = Category.new
+		
 		sel_company_skill_name = params[:skills]
 		sel_company_skill = CompanySkill.where(name: sel_company_skill_name)[0]
+
+		sel_category = Category.where(name: sel_company_skill.category.name)[0]
+		session[:category] = sel_category
 
 		session[:company_skills] = []
 		session[:company_skills] << sel_company_skill
