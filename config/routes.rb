@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
   get "search_employee", to: "searchs#search_employee"
   get "search_skills", to: "searchs#search_skills"
+  get "search_by_division", to: "searchs#search_by_division"
+  get "search_by_team", to: "searchs#search_by_team"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

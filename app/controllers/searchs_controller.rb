@@ -41,8 +41,6 @@ class SearchsController < ApplicationController
 	end
 
 	def search_skills
-
-		
 		sel_company_skill_name = params[:skills]
 		sel_company_skill = CompanySkill.where(name: sel_company_skill_name)[0]
 
@@ -52,17 +50,15 @@ class SearchsController < ApplicationController
 		session[:company_skills] = []
 		session[:company_skills] << sel_company_skill
 
-
-		# @profiles = []
-		# Profile.all.each do |profile|
-		# 	profile.own_company_skills.each do |own_company_skill|
-		# 		if own_company_skill.name == sel_company_skill
-		# 			@profiles << profile
-		# 		end
-		# 	end
-		# end
-
 		redirect_to profiles_path
+	end
+
+	def search_by_division
+		@profiles = Profile.where(division: params[:division])
+	end
+
+	def search_by_team
+		@profiles = Profile.where(team: params[:team])
 	end
 
 end
