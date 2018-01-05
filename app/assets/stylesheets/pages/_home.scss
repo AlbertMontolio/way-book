@@ -1,4 +1,5 @@
 .banner {
+	margin-top: 60px;
 	display: flex;
 	flex-direction: row;
 	width: 100%;
@@ -25,15 +26,12 @@
 		align-items: center;
 		.l1 {
 			font-size: 60px;
-			font-family: 'Satisfy', cursive;
-
-
+			font-family: 'montserrat';
+			font-weight: 700;
 		}
 		.l2 {
-			font-size: 40px;
-			font-family: 'Satisfy', cursive;
-
-
+			font-size: 34px;
+			font-family: 'Gloria Hallelujah', cursive;
 		}
 	}
 }
@@ -73,16 +71,20 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 		width: 500px;
 		.title {
 			font-weight: bold;
 			font-size: 34px;
+			font-family: 'Gloria Hallelujah', cursive;
 			color: black;
 		}
 		.text {
 			margin-top: 20px;
 			font-size: 18px;
 			color: black;
+			font-family: 'montserrat';
+			// font-weight: 700;
 		}
 	}
 	.padding-explanation-left {
@@ -90,8 +92,12 @@
 	}
 }
 
+.landing-skills-block.last-padding-bottom {
+	padding-bottom: 140px;
+}
+
 .montserrat {
-	font-family: 'Montserrat', sans-serif;
+	// font-family: 'Montserrat', sans-serif;
 }
 
 
