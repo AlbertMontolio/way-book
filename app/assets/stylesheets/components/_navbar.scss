@@ -17,29 +17,42 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		// background-color: yellow;
 		flex-grow: 1;
 		.search {
-			height: 30px;
+			// height: 30px;
 		}
 		.logo {
 			margin-left: 40px;
-			// width: 60px;
-			// background-color: orange;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
-		
 	}
 
 	.right-navbar {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		// background-color: green;
-		// width: 30%;
-		.apps {
+		.app-btns {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.app-btn {
+				display: flex;
+				align-items: center;
+				margin-left: 26px;
+				font-size: 14px;
+				color: rgb(120,120,120);
+				i {
+					font-size: 18px;
+				}
+				.text {
+					margin-left: 4px;
+				}
+			} 
+		}
+
+		.other-apps {
 			width: 40px;
 			height: 40px;
 			display: flex;
