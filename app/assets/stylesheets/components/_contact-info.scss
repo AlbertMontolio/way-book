@@ -1,10 +1,13 @@
 .contact-info	{
-	padding: 10px;
+	background-color: white;
+	box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
+	padding: 10px 20px 10px 10px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	font-size: 14px;
 	font-weight: lighter;
+	.font-size-14
 	.avatar {
 		background-color: rgb(200,200,200);
 		width: 60px;
@@ -13,16 +16,39 @@
 		margin-left: 10px;
 	}
 	.block {
-		padding-left: 30px;
 		.info {
 			i {
 				margin-right: 10px;
 			}
 		}
 	}
+	.block-50 {
+		width: 50%;
+	}
+	.info-blocks {
+		margin-left: 20px;
+		flex-grow: 1;
+		display: flex;
+		// width: 100%;
+	}
 	.name {
 		font-size: 14px;
 		font-weight: bold;
 	}
+}
 
+.contact-info.margins-index {
+	margin: 10px 60px;
+}
+.contact-info.margins-search_employee {
+	margin: 2px 0px;
+}
+
+.contact-info {
+	.block.paddings-index {
+		padding-left: 30px;
+	}
+	.block.paddings-search_employee {
+		padding-right: 40px;
+	}
 }

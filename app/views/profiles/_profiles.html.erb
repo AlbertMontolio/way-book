@@ -1,8 +1,8 @@
 <% @profiles.each do |profile| %>
 
-	<div class="contact-info">
+	<div class="contact-info margins-index">
 		<div class="avatar"></div>
-		<div class="block">
+		<div class="block paddings-index">
 			<div class="info name">
 				<%= "#{profile.first_name} #{profile.last_name}" %>
 			</div>
@@ -10,7 +10,7 @@
 				<%= profile.position %>
 			</div>
 		</div>
-		<div class="block">
+		<div class="block paddings-index">
 			<div class="info">
 				<i class="fa fa-envelope-o" aria-hidden="true"></i>
 				<%= profile.user.email %>
@@ -20,7 +20,7 @@
 				<%= profile.phone_number %>
 			</div>
 		</div>
-		<div class="block">
+		<div class="block paddings-index">
 			<div class="info">
 				<i class="fa fa-users" aria-hidden="true"></i>
 				<%= profile.division %>

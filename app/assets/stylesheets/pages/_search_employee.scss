@@ -1,0 +1,41 @@
+.search-employee-page {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 120px;
+}
+
+.search-employee-page > .results-employees-wrapper {
+	width: 700px;
+	.results-title {
+		padding: 10px 20px;
+		background-color: white;
+		i {
+			margin-right: 10px;
+		}
+		box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
+
+	}
+}
+
+.search-employee-page > .divisions-wrapper {
+	background-color: white;
+	box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
+	margin-right: 10px;
+	margin-left: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 400px;
+	.division {
+		font-size: 16px;
+		font-weight: normal;
+		padding: 0px 20px 5px 20px;
+		color: black;
+	}
+	.team {
+		font-size: 14px;
+		font-weight: lighter;
+		padding: 0px 40px 5px 40px;
+		color: rgb(100,100,100);
+	}
+}
