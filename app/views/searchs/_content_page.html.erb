@@ -1,67 +1,67 @@
 <div class="search-employee-page">
 	<div class="divisions-wrapper">
-		<%= link_to search_by_division_path(division: "WAY People+ GmbH") do  %>
-			<div class="division">WAY People+ GmbH</div>
-		<% end %>
+
+		<%= link_to "WAY People+ GmbH", search_by_division_path(division: "WAY People+ GmbH"), class: "division" %>
 		<div class="team">Team A</div>
 		<div class="team">Team B</div>
 		<div class="team">Team C</div>
+
 		<div class="division">WAY HR Professionals & Experts GmbH</div>
 		<div class="team">Team D</div>
 		<div class="team">Team E</div>
-		<%= link_to search_by_division_path(division: "WAY IT Solutions GmbH") do  %>
-			<div class="division">WAY IT Solutions GmbH</div>
-		<% end %>
-		<%= link_to search_by_team_path(team: "Michael Dreisbach") do  %>
-			<div class="team">Michael Dreisbach</div>
-		<% end %>
+
+		<%= link_to "WAY IT Solutions GmbH", search_by_division_path(division: "WAY IT Solutions GmbH"), class: "division" %>
+		<%= link_to "Michael Dreisbach", search_by_team_path(team: "Michael Dreisbach"), class: "team" %>
 		<div class="team">Team G</div>
-		<%= link_to search_by_division_path(division: "WAY Engineering GmbH") do  %>
-			<div class="division">WAY Engineering GmbH</div>
-		<% end %>
-		<%= link_to search_by_team_path(team: "Brigitte Schulz") do  %>
-			<div class="team">Brigitte Schulz</div>
-		<% end %>
-		<%= link_to search_by_team_path(team: "Christian Sailer") do  %>
-			<div class="team">Christian Sailer</div>
-		<% end %>
+
+		<%= link_to "WAY Engineering GmbH", search_by_division_path(division: "WAY Engineering GmbH"), class: "division" %>
+		<%= link_to "Brigitte Schulz", search_by_team_path(team: "Brigitte Schulz"), class: "team" %>
+		<%= link_to "Christian Sailer", search_by_team_path(team: "Christian Sailer"), class: "team" %>
+
 	</div>
-	<div class="results-employees-wrapper">
-		<div class="results-title">
-			<i class="fa fa-users" aria-hidden="true"></i>
-			Employees
+	<% if @profiles.empty? %>
+		<div class="results-employees-wrapper empty">
+			Look for employees by clicking the WAY divisions or the corresponding teams.<br>
+			You can also use the search areas on the top.
 		</div>
-		<div class="results-list">
-			<% @profiles.each do |profile| %>
-				<div class="contact-info margins-search_employee">
-					<div class="avatar"></div>
-					<div class="info-blocks">
-						<div class="block-50 paddings-search_employee">
-							<div class="">
-								<%= link_to profile_path(profile) do  %>
+	<% else %>
+		<div class="results-employees-wrapper">
+			<div class="results-title">
+				<i class="fa fa-users" aria-hidden="true"></i>
+				Employees
+			</div>
+			<div class="results-list">
+				<% @profiles.each do |profile| %>
+					<div class="contact-info margins-search_employee">
+						<div class="avatar"></div>
+						<div class="info-blocks">
+							<div class="block-50 paddings-search_employee">
+								
+								<%= link_to profile_path(profile), class: "profile-link" do  %>
 									<%= "#{profile.first_name} #{profile.last_name}" %>
 								<% end %>
-							</div>
-							<div class="info position">
-								<%= profile.position %>
-							</div>
-						</div>
-						<div class="block-50 paddings-search_employee">
-							<div class="info">
-								<i class="fa fa-envelope-o" aria-hidden="true"></i>
-								<%= profile.user.email %>
+								
+								<div class="info position">
+									<%= profile.position %>
 								</div>
-							<div class="info">
-								<i class="fa fa-phone" aria-hidden="true"></i>
-								<%= profile.phone_number %>
+							</div>
+							<div class="block-50 paddings-search_employee">
+								<div class="info">
+									<i class="fa fa-envelope-o" aria-hidden="true"></i>
+									<%= profile.user.email %>
+									</div>
+								<div class="info">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+									<%= profile.phone_number %>
+								</div>
 							</div>
 						</div>
-					</div>
 
-				</div>
-			<% end %>
+					</div>
+				<% end %>
+			</div>
 		</div>
-	</div>
+	<% end %>
 </div>
 
 

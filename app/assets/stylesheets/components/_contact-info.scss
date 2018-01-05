@@ -24,9 +24,13 @@
 	}
 	.block-50 {
 		width: 50%;
-		a {
+		.profile-link {
 			color: black;
 			font-weight: bold;
+			&:hover {
+				color: #19b724;
+				text-decoration: none;
+			}
 		}
 	}
 	.info-blocks {

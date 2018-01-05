@@ -1,7 +1,7 @@
 <div class="navbar">
 
 	<div class="left-navbar">
-		<%= link_to profiles_path do  %>
+		<%= link_to root_path do  %>
 			<div class="logo">
 				<%= image_tag("way-book-edited", size: "100x25") %>
 			</div>
@@ -31,20 +31,21 @@
 	<div class="right-navbar">
 		
 		<div class="app-btns">
-			<div class="employees-btn app-btn">
+			
+			<%= link_to search_employee_path, class: "employees-btn app-btn" do %>
 				<i class="fa fa-address-book-o" aria-hidden="true"></i>
 				<div class="text">
 					Employees
 				</div>
-				
-			</div>
-			<div class="skills-btn app-btn">
+			<% end %>
+			
+			<%= link_to profiles_path, class: "skills-btn app-btn" do %>
 				<i class="fa fa-list" aria-hidden="true"></i>
 				<div class="text">
 					Skills
 				</div>
-				
-			</div>
+			<% end %>
+			
 		</div>
 			
 		<div class="other-apps">

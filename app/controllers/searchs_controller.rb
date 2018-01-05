@@ -4,8 +4,8 @@ class SearchsController < ApplicationController
 	### chained methods?
 	### are there better alternatives?
 	def search_employee
-		if params[:name].nil?
-			@profiles = [Profile.new]
+		if params[:name].nil? or params[:name] == ""
+			@profiles = []
 		else
 			name = params[:name]
 
@@ -34,7 +34,6 @@ class SearchsController < ApplicationController
 				else
 					redirect_to profile_path(@profiles[0])
 				end
-
 			end
 		end
 
