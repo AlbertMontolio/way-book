@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem "rails-ujs"
+gem "jquery-rails"
 
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
