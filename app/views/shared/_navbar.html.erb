@@ -29,20 +29,32 @@
 
 
 	<div class="right-navbar">
-
-		<div class="app-btns">
-			
-			<%= link_to search_employee_path, class: "employees-btn app-btn" do %>
-				<i class="fa fa-address-book-o" aria-hidden="true"></i>
-				<div class="text">
-					Employees
+		<div class="nav-btns">
+			<%= link_to search_employee_path, class: "employees-btn nav-btn" do %>
+				<div class="box-1">
+					<div class="icon-text-wrapper">
+						<i class="fa fa-address-book-o" aria-hidden="true"></i>
+						<div class="text">
+							Employees
+						</div>
+					</div>
+					<div class="box-2">
+						
+					</div>
 				</div>
 			<% end %>
-			
-			<%= link_to profiles_path, class: "skills-btn app-btn" do %>
-				<i class="fa fa-list" aria-hidden="true"></i>
-				<div class="text">
-					Skills
+
+			<%= link_to profiles_path, class: "skills-btn nav-btn" do %>
+				<div class="box-1">
+					<div class="icon-text-wrapper">
+						<i class="fa fa-list" aria-hidden="true"></i>
+						<div class="text">
+							Skills
+						</div>
+					</div>
+					<div class="box-2">
+						
+					</div>
 				</div>
 			<% end %>
 			
@@ -52,51 +64,76 @@
 	      <div class="dropdown other-apps">
 			<i class="fa fa-th icon" aria-hidden="true" class="dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"></i>
 
-			<div class="dropdown-menu dropdown-menu-right">
+			<div class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 				<div class="other-apps-content">
 					<div class="roww">
 						<%= link_to root_path, class: "link colo1" do  %>
-							
-								<i class="fa fa-pie-chart icon" aria-hidden="true"></i>
-								<div class="text">
-									WAY Data
-								</div>
-							
-							
+							<i class="fa fa-pie-chart icon" aria-hidden="true"></i>
+							<div class="text">
+								WAY Data
+							</div>
 						<% end %>
-
 						<a target="_blank" href="http://www.zep.de/" class="link colo2">
 							<i class="fa fa-clock-o icon" aria-hidden="true"></i>
 							<div class="text">
 								WAY ZEP
 							</div>
 						</a>
-						
 					</div>
 					<div class="roww">
-
 						<a target="_blank" href="https://schulungssystem.waygroup.de/" class="link colo3">
 							<i class="fa fa-file-text-o icon" aria-hidden="true"></i>
 							<div class="text">
 								W.H.A.T.
 							</div>
 						</a>
-
 						<a target="_blank" href="http://www.waygroup.de/" class="link colo4">
 							<i class="fa fa-home icon" aria-hidden="true"></i>
 							<div class="text">
 								Way Group
 							</div>
 						</a>
-						
-						
 					</div>
 				</div>
 			</div>
 	      </div>
 	     </div>
+
+	     <!-- Profile picture with dropdown list -->
+
+	    <% if user_signed_in? %>
+		    <div class="dropdown">
+		        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar avatar-cursor dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+
+		        <div class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+		        	<div class="avatar-navbar-content-wrapper">
+			        	<div class="user-name">
+			        		<%= "#{current_user.profile.first_name} #{current_user.profile.last_name}" %>
+			        	</div>
+			        	<%= link_to profile_path(current_user.profile), class: "link" do %>
+			        		<i class="fa fa-user-circle-o icon" aria-hidden="true"></i>
+							Profile
+			        	<% end %>
+        	        	<%= link_to profile_path(current_user.profile), class: "link" do %>
+        	        		<i class="fa fa-cogs icon" aria-hidden="true"></i>
+        					Settings
+        	        	<% end %>
+        	        	<%= link_to profile_path(current_user.profile), class: "link" do %>
+        	        		<i class="fa fa-question-circle icon" aria-hidden="true"></i>
+        					Help center
+        	        	<% end %>
+				        <%= link_to destroy_user_session_path, method: :delete, class: "link" do %>
+				          <i class="fa fa-sign-out icon"></i>
+				          Log out
+				        <% end %>
+				    </div>
+			    </div>
+		        
+		    </div>
+		<% else %>
+      		<%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% end %>
 					
-		<img class="avatar" id="" src="" alt="">
 	</div>
 	  
 </div>

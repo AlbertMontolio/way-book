@@ -1,14 +1,24 @@
-<% company_skills_names = session[:company_skills].map { |company_skill| company_skill["name"] } %>
-
-<% if company_skills_names.include? company_skill.name %>
-	<%= link_to remove_company_skill_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "btn-round sm green bckgr-green js-company-skill-btn" do  %>
-		<%= company_skill.name %>
-	<% end %>
-
-<% else %>
+<!-- #### think about what happens if session company_skills is nil -->
+<% if session[:company_skills].nil? %>
 
 	<%= link_to add_company_skill_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "btn-round sm gray js-company-skill-btn" do  %>
 		<%= company_skill.name %>
 	<% end %>
 
+<% else %>
+	<% company_skills_names = session[:company_skills].map { |company_skill| company_skill["name"] } %>
+
+
+	<% if company_skills_names.include? company_skill.name %>
+		<%= link_to remove_company_skill_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "btn-round sm green bckgr-green js-company-skill-btn" do  %>
+			<%= company_skill.name %>
+		<% end %>
+
+	<% else %>
+
+		<%= link_to add_company_skill_session_path(company_skill_id: company_skill), method: :get, remote: true, class: "btn-round sm gray js-company-skill-btn" do  %>
+			<%= company_skill.name %>
+		<% end %>
+
+	<% end %>
 <% end %>

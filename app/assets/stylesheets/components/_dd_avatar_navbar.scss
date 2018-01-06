@@ -1,0 +1,25 @@
+.avatar-navbar-content-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	.user-name {
+		font-weight: bold;
+		border-bottom: 1px solid rgb(230,230,230);
+		padding: 10px 20px;
+	}
+	.link {
+		padding: 10px 20px;
+		border-bottom: 1px solid rgb(230,230,230);
+		color: rgb(40,40,40);
+		font-size: 14px;
+		font-weight: lighter;
+		&:hover {
+			background-color: #19b724;
+			color: white;
+			text-decoration: none;
+		}
+		.icon {
+			margin-right: 10px;
+		}
+	}
+}

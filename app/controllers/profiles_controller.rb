@@ -1,26 +1,35 @@
 class ProfilesController < ApplicationController
 	
 	def index
+		session[:company_skills] = [] if session[:company_skills].nil?
+		session[:category] = Category.new if session[:category].nil?
+
+		# raise
 		profiles = Profile.all
 		sel_company_skills = session[:company_skills]
 		sel_category = session[:category]
 
-		@profiles = Profile.filter_by_company_skills(sel_company_skills)
+		if sel_category.nil?
+			@profiles = Profile.all
+		else
+			@profiles = Profile.filter_by_company_skills(sel_company_skills) 
+		end
+		
 		@categories = Category.all
 
-		if session[:category]["id"] != nil
-			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
-		else
+		if session[:category].nil? or session[:category]["id"] != nil
 			@company_skills = CompanySkill.order(:name).unique_name
+		else
+			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
 		end
-		# @company_skills = CompanySkill.order(:name).unique_name
+
 		@all_company_skills = CompanySkill.order(:name).unique_name
 	end
 
 	def edit
 		@profile = Profile.find(params[:id].to_i)
-		session[:company_skills] = []
-		session[:category] = Category.new
+		# session[:company_skills] = []
+		# session[:category] = Category.new
 		
 		# curriculums
 		@curriculums = current_user.profile.curriculums

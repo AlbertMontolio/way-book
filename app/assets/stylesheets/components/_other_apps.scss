@@ -6,19 +6,18 @@
 	align-items: center;
 	margin: 0px 20px;
 	i {
-		font-size: 25px;
-		color: rgb(200,200,200);
+		font-size: 18px;
+		color: rgb(120,120,120);
 	}
-	&:hover {
+	.icon:hover {
 		cursor: pointer;
-		.icon {
-			color: #19b724;
-		}
+		color: #19b724;
 	}
 }
 
 .other-apps-content {
 	display: flex;
+	padding: 15px;
 	.link {
 		width: 91px;
 		display: flex;

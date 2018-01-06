@@ -34,25 +34,48 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		.app-btns {
+		.nav-btns {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			.app-btn {
-				display: flex;
-				align-items: center;
-				margin-left: 26px;
-				font-size: 14px;
-				color: rgb(120,120,120);
-				i {
-					font-size: 18px;
-				}
-				.text {
-					margin-left: 4px;
-				}
+			.nav-btn {
+				height: 60px;
 				&:hover {
-					color: #19b724;
 					text-decoration: none;
+					.icon-text-wrapper {
+						.text, i {
+							color: #19b724;
+						}
+					}
+				}
+				.box-1 {
+					height: 60px;
+					position: relative;
+					top: 0px;
+					left: 0px;
+					padding: 0px 14px;
+					.icon-text-wrapper {
+						height: 100%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						font-size: 14px;
+						color: rgb(120, 120, 120);
+						i {
+							font-size: 18px;
+							margin-right: 4px;
+						}
+					}
+				}
+				.box-2 {
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					height: 100%;
+					width: 100%;					
+					&:hover {
+						border-bottom: 4px solid #19b724;
+					}
 				}
 			} 
 		}

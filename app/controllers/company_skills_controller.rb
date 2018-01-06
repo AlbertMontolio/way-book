@@ -16,6 +16,7 @@ class CompanySkillsController < ApplicationController
 
 	def add_company_skill_session
 		@sel_company_skill = CompanySkill.find(params[:company_skill_id].to_i)
+		
 		session[:company_skills] << @sel_company_skill
 		@sel_company_skills = session[:company_skills].uniq
 		sel_category = session[:category]

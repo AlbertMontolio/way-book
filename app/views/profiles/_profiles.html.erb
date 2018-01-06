@@ -70,7 +70,6 @@
 				<% Category.all.each do |category| %>
 					<%= link_to filter_profile_by_category_path(category: category, profile_id: profile), remote: true do %>
 						<div class="category-link-wrapper small <%= "active" if category.name == session[:category]["name"] %> js-index-profile-categories-btn">
-
 							<div class="category-name"><%= category.name %></div>
 						</div>
 					<% end %>
