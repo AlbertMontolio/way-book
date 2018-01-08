@@ -142,14 +142,7 @@ employees = [
 		position: "Recruiter",
 		title: "TBD",
 		own_company_skills: [
-			{
-				category: "Karosserie Module",
-				names: ["KD: Frontsystem, Kunststoffexterieur, Stossfänger", "KF: Heckklappe, Front-, Heckscheibe, Reinigungssystem", "KA: Bodengruppe", "KB: Rohbau, Seitengerippe, Dach", "KC: Dach-, Verdecksysteme, Einfüll-Ladeklappen"]
-			},
-			{
-				category: "SE-Team Leiter",
-				names: ["gAMS", "PQM"],
-			}
+			
 		],
 		projects: [
 			
@@ -167,14 +160,7 @@ employees = [
 		title: "TBD",
 		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf",
 		own_company_skills: [
-			{
-				category: "Project Management",
-				names: ["PLM: Product-Lifecycle-Management"]
-			},
-			{
-				category: "Konstruktor",
-				names: ["Catia v5", "Catia v6"],
-			}
+			
 		],
 		projects: [],
 	},

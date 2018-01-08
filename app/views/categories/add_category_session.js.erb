@@ -8,6 +8,16 @@ jsIndexGeneralCompanySkills.innerHTML = "<%= j render 'profiles/index-general-co
 jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
 jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
 
+// create again addEventListener jsIndexProfileCategoriesBtns
+// otherwise you don't have it, because you refreshed everything
+
+jsIndexProfileCategoriesBtns = document.querySelectorAll(".js-index-profile-categories-btn");
+
+console.log("create again addEventListener jsIndexProfileCategoriesBtns");
+jsIndexProfileCategoriesBtns.forEach((indexProfileCategoriesBtn) => {
+	indexProfileCategoriesBtn.addEventListener("click", updateActiveClassIndexProfile);
+});
+
 // hide spinner
 companySkillBtns2 = document.querySelectorAll(".js-company-skill-btn");
 

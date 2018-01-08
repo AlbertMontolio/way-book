@@ -12,7 +12,7 @@
 
 <div class="general-filter-all-profiles">
 	<div class="categories js-categories">
-		<%= link_to remove_category_session_path, remote: false, class: "test-height" do %>
+		<%= link_to remove_category_session_path, remote: true, class: "test-height" do %>
 			<div class="category-link-wrapper big <%= "active" if session[:category]["id"].nil? %> js-index-general-category-btn">
 				<div class="category-name">All</div>
 			</div>

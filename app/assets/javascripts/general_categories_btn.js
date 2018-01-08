@@ -4,6 +4,8 @@ const jsIndexGeneralCategoryBtn = document.querySelectorAll(".js-index-general-c
 const updateActiveClassIndexProfiles = () => {
 	console.log("clicking .js-index-profile-categories-btn");
 	let clickedBtn = event.target.parentElement;
+    console.log("clickedBtn event.target.parentElement");
+    console.log(clickedBtn);
 
     let categories = clickedBtn.closest(".js-categories");
     let categoryBtns = categories.querySelectorAll(".js-index-general-category-btn");

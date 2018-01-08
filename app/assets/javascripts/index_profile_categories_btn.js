@@ -1,9 +1,11 @@
 // ### DRI 2525262
-const jsIndexProfileCategoriesBtns = document.querySelectorAll(".js-index-profile-categories-btn");
+let jsIndexProfileCategoriesBtns = document.querySelectorAll(".js-index-profile-categories-btn");
 
 const updateActiveClassIndexProfile = () => {
 	console.log("clicking .js-index-profile-categories-btn");
 	let clickedBtn = event.target.parentElement;
+    console.log("event.target.parentElement")
+    console.log(clickedBtn)
 
     let categories = clickedBtn.closest(".js-categories");
     let categoryBtns = categories.querySelectorAll(".js-index-profile-categories-btn");
