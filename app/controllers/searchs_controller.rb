@@ -4,6 +4,7 @@ class SearchsController < ApplicationController
 	### chained methods?
 	### are there better alternatives?
 	def search_employee
+		@is_search_employee_page = true
 		if params[:name].nil? or params[:name] == ""
 			@profiles = []
 		else

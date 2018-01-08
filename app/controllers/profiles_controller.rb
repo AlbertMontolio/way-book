@@ -1,6 +1,8 @@
+
 class ProfilesController < ApplicationController
 	
 	def index
+		@is_profiles_page = true
 		session[:company_skills] = [] if session[:company_skills].nil?
 		session[:category] = Category.new if session[:category].nil?
 
@@ -9,10 +11,10 @@ class ProfilesController < ApplicationController
 		sel_company_skills = session[:company_skills]
 		sel_category = session[:category]
 
-		if sel_category.nil?
+		if sel_category["id"].nil?
 			@profiles = Profile.all
 		else
-			@profiles = Profile.filter_by_company_skills(sel_company_skills) 
+			@profiles = Profile.filter_by_company_skills(sel_company_skills)
 		end
 		
 		@categories = Category.all
