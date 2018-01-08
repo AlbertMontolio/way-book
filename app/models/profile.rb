@@ -8,8 +8,6 @@ class Profile < ApplicationRecord
   
   def self.filter_by_company_skills(sel_company_skills)
     ### refactor with activerecord or sql. it takes too long if all profiles!
-    ### yo
-    puts sel_company_skills
   	filtered_profiles = []
   	Profile.all.each do |profile|
   		has_all_company_skills = true

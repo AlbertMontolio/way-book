@@ -1,31 +1,30 @@
-
 class ProfilesController < ApplicationController
 	
 	def index
 		@is_profiles_page = true
+		# initialize session hashes
 		session[:company_skills] = [] if session[:company_skills].nil?
 		session[:category] = Category.new if session[:category].nil?
 
-		# raise
-		profiles = Profile.all
+		# filtering profiles by selected company skills
 		sel_company_skills = session[:company_skills]
-		sel_category = session[:category]
+		sel_company_skills_names = sel_company_skills.map { |sel_company_skill| sel_company_skill["name"] }
 
-		if sel_category["id"].nil?
+		if sel_company_skills.empty?
 			@profiles = Profile.all
 		else
-			@profiles = Profile.filter_by_company_skills(sel_company_skills)
+			@profiles = Profile.includes(:own_company_skills).where(own_company_skills: { name: sel_company_skills_names } )
 		end
-		
-		@categories = Category.all
 
-		if session[:category].nil? or session[:category]["id"] != nil
+		# filtering company skills by selected category
+		sel_category = session[:category]
+		if session[:category]["id"] == nil
 			@company_skills = CompanySkill.order(:name).unique_name
 		else
-			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
+			@company_skills = CompanySkill.includes(:category).where(categories: { name: sel_category["name"] })
 		end
 
-		@all_company_skills = CompanySkill.order(:name).unique_name
+		@categories = Category.all
 	end
 
 	def edit
