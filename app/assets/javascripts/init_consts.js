@@ -1,0 +1,1 @@
+let jsIndexProfileCategoriesBtns = document.querySelectorAll(".js-index-profile-categories-btn");
