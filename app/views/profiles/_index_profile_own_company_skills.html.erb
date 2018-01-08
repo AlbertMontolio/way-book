@@ -1,0 +1,15 @@
+<% own_company_skills.each do |own_company_skill| %>
+	<%# if own_company_skill.category.name == session[:category]["name"] %>
+		<div class="btn-round sm green">
+			<div class="name">
+				<%= own_company_skill.name %>
+			</div>
+			<% is_painted = own_company_skill.rating >= 1 %>
+			<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
+			<% is_painted = own_company_skill.rating >= 2 %>
+			<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
+			<% is_painted = own_company_skill.rating >= 3 %>
+			<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
+		</div>
+	<%# end %>
+<% end %>

@@ -5,4 +5,5 @@ filteredProfileId = "<%= @filtered_profile_id %>";
 ownSkillsWrapper = document.querySelectorAll(`[data-profile-skills-id='${filteredProfileId}']`)[0];
 
 console.log(ownSkillsWrapper);
-ownSkillsWrapper.innerHTML = "<%= j render 'profiles/company_skills_index_profile', company_skills: @company_skills, profile: @filtered_profile %>";
+
+ownSkillsWrapper.innerHTML = "<%= j render 'profiles/index_profile_own_company_skills', own_company_skills: @own_company_skills, profile: @filtered_profile %>";

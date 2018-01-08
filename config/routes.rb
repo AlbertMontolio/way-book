@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "remove_company_skill_session", to: "company_skills#remove_company_skill_session"
 
   # -- profile
-  get "filter_profile_by_category", to: "categories#filter_profile_by_category"
+  get "filter_index_profile_by_category", to: "categories#filter_index_profile_by_category"
 
   resources :profiles, only: [:index, :show, :edit, :update] do
     resources :own_company_skills, only: [:create, :destroy, :edit, :update]

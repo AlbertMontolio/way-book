@@ -61,7 +61,14 @@ employees = [
 		title: "Lebenslauf Deutsch",
 		document: "image/upload/v1514324187/edzm3iz0vfzn3fte8vw6.pdf",
 		own_company_skills: [
-			
+			{
+				category: "Programmierer",
+				names: ["Ruby", "Rails", "JavaScript", "HTML", "CSS", "Active Record"]
+			},
+			{
+				category: "SE-Team Leiter",
+				names: ["Boole Tool", "CAD-PDM", "Catia v5", "Freigabeleitstand"],
+			}
 		],
 		projects: [
 			{

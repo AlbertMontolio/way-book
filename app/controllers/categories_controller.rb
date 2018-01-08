@@ -19,17 +19,22 @@ class CategoriesController < ApplicationController
 	    end
 	end
 
-	def filter_profile_by_category
+	def filter_index_profile_by_category
 		@filtered_profile_id = params[:profile_id].to_i
 		@filtered_profile = Profile.find(@filtered_profile_id)
-		@category = params[:category]
+		category = Category.find(params[:category].to_i)
+		# @category = params[:category].to_i
 		# @company_skills = CompanySkill.order(:name).unique_name
 
 		if params[:category].upcase == "ALL"
-			@company_skills = CompanySkill.order(:name).unique_name
+			@own_company_skills = @filtered_profile.own_company_skills.unique_name
 		else
-			@company_skills = CompanySkill.where(category: params[:category]).unique_name
+			sel_company_skills = CompanySkill.where(category: category)
+			raise
+			# @filtered_profile.own_company_skills.last == category
+			@own_company_skills = @filtered_profile.own_company_skills.where(category: category)
 		end
+		raise
 
 		respond_to do |format|
 	        format.html
@@ -48,7 +53,7 @@ class CategoriesController < ApplicationController
 		# if session[:category].nil?
 		# 	@profiles = Profile.all
 		# else
-			@profiles = Profile.filter_by_company_skills(sel_company_skills)
+		@profiles = Profile.filter_by_company_skills(sel_company_skills)
 		# end
 		@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
 
@@ -62,8 +67,12 @@ class CategoriesController < ApplicationController
 		session[:category] = Category.new
 		sel_category = session[:category]
 		sel_company_skills = session[:company_skills]
+		sel_company_skills_names = sel_company_skills.map { |sel_company_skill| sel_company_skill["name"] }
 
-		@profiles = Profile.filter_by_company_skills(sel_company_skills)
+		@profiles = Profile.includes(:own_company_skills).where(own_company_skills: { name: sel_company_skills_names } )
+		raise
+
+		# @profiles = Profile.filter_by_company_skills(sel_company_skills)
 
 		@company_skills = CompanySkill.order(:name).unique_name
 
