@@ -1,6 +1,7 @@
 class CompanySkill < ApplicationRecord
 	belongs_to :category
 
+	### methods not valid any longer
 	def self.unique_name
 		@company_skills_uniq = []
 		@company_skills_names_uniq = []
