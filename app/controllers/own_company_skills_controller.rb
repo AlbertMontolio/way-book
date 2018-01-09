@@ -1,7 +1,8 @@
 class OwnCompanySkillsController < ApplicationController
 
 	def create
-		@profile = Profile.find(params[:profile_id].to_i)
+		# @profile = Profile.find(params[:profile_id].to_i)
+		@profile = current_user.profile
 		@company_skill_id = params[:company_skill_id].to_i
 		@company_skill = CompanySkill.find(@company_skill_id)
 		rating = params[:rating].to_i
@@ -55,7 +56,8 @@ class OwnCompanySkillsController < ApplicationController
 		@company_skill_id = params[:company_skill_id].to_i
 		@company_skill = CompanySkill.find(@company_skill_id)
 
-		@profile = Profile.find(params[:profile_id].to_i)
+		# @profile = Profile.find(params[:profile_id].to_i)
+		@profile = current_user.profile
 		rating = params[:rating].to_i
 		own_company_skill = OwnCompanySkill.find(params[:id].to_i)
 
@@ -76,7 +78,8 @@ class OwnCompanySkillsController < ApplicationController
 
 
 	def destroy
-		@profile = Profile.find(params[:profile_id].to_i)
+		# @profile = Profile.find(params[:profile_id].to_i)
+		@profile = current_user.profile
 		@company_skill_id = params[:id].to_i
 		@company_skill = CompanySkill.find(@company_skill_id)
 		

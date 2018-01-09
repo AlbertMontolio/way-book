@@ -8,6 +8,15 @@
 	.skills-wrapper.fixed-height, .projects-wrapper.fixed-height {
 		height: 340px;
 	} 
+
+	.curriculum-cards {
+		display: flex;
+		flex-direction: column;
+		// background-color: orange;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
 	.skills-wrapper {
 		background-color: white;
 		width: 600px;

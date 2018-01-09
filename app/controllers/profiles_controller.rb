@@ -47,6 +47,7 @@ class ProfilesController < ApplicationController
 			
 			# curriculums
 			@curriculums = current_user.profile.curriculums
+			@curriculum = Curriculum.new
 
 			# own skills
 			@own_skills = current_user.profile.own_skills
@@ -61,6 +62,7 @@ class ProfilesController < ApplicationController
 
 			# projects
 			@projects = current_user.profile.projects
+			@project = Project.new
 
 			respond_to do |format|
 		        format.html

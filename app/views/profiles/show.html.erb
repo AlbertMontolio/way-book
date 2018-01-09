@@ -47,24 +47,34 @@
 	</div>
 
 	<div class="profile-wrapper">
-		<div class="curriculum-card">
-			<div class="">
-				<% @curriculums.each do |curriculum| %>
-					<div class="curriculum-card">
-						<div class="title-date-wrapper">
-							<div class="title">
-								<%= curriculum.title %>
-							</div>
-							<div class="date">
-								<%= curriculum.created_at.strftime("%b %d, %Y") %>
-							</div>
-						</div>
-						<% if curriculum.document? %>
-						  <object class="document" type="text/html" data='<%= curriculum.document.url %>'></object>
-						<% end %>
-					</div>
+
+		<div class="curriculum-cards">
+
+			<div class="curriculum-card-new">
+				<%= simple_form_for @curriculum do |f| %>
+					<%= f.input :title %>
+					<%= f.input :document %>
+					<%= f.input :document_cache, as: :hidden %>
+					<%= f.button :submit %>
 				<% end %>
 			</div>
+			
+			<% @curriculums.each do |curriculum| %>
+				<div class="curriculum-card">
+					<div class="title-date-wrapper">
+						<div class="title">
+							<%= curriculum.title %>
+						</div>
+						<div class="date">
+							<%= curriculum.created_at.strftime("%b %d, %Y") %>
+						</div>
+					</div>
+					<% if curriculum.document? %>
+					  <object class="document" type="text/html" data='<%= curriculum.document.url %>'></object>
+					<% end %>
+				</div>
+			<% end %>
+			
 		</div>
 
 		<div class="skills-wrapper">
@@ -92,6 +102,16 @@
 
 		<!-- My projects -->
 		<div class="projects-wrapper">
+
+			<%= simple_form_for @project, remote: false do |f| %>
+				<%= f.input :title, label: false, placeholder: "Project title" %>
+				<%= f.input :client, label: false, placeholder: "Client" %>
+				<%= f.input :start, as: :date, label: false %>
+				<div class="to">to</div>
+				<%= f.input :finish, as: :date, label: false %>
+				<%= f.button :submit, class: "btn-submit" %>
+			<% end %>
+
 			<% current_user.profile.projects.each do |project| %>
 				<%= render "profiles/project", project: project %>
 			<% end %>
