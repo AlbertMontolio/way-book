@@ -4,8 +4,8 @@ class ProfilesController < ApplicationController
 		@is_search_employee_page = true
 		employee = params[:name]
 
-		if employee.nil?
-			@profiles = []
+		if employee.nil? or employee == ""
+			@profiles = Profile.all
 		else
 			@profiles = Profile.search(employee)
 			redirect_to profile_path(@profiles.first) if Profile.is_profile_found?(employee)

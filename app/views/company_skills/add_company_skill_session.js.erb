@@ -8,12 +8,12 @@ jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
 console.log("<%= @profiles %>");
 console.log(jsProfilesWrapper);
 
-jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
+jsProfilesWrapper.innerHTML = "<%= j render 'own_company_skills/profiles', profiles: @profiles %>";
 
 // update clicked button
 companySkillId = <%= @sel_company_skill.id %>;
 companySkill = document.querySelectorAll(`[data-company-skill-index-id='${companySkillId}']`)[0];
-companySkill.innerHTML = "<%= j render 'profiles/company_skill_index', company_skill: @sel_company_skill %>";
+companySkill.innerHTML = "<%= j render 'own_company_skills/index_general_company_skill', company_skill: @sel_company_skill %>";
 
 // update filtered company skills results
 jsFilteredCompanySkills = document.getElementById("js-filtered_company_skills");

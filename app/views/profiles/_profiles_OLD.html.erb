@@ -1,0 +1,118 @@
+<% @profiles.each_with_index do |profile, index| %>
+	<!-- own_company_skills/index contact info -->
+	<div class="contact-info margins-index">
+		<div class="avatar"></div>
+		<div class="block paddings-index">
+			<div class="info name">
+				<%= "#{profile.first_name} #{profile.last_name}" %>
+			</div>
+			<div class="info position">
+				<%= profile.position %>
+			</div>
+		</div>
+		<div class="block paddings-index">
+			<div class="info">
+				<i class="fa fa-envelope-o" aria-hidden="true"></i>
+				<%= profile.user.email %>
+				</div>
+			<div class="info">
+				<i class="fa fa-phone" aria-hidden="true"></i>
+				<%= profile.phone_number %>
+			</div>
+		</div>
+		<div class="block paddings-index">
+			<div class="info">
+				<i class="fa fa-users" aria-hidden="true"></i>
+				<%= profile.division %>
+			</div>
+			<div class="info">
+				<i class="fa fa-male" aria-hidden="true"></i>
+				<%= profile.team %>
+			</div>
+		</div>
+	</div>
+	<!-- profile wrapper -->
+	<div class="profile-wrapper">
+		<!-- curriculum -->
+		<div class="curriculum-card">
+			<% if profile.curriculums.length == 0 %>
+				<div class="empty-cv">
+					<div class="message">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+						<div class="text">
+							no curriculum vitae available
+						</div>
+					</div>
+				</div>
+			<% else %>
+				<div class="title-date-wrapper">
+					<div class="title">
+						<%= profile.curriculums.last.title %>
+					</div>
+					<div class="date">
+						<%= profile.curriculums.last.created_at.strftime("%b %d, %Y") %>
+					</div>
+				</div>
+				<% if profile.curriculums.last.document? %>
+				  <object class="document" type="text/html" data='<%= profile.curriculums.last.document.url %>'></object>
+				<% end %>
+			<% end %>
+		</div>
+
+		<!-- profile / own company skills wrapper -->
+		<div class="skills-wrapper overflow-y fixed-height">
+			<!-- categories -->
+			<div class="categories categories-profile js-categories">
+				<%= link_to filter_index_profile_by_category_path(category: "all", profile_id: profile), remote: true do %>
+					<div class="category-link-wrapper small <%= "active" if session[:category]["id"].nil? %> js-index-profile-categories-btn">
+						<div class="category-name">All</div>
+					</div>
+				<% end %>
+				<% Category.all.each do |category| %>
+					<%= link_to filter_index_profile_by_category_path(category: category, profile_id: profile), remote: true do %>
+						<div class="category-link-wrapper small <%= "active" if category.name == session[:category]["name"] %> js-index-profile-categories-btn">
+							<div class="category-name"><%= category.name %></div>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+			<!-- profile / own_company_skills -->
+			<div class="round-btns-grid" data-profile-skills-id="<%= profile.id %>" id="js-company-skills">
+				<% if session[:category]["id"].nil? %>
+					<% own_company_skills = profile.own_company_skills.unique_name %>
+				<% else %>
+					<% category = Category.find(session[:category]["id"].to_i) %>
+					<% own_company_skills = profile.own_company_skills.where(category: category) %>
+				<% end %>
+
+				<%= render "own_company_skills/index_profile_own_company_skills", own_company_skills: own_company_skills, profile: profile %>
+			</div>
+		</div>
+		<!-- own_company_skills/index contact info -->
+		<div class="projects-wrapper overflow-y fixed-height">
+			<% if profile.projects.length == 0 %>
+				<div class="projects-empty">
+					<i class="fa fa-clock-o" aria-hidden="true"></i>
+					<div class="text">
+						no projects for this user
+					</div>
+				</div>
+			<% end %>
+
+			<% profile.projects.each do |project| %>
+				<div class="project-card">
+					<div class="header">
+						<div class="client"><%= project.client %></div>
+						<div class="period"><%= project.start.strftime("%b, %y") %> - <%= project.finish.strftime("%b, %y") %></div>
+					</div>
+					<div class="title-description">
+						<%= project.title %>
+					</div>
+				</div>
+			<% end %>
+
+		</div>
+
+	</div>
+
+<% end %>

@@ -1,3 +1,4 @@
+<!-- spinner -->
 <div class="spinner-wrapper hide" id="js-spinner-wrapper">
 	<div class="spinner spinner-1">
 		<div class="text">
@@ -6,11 +7,13 @@
 	</div>
 </div>
 
+<!-- header with filtered results -->
 <div class="index-filter-results-panels title">
 	Filter profiles per skills
 </div>
 
 <div class="general-filter-all-profiles">
+	<!-- general categories -->
 	<div class="categories js-categories">
 		<%= link_to remove_category_session_path, remote: true, class: "test-height" do %>
 			<div class="category-link-wrapper big <%= "active" if session[:category]["id"].nil? %> js-index-general-category-btn">
@@ -26,16 +29,19 @@
 		<% end %>
 	</div>
 
+	<!-- general company skills -->
 	<div class="round-btns-grid max-height" id="js-index-general-company-skills">
-		<%= render "profiles/index-general-company-skills", company_skills: @company_skills %>
+		<%= render "own_company_skills/index_general_company_skills", company_skills: @company_skills %>
 	</div>
 </div>
 
+<!-- company skills selected / filtered by the user -->
 <div class="filtered_company_skills index-filter-results-panels" id="js-filtered_company_skills">
 	<% company_skills = session[:company_skills] %>
 	<%= render "company_skills/filtered_company_skills", company_skills: company_skills %>
 </div>
 
+<!-- number of matched profiles -->
 <div class="filter_results index-filter-results-panels">
 	<i class="fa fa-filter" aria-hidden="true"></i>
 	<div class="message">
@@ -46,8 +52,9 @@
 	</div>
 </div>
 
+<!-- profiles -->
 <div id="js-profiles-wrapper">
-	<%= render "profiles/profiles", profiles: @profiles  %>
+	<%= render "own_company_skills/profiles", profiles: @profiles  %>
 </div>
 
 

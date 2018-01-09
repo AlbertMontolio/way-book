@@ -13,23 +13,23 @@
 		</div>
 
 		<% if own_company_skill.rating == 1 %>
-			<%= link_to profile_own_company_skill_path(@profile, id: company_skill), method: :delete, remote: true do %>
+			<%= link_to own_company_skill_path(@profile, id: company_skill), method: :delete, remote: true do %>
 				<% is_painted = own_company_skill.rating >= 1 %>
 				<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
 			<% end %>
 		<% else %>
-			<%= link_to profile_own_company_skill_path(@profile, own_company_skill, rating: 1, company_skill_id: company_skill), method: :put, remote: true do %>
+			<%= link_to own_company_skill_path(@profile, own_company_skill, rating: 1, company_skill_id: company_skill), method: :put, remote: true do %>
 				<% is_painted = own_company_skill.rating >= 2 %>
 				<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
 			<% end %>
 		<% end %>
 
-		<%= link_to profile_own_company_skill_path(@profile, own_company_skill, rating: 2, company_skill_id: company_skill), method: :put, remote: true do %>
+		<%= link_to own_company_skill_path(@profile, own_company_skill, rating: 2, company_skill_id: company_skill), method: :put, remote: true do %>
 			<% is_painted = own_company_skill.rating >= 2 %>
 			<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
 		<% end %>
 
-		<%= link_to profile_own_company_skill_path(@profile, own_company_skill, rating: 3, company_skill_id: company_skill), method: :put, remote: true do %>
+		<%= link_to own_company_skill_path(@profile, own_company_skill, rating: 3, company_skill_id: company_skill), method: :put, remote: true do %>
 			<% is_painted = own_company_skill.rating >= 3 %>
 			<i class="fa fa-star <%= is_painted ? 'icon-star-yellow' : 'icon-star-white' %>" aria-hidden="true"></i>
 		<% end %>
@@ -42,13 +42,13 @@
 		<div class="name">
 			<%= company_skill.name %>
 		</div>
-		<%= link_to profile_own_company_skills_path(@profile, company_skill_id: company_skill, rating: 1), method: :post, remote: true do %>
+		<%= link_to own_company_skills_path(@profile, company_skill_id: company_skill, rating: 1), method: :post, remote: true do %>
 			<i class="fa fa-star icon-star-white" aria-hidden="true"></i>
 		<% end %>
-		<%= link_to profile_own_company_skills_path(@profile, company_skill_id: company_skill, rating: 2), method: :post, remote: true do %>
+		<%= link_to own_company_skills_path(@profile, company_skill_id: company_skill, rating: 2), method: :post, remote: true do %>
 			<i class="fa fa-star icon-star-white" aria-hidden="true"></i>
 		<% end %>
-		<%= link_to profile_own_company_skills_path(@profile, company_skill_id: company_skill, rating: 3), method: :post, remote: true do %>
+		<%= link_to own_company_skills_path(@profile, company_skill_id: company_skill, rating: 3), method: :post, remote: true do %>
 			<i class="fa fa-star icon-star-white" aria-hidden="true"></i>
 		<% end %>
 		

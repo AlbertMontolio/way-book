@@ -6,7 +6,7 @@ jsIndexGeneralCompanySkills.innerHTML = "<%= j render 'profiles/index-general-co
 
 // update profiles
 jsProfilesWrapper = document.getElementById("js-profiles-wrapper");
-jsProfilesWrapper.innerHTML = "<%= j render 'profiles/profiles', profiles: @profiles %>";
+jsProfilesWrapper.innerHTML = "<%= j render 'own_company_skills/profiles', profiles: @profiles %>";
 
 // create again addEventListener jsIndexProfileCategoriesBtns
 // otherwise you don't have it, because you refreshed everything
