@@ -33,8 +33,7 @@ class Profile < ApplicationRecord
       if profile.empty?
         first_names = Profile.where("first_name like ?", "%" + first_name + "%")
         last_names = Profile.where("last_name like ?", "%" + last_name + "%")
-
-        return first_names + last_names
+        return first_names.or(last_names)
       end
     end
 
@@ -69,5 +68,7 @@ class Profile < ApplicationRecord
 
   	return filtered_profiles
   end
+
+  
 
 end

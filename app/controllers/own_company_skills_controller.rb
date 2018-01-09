@@ -9,9 +9,13 @@ class OwnCompanySkillsController < ApplicationController
 
 		CompanySkill.where(name: @company_skill.name).each_with_index do |company_skill, index|
 			@own_company_skill = OwnCompanySkill.new(name: @company_skill.name)
+			authorize @own_company_skill
+			
 			@own_company_skill.profile = @profile
 			@own_company_skill.category = company_skill.category
 			@own_company_skill.rating = rating
+
+			authorize @own_company_skill
 			@own_company_skill.save
 		end
 
@@ -32,9 +36,11 @@ class OwnCompanySkillsController < ApplicationController
 		sel_company_skills_names = sel_company_skills.map { |sel_company_skill| sel_company_skill["name"] }
 
 		if sel_company_skills.empty?
-			@profiles = Profile.all
+			profiles = Profile.all
+			@profiles = policy_scope(profiles)
 		else
-			@profiles = Profile.includes(:own_company_skills).where(own_company_skills: { name: sel_company_skills_names } )
+			profiles = Profile.includes(:own_company_skills).where(own_company_skills: { name: sel_company_skills_names } )
+			@profiles = policy_scope(profiles)
 		end
 
 		# filtering company skills by selected category
@@ -67,6 +73,7 @@ class OwnCompanySkillsController < ApplicationController
 			new_rating = rating
 		end
 
+		authorize own_company_skill
 		own_company_skill.update(rating: new_rating)
 
 		respond_to do |format|
@@ -84,6 +91,7 @@ class OwnCompanySkillsController < ApplicationController
 		@company_skill = CompanySkill.find(@company_skill_id)
 		
 		@profile.own_company_skills.where(name: @company_skill.name).each do |own_company_skill|
+			authorize own_company_skill
 			own_company_skill.delete
 		end
 

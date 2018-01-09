@@ -17,6 +17,7 @@ class SearchsController < ApplicationController
 	def search_skills
 		sel_company_skill_name = params[:skills]
 		sel_company_skill = CompanySkill.where('lower(name) = ?', sel_company_skill_name.downcase).first
+		authorize sel_company_skill
 		if sel_company_skill.nil?
 			session[:category] = Category.new
 			session[:company_skills] = []
@@ -32,7 +33,8 @@ class SearchsController < ApplicationController
 	end
 
 	def search_by_division
-		@profiles = Profile.where(division: params[:division])
+		profiles = Profile.where(division: params[:division])
+		@profiles = policy_scope(profiles)
 		redirect_to profiles_path
 	end
 

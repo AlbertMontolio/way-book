@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(projects_strong_params)
 		@project.profile = current_user.profile
+		authorize @project
 		@project.save
 
 		# @projects = current_user.profile.projects

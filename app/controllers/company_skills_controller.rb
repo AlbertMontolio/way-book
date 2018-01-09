@@ -21,11 +21,23 @@ class CompanySkillsController < ApplicationController
 		@sel_company_skills = session[:company_skills].uniq
 		sel_category = session[:category]
 		
+		### dksajöfa
 		@profiles = Profile.filter_by_company_skills(@sel_company_skills)
+		@profiles.each do |profile|
+			authorize profile
+		end
+
+		### refactor! you repeat code with remove_company_skill_session
 		if sel_category["id"].nil?
 			@company_skills = CompanySkill.order(:name).unique_name
+			@company_skills.each do |company_skill|
+				authorize company_skill
+			end
 		else
 			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
+			@company_skills.each do |company_skill|
+				authorize company_skill
+			end
 		end
 		
 		respond_to do |format|
@@ -47,16 +59,27 @@ class CompanySkillsController < ApplicationController
 		@sel_company_skills = session[:company_skills]
 
 		if @sel_company_skills.length == 0
-			@profiles = Profile.all
+			profiles = Profile.all
+			@profiles = policy_scope(profiles)
 		else
 			@profiles = Profile.filter_by_company_skills(@sel_company_skills)
+			@profiles.each do |profile|
+				authorize profile
+			end
 		end
 
 
 		if session[:company_skills].length == 0
 			@company_skills = CompanySkill.order(:name).unique_name
+			@company_skills.each do |company_skill|
+				authorize company_skill
+			end
+
 		else
 			@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
+			@company_skills.each do |company_skill|
+				authorize company_skill
+			end
 		end
 		
 		respond_to do |format|

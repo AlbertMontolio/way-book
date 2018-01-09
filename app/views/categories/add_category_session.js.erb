@@ -10,10 +10,9 @@ jsProfilesWrapper.innerHTML = "<%= j render 'own_company_skills/profiles', profi
 
 // create again addEventListener jsIndexProfileCategoriesBtns
 // otherwise you don't have it, because you refreshed everything
-
+console.log("######### create again addEventListener jsIndexProfileCategoriesBtns");
 jsIndexProfileCategoriesBtns = document.querySelectorAll(".js-index-profile-categories-btn");
 
-console.log("create again addEventListener jsIndexProfileCategoriesBtns");
 jsIndexProfileCategoriesBtns.forEach((indexProfileCategoriesBtn) => {
 	indexProfileCategoriesBtn.addEventListener("click", updateActiveClassIndexProfile);
 });
