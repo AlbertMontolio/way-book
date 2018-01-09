@@ -12,21 +12,28 @@ class SearchsController < ApplicationController
 		end
 	end
 
+	### where to put this searchh? class method, and then call it in the own_company_skills?
+	### is bad pactice to group all the search functions in the search controller?
 	def search_skills
 		sel_company_skill_name = params[:skills]
-		sel_company_skill = CompanySkill.where(name: sel_company_skill_name)[0]
+		sel_company_skill = CompanySkill.where('lower(name) = ?', sel_company_skill_name.downcase).first
+		if sel_company_skill.nil?
+			session[:category] = Category.new
+			session[:company_skills] = []
+		else
+			sel_category = Category.where(name: sel_company_skill.category.name)[0]
+			session[:category] = sel_category
 
-		sel_category = Category.where(name: sel_company_skill.category.name)[0]
-		session[:category] = sel_category
+			session[:company_skills] = []
+			session[:company_skills] << sel_company_skill
+		end
 
-		session[:company_skills] = []
-		session[:company_skills] << sel_company_skill
-
-		redirect_to profiles_path
+		redirect_to own_company_skills_path
 	end
 
 	def search_by_division
 		@profiles = Profile.where(division: params[:division])
+		redirect_to profiles_path
 	end
 
 	def search_by_team

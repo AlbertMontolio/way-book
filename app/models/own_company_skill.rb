@@ -15,9 +15,5 @@ class OwnCompanySkill < ApplicationRecord
   	end
   	return @own_company_skills_uniq
   end
-
-  def self.longest_name
-    
-  end
-
+  
 end
