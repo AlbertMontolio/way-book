@@ -1,53 +1,67 @@
-<div class="spinner-wrapper hide" id="js-spinner-wrapper">
-	<div class="spinner spinner-1">
-		<div class="text">
-			loading...
-		</div>
+<div class="search-employee-page">
+	<div class="divisions-wrapper">
+
+		<%= link_to "WAY People+ GmbH", search_by_division_path(division: "WAY People+ GmbH"), class: "division" %>
+		<div class="team">Team A</div>
+		<div class="team">Team B</div>
+		<div class="team">Team C</div>
+
+		<div class="division">WAY HR Professionals & Experts GmbH</div>
+		<div class="team">Team D</div>
+		<div class="team">Team E</div>
+
+		<%= link_to "WAY IT Solutions GmbH", search_by_division_path(division: "WAY IT Solutions GmbH"), class: "division" %>
+		<%= link_to "Michael Dreisbach", search_by_team_path(team: "Michael Dreisbach"), class: "team" %>
+		<div class="team">Team G</div>
+
+		<%= link_to "WAY Engineering GmbH", search_by_division_path(division: "WAY Engineering GmbH"), class: "division" %>
+		<%= link_to "Brigitte Schulz", search_by_team_path(team: "Brigitte Schulz"), class: "team" %>
+		<%= link_to "Christian Sailer", search_by_team_path(team: "Christian Sailer"), class: "team" %>
+
 	</div>
-</div>
-
-<div class="index-filter-results-panels title">
-	Filter profiles per skills
-</div>
-
-<div class="general-filter-all-profiles">
-	<div class="categories js-categories">
-		<%= link_to remove_category_session_path, remote: true, class: "test-height" do %>
-			<div class="category-link-wrapper big <%= "active" if session[:category]["id"].nil? %> js-index-general-category-btn">
-				<div class="category-name">All</div>
+	<% if @profiles.empty? %>
+		<div class="results-employees-wrapper empty">
+			Look for employees by clicking the WAY divisions or the corresponding teams.<br>
+			You can also use the search areas on the top.
+		</div>
+	<% else %>
+		<div class="results-employees-wrapper">
+			<div class="results-title">
+				<i class="fa fa-users" aria-hidden="true"></i>
+				Employees
 			</div>
-		<% end %>
-		<% @categories.each do |category| %>
-			<%= link_to add_category_session_path(category: category), remote: true, class: "test-height" do %>
-				<div class="category-link-wrapper big <%= "active" if session[:category]["name"] == category.name %> js-index-general-category-btn">
-					<div class="category-name"><%= category.name %></div>
-				</div>
-			<% end %>
-		<% end %>
-	</div>
+			<div class="results-list">
+				<% @profiles.each do |profile| %>
+					<div class="contact-info margins-search_employee">
+						<div class="avatar"></div>
+						<div class="info-blocks">
+							<div class="block-50 paddings-search_employee">
+								
+								<%= link_to profile_path(profile), class: "profile-link" do  %>
+									<%= "#{profile.first_name} #{profile.last_name}" %>
+								<% end %>
+								
+								<div class="info position">
+									<%= profile.position %>
+								</div>
+							</div>
+							<div class="block-50 paddings-search_employee">
+								<div class="info">
+									<i class="fa fa-envelope-o" aria-hidden="true"></i>
+									<%= profile.user.email %>
+									</div>
+								<div class="info">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+									<%= profile.phone_number %>
+								</div>
+							</div>
+						</div>
 
-	<div class="round-btns-grid max-height" id="js-index-general-company-skills">
-		<%= render "profiles/index-general-company-skills", company_skills: @company_skills %>
-	</div>
-</div>
-
-<div class="filtered_company_skills index-filter-results-panels" id="js-filtered_company_skills">
-	<% company_skills = session[:company_skills] %>
-	<%= render "company_skills/filtered_company_skills", company_skills: company_skills %>
-</div>
-
-<div class="filter_results index-filter-results-panels">
-	<i class="fa fa-filter" aria-hidden="true"></i>
-	<div class="message">
-		number of matched profiles: 
-		<div id="js-num-profiles" class="num-profiles">
-			<%= @profiles.count %>
+					</div>
+				<% end %>
+			</div>
 		</div>
-	</div>
-</div>
-
-<div id="js-profiles-wrapper">
-	<%= render "profiles/profiles", profiles: @profiles  %>
+	<% end %>
 </div>
 
 

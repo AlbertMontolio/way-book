@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   ### do i need this nesting?
   resources :profiles, only: [:index, :show, :edit, :update] do
-    resources :own_company_skills, only: [:create, :destroy, :edit, :update]
+    resources :own_company_skills, only: [:create, :destroy, :edit, :update, :index]
     get "filter_profile_per_categories", to: "categories#filter_show"
   end
 

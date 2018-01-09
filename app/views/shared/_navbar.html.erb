@@ -7,7 +7,8 @@
 			</div>
 		<% end %>
 
-		<form action="/search_employee" class="search-form">
+		<!-- ### maybe simple form -->
+		<form action="/profiles" class="search-form">
 		  <input type="text" name="name" placeholder="Search employee" class="input-text">
 		  <div class="submit-btn-wrapper">
 		  	<button type="submit" value="Submit" class="search-btn">
@@ -29,7 +30,7 @@
 
 	<div class="right-navbar">
 		<div class="nav-btns">
-			<%= link_to search_employee_path do %>
+			<%= link_to profiles_path do %>
 				<div class="employees-btn nav-btn <%= @is_search_employee_page ? 'green' : 'gray' %>">
 					<div class="box-1">
 						<div class="icon-text-wrapper">
@@ -45,7 +46,7 @@
 				</div>
 			<% end %>
 
-			<%= link_to profiles_path do %>
+			<%= link_to own_company_skills_path do %>
 				<div class="skills-btn nav-btn <%= @is_profiles_page ? 'green' : 'gray' %>">
 					<div class="box-1">
 						<div class="icon-text-wrapper">
