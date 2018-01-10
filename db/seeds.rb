@@ -1,902 +1,171 @@
-# it, engineering, people plus, 
-skills = [
+require "faker"
+
+divisions_hash = [
 	{
-		category: "SE-Team Leiter",
-		category_skills: ["Boole Tool", "CAD-PDM", "Catia v5", "Freigabeleitstand", "Freigaben", "gAMS", "GSS", "ip3 Terminplan", "ItO Workplace", "KMG/MMG", "LOP", "PEP PDM", "PRISMA", "Projektbedarf", "SKYPE", "TWEN", "TAIS", "PRISMA", "CARISMA", "PQM", "Catia v6"]
+		name: "WAY Engineering GmbH",
+		teams: ["Brigitte Schulz", "Christian Sailer"],
+		positions: ["SE-Team Leiter", "Modul Leiter", "Konstruktor", "Modulplanner"],
+		skills: [
+			{
+				category: "SE-Team Leiter",
+				category_skills: ["Boole Tool", "CAD-PDM", "Catia v5", "Freigabeleitstand", "Freigaben", "gAMS", "GSS", "ip3 Terminplan", "ItO Workplace", "KMG/MMG", "LOP", "PEP PDM", "PRISMA", "Projektbedarf", "SKYPE", "TWEN", "TAIS", "PRISMA", "CARISMA", "PQM", "Catia v6"]
+			},
+			{
+				category: "Modul Leiter",
+				category_skills: ["AKV", "Baukasten", "Dali & DBV", "DBKR", "Einkaufswagen", "ItO", "Lastenheft", "Lieferant", "Modularbeit", "PMC", "Problemmanagement", "Qualitätsmgmt - Six Sigma - 5W/8D Methode", "Reifegradmanagement", "SBWE", "Virtuelles Gesamtfahrzeug", "Catia v5", "Catia v6", "Prisma", "CAD-PDM", "M-gAMS", "Project Management"]
+			},
+			{
+				category: "Programmierer",
+				category_skills: ["Ruby", "Rails", "JavaScript", "HTML", "CSS", "Daten Banken", "Java", "Python", "R", "Visual Basic", "Android", "Swift", "iOS", "Linux", "Active Record", "MySql", "Node.js"]
+			},
+			{
+				category: "Project Management",
+				category_skills: ["Leadership", "Team Management", "RPlan", "Microsoft Office Project Management", "Konfliktmanagement", "PLM: Product-Lifecycle-Management"]
+			},
+			{
+				category: "Business Developer",
+				category_skills: ["Excel", "Market analyse", "Konkurrenz Analyse", "Visual Basic", "R", "Python", "PowerPoint", "Kunde Betreung", "Messe Erfahrung", "Workshops Vorbereitung"]
+			},
+			{
+				category: "Konstruktor",
+				category_skills: ["Catia v5", "Catia v6", "Automotive Erfahrung", "Bauteil Kenntnisse", "Zeichnungen", "Solid Works"]
+			},
+			{
+				category: "Languages",
+				category_skills: ["Deutsch", "Englisch", "Spanisch", "Polnisch", "Chinesisch"]
+			},
+			{
+				category: "Karosserie Module",
+				category_skills: ["KA: Bodengruppe", "KB: Rohbau, Seitengerippe, Dach", "KC: Dach-, Verdecksysteme, Einfüll-Ladeklappen", "KD: Frontsystem, Kunststoffexterieur, Stossfänger", "KE: Einstieg, Türsystem", "KF: Heckklappe, Front-, Heckscheibe, Reinigungssystem", "KG: Licht, Karosserieelektronik"]
+			},
+		]
 	},
 	{
-		category: "Modul Leiter",
-		category_skills: ["AKV", "Baukasten", "Dali & DBV", "DBKR", "Einkaufswagen", "ItO", "Lastenheft", "Lieferant", "Modularbeit", "PMC", "Problemmanagement", "Qualitätsmgmt - Six Sigma - 5W/8D Methode", "Reifegradmanagement", "SBWE", "Virtuelles Gesamtfahrzeug", "Catia v5", "Catia v6", "Prisma", "CAD-PDM", "M-gAMS", "Project Management"]
+		name: "WAY People+ GmbH",
+		teams: ["People A", "People B"],
+		positions: ["People Position A", "People Position B", "People Position C", "People Position D", "People Position E",],
+		skills: [
+			{
+				category: "People Category A",
+				category_skills: ["Skill A", "Skill B", "Skill C", "Skill D", "Skill E"]
+			},
+		]
 	},
 	{
-		category: "IT-Support",
-		category_skills: ["Windows Clients 7/10", "Windows Server 2008", "Windows Server 2012", "Android", "iOS", "Microsoft Exchange", "Microsoft SQL", "Virtualisierung VMware", "Virtualisierung HyperV", "IPv4", "IPv6", "Firewalls", "DHCP", "DNS", "VLAN", "Internet-Domains", "DNS Verwaltung", "Email-Workflow", "Antispam"]
+		name: "WAY HR Professionals & Experts GmbH",
+		teams: ["Pro Team A", "Pro Team B"],
+		positions: ["Pro Pos A", "Pro Pos B", "Pro Pos C", "Pro Pos D"],
+		skills: [
+			{
+				category: "Pro Category B",
+				category_skills: ["Skill A", "Skill B", "Skill C", "Skill D", "Skill E"]
+			},
+		]
 	},
 	{
-		category: "Programmierer",
-		category_skills: ["Ruby", "Rails", "JavaScript", "HTML", "CSS", "Daten Banken", "Java", "Python", "R", "Visual Basic", "Android", "Swift", "iOS", "Linux", "Active Record", "MySql", "Node.js"]
-	},
-	{
-		category: "Project Management",
-		category_skills: ["Leadership", "Team Management", "RPlan", "Microsoft Office Project Management", "Konfliktmanagement", "PLM: Product-Lifecycle-Management"]
-	},
-	{
-		category: "Business Developer",
-		category_skills: ["Excel", "Market analyse", "Konkurrenz Analyse", "Visual Basic", "R", "Python", "PowerPoint", "Kunde Betreung", "Messe Erfahrung", "Workshops Vorbereitung"]
-	},
-	{
-		category: "Konstruktor",
-		category_skills: ["Catia v5", "Catia v6", "Automotive Erfahrung", "Bauteil Kenntnisse", "Zeichnungen", "Solid Works"]
-	},
-	{
-		category: "Languages",
-		category_skills: ["Deutsch", "Englisch", "Spanisch", "Polnisch", "Chinesisch"]
-	},
-	{
-		category: "Karosserie Module",
-		category_skills: ["KA: Bodengruppe", "KB: Rohbau, Seitengerippe, Dach", "KC: Dach-, Verdecksysteme, Einfüll-Ladeklappen", "KD: Frontsystem, Kunststoffexterieur, Stossfänger", "KE: Einstieg, Türsystem", "KF: Heckklappe, Front-, Heckscheibe, Reinigungssystem", "KG: Licht, Karosserieelektronik"]
+		name: "WAY IT Solutions GmbH",
+		teams: ["Michael Dreisbach", "Team B"],
+		positions: ["System Admin", "Internet Admin", "Servers Admin"],
+		skills: [
+			{
+				category: "IT-Support",
+				category_skills: ["Windows Clients 7/10", "Windows Server 2008", "Windows Server 2012", "Android", "iOS", "Microsoft Exchange", "Microsoft SQL", "Virtualisierung VMware", "Virtualisierung HyperV", "IPv4", "IPv6", "Firewalls", "DHCP", "DNS", "VLAN", "Internet-Domains", "DNS Verwaltung", "Email-Workflow", "Antispam"]
+			},
+		]
 	},
 ]
 
-skills.each do |skill_info|
-	category = Category.create(name: skill_info[:category])
-	skill_info[:category_skills].each do |skill|
-		skill = CompanySkill.new(name: skill)
-		skill.category = category
-		skill.save
+# create category
+i = 1
+divisions_hash.each do |division_hash|
+	division_hash[:skills].each do |skill|
+		category = Category.new(name: skill[:category])
+		puts "it-#{i}"
+		puts category.name
+		puts "***************************"
+		category.save
+		i = i + 1
 	end
 end
 
+# create company_skill, for every category
+divisions_hash.each do |division_hash|
+	division_hash[:skills].each do |pair|
+		category = Category.where(name: pair[:category])[0]
+		category_skills = pair[:category_skills]
+		category_skills.each do |category_skill_name|
+			company_skill = CompanySkill.new(name: category_skill_name)
+			company_skill.category = category
+			company_skill.save
+		end
+	end
+end
 
-employees = [
-	{
-		email: "albert.montolio@waygroup.de",
-		password: "albert.montolio@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Brigitte Schulz",
-		first_name: "Albert",
-		last_name: "Montolio",
-		phone_number: "+4917638450434",
-		position: "Mechanical Engineer & Web Developer",
-		title: "Lebenslauf Deutsch",
-		document: "image/upload/v1514324187/edzm3iz0vfzn3fte8vw6.pdf",
-		own_company_skills: [
-			
-		],
-		projects: [
-			{
-				title: "SE-Team Leiter i15 Türen",
-				client: "BMW Group",
-				start: Date.new(2016,1,2),
-				finish: Date.new(2017,12,20),
-			},
-			{
-				title: "Business Developer Carbon Fiber parts",
-				client: "Carbures Group",
-				start: Date.new(2015,4,12),
-				finish: Date.new(2016,1,2),
-			},
-			{
-				title: "Entwicklungsingenieur Karrosserie Lkvs",
-				client: "MAN AG",
-				start: Date.new(2014,3,22),
-				finish: Date.new(2015,4,12),
-			},
-			{
-				title: "Berechnungssingenieur",
-				client: "BMW AG",
-				start: Date.new(2011,1,1),
-				finish: Date.new(2014,3,22),
-			},
-			{
-				title: "Berechnungssingenieur",
-				client: "Altran",
-				start: Date.new(2010,3,10),
-				finish: Date.new(2011,1,1),
-			},
-			{
-				title: "Berechnungssingenieur",
-				client: "IndustrieHansa",
-				start: Date.new(2009,6,16),
-				finish: Date.new(2010,3,10),
-			},
-			{
-				title: "Praktikum Project Management, Planning",
-				client: "Daimler AG",
-				start: Date.new(2008,7,20),
-				finish: Date.new(2009,6,16),
-			},
-			{
-				title: "Master Thesis: Finite Elemente Method. Struktur Berechnung",
-				client: "Universität Stuttgart",
-				start: Date.new(2008,7,20),
-				finish: Date.new(2009,6,16),
-			}
-		],
-	},
-	{
-		email: "alexander.kir@waygroup.de",
-		password: "alexander.kir@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Brigitte Schulz",
-		first_name: "Alexander",
-		last_name: "Kir",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [
-			
-		],
-		projects: [
-			
-		],
-	},
-	{
-		email: "alois.stein@waygroup.de",
-		password: "alois.stein@waygroup.de",
-		division: "WAY People+ GmbH",
-		team: "Team A",
-		first_name: "Alois",
-		last_name: "Stein",
-		phone_number: "TBD",
-		position: "Recruiter",
-		title: "TBD",
-		own_company_skills: [
-			
-		],
-		projects: [
-			
-		],
-	},
-	{
-		email: "alvaro.leal@waygroup.de",
-		password: "alvaro.leal@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Brigitte Schulz",
-		first_name: "Alvaro",
-		last_name: "Leal",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		document: "image/upload/v1514369271/linda_rinaldi_ez8iyl.pdf",
-		own_company_skills: [
-			
-		],
-		projects: [],
-	},
-	{
-		email: "anas.mnif@waygroup.de",
-		password: "anas.mnif@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Anas Mnif",
-		first_name: "Anas",
-		last_name: "Mnif",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "andre.kolks@waygroup.de",
-		password: "andre.kolks@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Christian Sailer",
-		first_name: "Andre",
-		last_name: "Kolks",
-		phone_number: "TBD",
-		position: "Modul Leiter",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "andreas.hauswald@waygroup.de",
-		password: "andreas.hauswald@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "TBD",
-		first_name: "Andreas",
-		last_name: "Hauswald",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "anke.gradl@waygroup.de",
-		password: "anke.gradl@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "TBD",
-		first_name: "Anke",
-		last_name: "Gradl",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "anton.sapronov@waygroup.de",
-		password: "anton.sapronov@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "TBD",
-		first_name: "Anton",
-		last_name: "Sapronov",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "beyrem.amor@waygroup.de",
-		password: "beyrem.amor@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Christian Sailer",
-		first_name: "Beyrem",
-		last_name: "Amor",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "brigitte.schulz@waygroup.de",
-		password: "brigitte.schulz@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Brigitte Schulz",
-		first_name: "Brigitte",
-		last_name: "Schulz",
-		phone_number: "TBD",
-		position: "Prokuristin",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "carolin.mumm@waygroup.de",
-		password: "carolin.mumm@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "Carolin",
-		last_name: "Mumm",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "christian.sailer@waygroup.de",
-		password: "christian.sailer@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Christian Sailer",
-		first_name: "Christian",
-		last_name: "Sailer",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "dieter.albrecht@waygroup.de",
-		password: "dieter.albrecht@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "domagoj.dolusic@waygroup.de",
-		password: "domagoj.dolusic@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "erik.pilz@waygroup.de",
-		password: "erik.pilz@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "TBD",
-		first_name: "Erik",
-		last_name: "Pilz",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "fabian.ponnath@waygroup.de",
-		password: "fabian.ponnath@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "felix.meyer@waygroup.de",
-		password: "felix.meyer@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Brigitte Schulz",
-		first_name: "Felix",
-		last_name: "Meyer",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "florian.sassl@waygroup.de",
-		password: "florian.sassl@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Christian Sailer",
-		first_name: "Florian",
-		last_name: "Sassl",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "florian.winnen@waygroup.de",
-		password: "florian.winnen@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "TBD",
-		first_name: "Florian",
-		last_name: "Winnen",
-		phone_number: "TBD",
-		position: "Business Developer",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "franz.rabauer@waygroup.de",
-		password: "franz.rabauer@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "franziska.falbo@waygroup.de",
-		password: "franziska.falbo@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "hui.wu@waygroup.de",
-		password: "hui.wu@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "isabella.hauptmann@waygroup.de",
-		password: "isabella.hauptmann@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "jakub.cap@waygroup.de",
-		password: "jakub.cap@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "karl.bart@waygroup.de",
-		password: "karl.bart@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "karolina.majcherczyk@waygroup.de",
-		password: "karolina.majcherczyk@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "TBD",
-		first_name: "Karolina",
-		last_name: "Majcherczyk",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "katharina.loibl@waygroup.de",
-		password: "katharina.loibl@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "lena.moritz@waygroup.de",
-		password: "lena.moritz@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Christian Sailer",
-		first_name: "Lena",
-		last_name: "Moritz",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "lino.cescolini@waygroup.de",
-		password: "lino.cescolini@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Christian Sailer",
-		first_name: "Lino",
-		last_name: "Cescolini",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "manuel.schmidhuber@waygroup.de",
-		password: "manuel.schmidhuber@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "manuela.weißhaar@waygroup.de",
-		password: "manuela.weißhaar@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "markus.wegerhoff@waygroup.de",
-		password: "markus.wegerhoff@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "max.hilarius@waygroup.de",
-		password: "max.hilarius@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "michael.lange@waygroup.de",
-		password: "michael.lange@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "michael.scheuerer@waygroup.de",
-		password: "michael.scheuerer@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "michaela.fischer@waygroup.de",
-		password: "michaela.fischer@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "monika.kschionsko@waygroup.de",
-		password: "monika.kschionsko@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "mustafa.akcay@waygroup.de",
-		password: "mustafa.akcay@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "nicolas.platz@waygroup.de",
-		password: "nicolas.platz@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "TBD",
-		first_name: "Nicolas",
-		last_name: "Platz",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "nima.abolkhirian@waygroup.de",
-		password: "nima.abolkhirian@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Brigitte Schulz",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "pawel.maselko@waygroup.de",
-		password: "pawel.maselko@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "philipp.kampen@waygroup.de",
-		password: "philipp.kampen@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "ralf.boob@waygroup.de",
-		password: "ralf.boob@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "selen.turgut@waygroup.de",
-		password: "selen.turgut@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "sonja.cavlovic@waygroup.de",
-		password: "sonja.cavlovic@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "teresa.winter@waygroup.de",
-		password: "teresa.winter@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "thomas.baumgartner@waygroup.de",
-		password: "thomas.baumgartner@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "timo.schmidmayer@waygroup.de",
-		password: "timo.schmidmayer@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "tobias.wimmer@waygroup.de",
-		password: "tobias.wimmer@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "TBD",
-		first_name: "Tobias",
-		last_name: "Wimmer",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "ural.bayramoglu@waygroup.de",
-		password: "ural.bayramoglu@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Christian Sailer",
-		first_name: "Ural",
-		last_name: "Bayramoglu",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "veronika.hollerith@waygroup.de",
-		password: "veronika.hollerith@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Brigitte Schulz",
-		first_name: "Veronika",
-		last_name: "Hollerith",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "zaneta.uhrinova@waygroup.de",
-		password: "zaneta.uhrinova@waygroup.de",
-		division: "TBD",
-		team: "TBD",
-		first_name: "TBD",
-		last_name: "TBD",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "albert.aguado@waygroup.de",
-		password: "albert.aguado@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Brigitte Schulz",
-		first_name: "Albert",
-		last_name: "Aguado",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "carlos.montolio@waygroup.de",
-		password: "carlos.montolio@waygroup.de",
-		division: "WAY Engineering GmbH",
-		team: "Brigitte Schulz",
-		first_name: "Carlos",
-		last_name: "Montolio",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "felix.franke@waygroup.de",
-		password: "felix.franke@waygroup.de",
-		division: "WAY IT Solutions GmbH",
-		team: "Michael Dreisbach",
-		first_name: "Felix",
-		last_name: "Franke",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "michael.dreisbach@waygroup.de",
-		password: "michael.dreisbach@waygroup.de",
-		division: "WAY IT Solutions GmbH",
-		team: "Michael Dreisbach",
-		first_name: "Michael",
-		last_name: "Dreisbach",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-	{
-		email: "jennifer.zander-kustow@waygroup.de",
-		password: "jennifer.zander-kustow@waygroup.de",
-		division: "WAY People+ GmbH",
-		team: "TBD",
-		first_name: "Jennifer",
-		last_name: "Zander-Kustow",
-		phone_number: "TBD",
-		position: "TBD",
-		title: "TBD",
-		own_company_skills: [],
-		projects: [],
-	},
-]
+COUNTRIES = ["Spain", "Germany", "Poland", "Italy", "Greece", "France", "Croatia", "Algeria", "Turkey", "Holland", "Belgium"]
 
-employees.each do |employee|
-	user = User.new(email: employee[:email], password: employee[:password])
+200.times do
+	first_name = Faker::Name.first_name
+	last_name = Faker::Name.last_name
+	email = "#{first_name}.#{last_name}@waygroup.de"
+
+	user = User.new(email: email, password: 123456)
 	user.save
 
-	profile = Profile.new(division: employee[:division], team: employee[:team], first_name: employee[:first_name], last_name: employee[:last_name], phone_number: employee[:phone_number], position: employee[:position])
+	# data for profile
+	division_hash = divisions_hash.sample
+	division_name = division_hash[:name]
+	division_team = division_hash[:teams].sample
+	division_position = division_hash[:positions].sample
+
+	phone_number = Faker::PhoneNumber.cell_phone
+
+	nationality = COUNTRIES.sample
+	birthday = Faker::Date.between(65.years.ago, 18.years.ago)
+	startway = Faker::Date.between(20.years.ago, 10.years.ago)
+	endway = Faker::Date.between(9.years.ago, 1.months.ago)
+
+	profile = Profile.new(division: division_name, team: division_team, position: division_position, first_name: first_name, last_name: last_name, phone_number: phone_number, nationality: nationality, birthday: birthday, startway: startway, endway: endway)
 	profile.user = user
 	profile.save
 
-	employee[:own_company_skills].each do |pair|
-		pair[:names].each do |name|
-			own_company_skill = OwnCompanySkill.new(name: name)
-			category = Category.where(name: pair[:category])[0]
-			own_company_skill.category = category
-			own_company_skill.profile = profile
-			own_company_skill.rating = rand(1..3)
-			own_company_skill.save
+	division_skills = division_hash[:skills]
+	division_skills.each do |pair|
+		category_skills = pair[:category_skills]
+		category_skills.sample(rand(1..3)).to_a.each do |skill_name|
+			own_company_skill = OwnCompanySkill.new(name: skill_name)
+			categories = Category.where(name: pair[:category])
+			categories.each do |category|
+				own_company_skill.category = category
+				own_company_skill.profile = profile
+				own_company_skill.rating = rand(1..3)
+				own_company_skill.save
+			end
 		end
 	end
 
-	employee[:projects].each do |project|
-		project = Project.new(title: project[:title], client: project[:client], start: project[:start], finish: project[:finish])
-		project.profile = profile
-		project.save
-	end
+	# employee[:projects].each do |project|
+	# 	project = Project.new(title: project[:title], client: project[:client], start: project[:start], finish: project[:finish])
+	# 	project.profile = profile
+	# 	project.save
+	# end
 end
 
+# init user
+first_name = "Albert"
+last_name = "Montolio"
+email = "#{first_name}.#{last_name}@waygroup.de"
 
+user = User.new(email: email, password: email)
+user.save
 
+nationality = COUNTRIES.sample
+birthday = Faker::Date.between(65.years.ago, 18.years.ago)
+startway = Faker::Date.between(20.years.ago, 10.years.ago)
+endway = Faker::Date.between(9.years.ago, 1.months.ago)
 
+profile = Profile.new(division: "WAY Engineering GmbH", team: "Brigitte Schulz", position: "SE-Team Leiter", first_name: first_name, last_name: last_name, phone_number: "+494525252", nationality: nationality, birthday: birthday, startway: startway, endway: endway)
+profile.user = user
+profile.save
 
 
 

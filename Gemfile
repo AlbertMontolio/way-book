@@ -40,5 +40,6 @@ end
 gem "pundit"
 gem "simple_token_authentication"
 gem 'rack-cors', :require => 'rack/cors'
+gem "faker"
 
 
