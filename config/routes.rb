@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   resources :curriculums, only: [:create]
 
   resources :own_skills, only: [:create, :destroy]
-  
 
   resources :company_skills, only: [:index, :create]
   resources :categories, only: [:create]
@@ -39,13 +38,15 @@ Rails.application.routes.draw do
   get "search_by_team", to: "searchs#search_by_team"
 
 
+  # match "*all" => "application#cors_preflight_check", :constraints => { :method => "OPTIONS" }
 
 
   # api
   namespace :api, defaults: { format: :json } do
-      namespace :v1 do
-        resources :profiles, only: [ :index ]
-      end
+    namespace :v1 do
+      resources :profiles, only: [ :index ]
     end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
