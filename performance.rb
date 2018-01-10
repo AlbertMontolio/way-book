@@ -22,3 +22,9 @@ Completed 200 OK in 1018ms (Views: 749.5ms | ActiveRecord: 97.8ms)
 Completed 200 OK in 1069ms (Views: 956.6ms | ActiveRecord: 69.7ms)
 # mit
 Completed 200 OK in 1795ms (Views: 1373.6ms | ActiveRecord: 138.1ms)
+
+curl -i -X GET                                        \
+       -H 'Content-Type: application/json'              \
+       -H 'X-User-Email: albert.montolio@waygroup.de'               \
+       -H 'X-User-Token: ntcCWUai6z4Awvi_NsRQ'          \
+       http://localhost:3000/api/v1/profiles

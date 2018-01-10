@@ -38,4 +38,6 @@ end
 
 # added gems
 gem "pundit"
+gem "simple_token_authentication"
+
 
