@@ -37,10 +37,6 @@ Rails.application.routes.draw do
   get "search_by_division", to: "searchs#search_by_division"
   get "search_by_team", to: "searchs#search_by_team"
 
-
-  # match "*all" => "application#cors_preflight_check", :constraints => { :method => "OPTIONS" }
-
-
   # api
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
