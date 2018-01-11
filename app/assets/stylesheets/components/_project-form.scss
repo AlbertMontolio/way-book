@@ -1,16 +1,26 @@
+.new-project-form {
+	text-align: center;
+	.title {
+		font-weight: bold;
+		font-size: 14px;
+		color: rgb(50,50,50);
+		margin: 25px 0px 15px 0px;
+	}
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
 #new_project {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-bottom: 20px;
 
 	.project_title {
-		flex-grow: 1;
+		margin: 0px 10px;
 	}
 
 	.project_client {
-		width: 130px;
-		margin: 0px 20px;
+		margin: 15px 10px;
 	}
 	.form-control, .btn-submit {
 		border-radius: 300px;
@@ -26,7 +36,8 @@
 		line-height: 30px;
 	}
 	.btn-submit {
-		margin: 0px 0px 0px 20px;
+		margin: 10px auto;
+		width: 120px;
 		line-height: 16px;
 		background-color: #19b724;
 		color: white;

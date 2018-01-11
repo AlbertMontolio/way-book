@@ -5,8 +5,6 @@ class ProjectsController < ApplicationController
 		authorize @project
 		@project.save
 
-		# @projects = current_user.profile.projects
-
 		respond_to do |format|
 	        format.html { redirect_to profile_path(current_user.profile) }
 	        format.js

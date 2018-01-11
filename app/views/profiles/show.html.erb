@@ -29,7 +29,7 @@
 				<div class="block2 block">
 					<div class="detail">
 						<i class="fa fa-users" aria-hidden="true"></i>
-						I belong to the <%= @profile.division %> division
+						His division is <%= @profile.division %>
 					</div>
 					<div class="detail">
 						<i class="fa fa-male" aria-hidden="true"></i>
@@ -114,19 +114,26 @@
 
 		<!-- My projects -->
 		<div class="projects-wrapper">
+			<div class="new-project-form">
+				<div class="title">
+					Introduce new project
+				</div>
+				<%= simple_form_for @project, remote: true do |f| %>
+					<%= f.input :title, label: false, placeholder: "Project title" %>
+					<%= f.input :client, label: false, placeholder: "Client" %>
+					<div class="to">From</div>
+					<%= f.input :start, as: :date, label: false %>
+					<div class="to">To</div>
+					<%= f.input :finish, as: :date, label: false %>
+					<%= f.button :submit, class: "btn-submit" %>
+				<% end %>
+			</div>
 
-			<%= simple_form_for @project, remote: false do |f| %>
-				<%= f.input :title, label: false, placeholder: "Project title" %>
-				<%= f.input :client, label: false, placeholder: "Client" %>
-				<%= f.input :start, as: :date, label: false %>
-				<div class="to">to</div>
-				<%= f.input :finish, as: :date, label: false %>
-				<%= f.button :submit, class: "btn-submit" %>
-			<% end %>
-
-			<% current_user.profile.projects.each do |project| %>
-				<%= render "profiles/project", project: project %>
-			<% end %>
+			<div id="projects-show-wrapper">
+				<% current_user.profile.projects.each do |project| %>
+					<%= render "profiles/project", project: project %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 

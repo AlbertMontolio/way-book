@@ -1,7 +1,7 @@
 console.log("hello from projects#create");
 
-projectsShowWrapper = document.getElementById("projects-show-wrapper");
-
+let projectsShowWrapper = document.getElementById("projects-show-wrapper");
+console.log(projectsShowWrapper);
 
 projectsShowWrapper.insertAdjacentHTML("afterbegin", "<%= j render 'profiles/project', project: @project %>");
 
