@@ -51,35 +51,39 @@ class ProfilesController < ApplicationController
 	end
 
 	def show
-			@profile = Profile.find(params[:id].to_i)
-			authorize @profile
+		puts "params--------------------------------------------------"
+		puts params
+		puts params[:id]
+		puts params["id"]
+		@profile = Profile.find(params["id"].to_i)
+		authorize @profile
 
-			# curriculums
-			@curriculums = current_user.profile.curriculums
-			@curriculums =policy_scope(@curriculums)
+		# curriculums
+		@curriculums = current_user.profile.curriculums
+		@curriculums =policy_scope(@curriculums)
 
-			@curriculum = Curriculum.new
-			authorize @curriculum, :new?
+		@curriculum = Curriculum.new
+		authorize @curriculum, :new?
 
-			# own skills
-			@own_skills = current_user.profile.own_skills
+		# own skills
+		@own_skills = current_user.profile.own_skills
 
-			# own company skills
+		# own company skills
 
-			# categories
-			@categories = Category.all
+		# categories
+		@categories = Category.all
 
-			# company skills
-			@company_skills = CompanySkill.order(:name).unique_name
+		# company skills
+		@company_skills = CompanySkill.order(:name).unique_name
 
-			# projects
-			@projects = current_user.profile.projects
-			@project = Project.new
-			authorize @project, :new?
+		# projects
+		@projects = current_user.profile.projects
+		@project = Project.new
+		authorize @project, :new?
 
-			respond_to do |format|
-		        format.html
-		        format.js
-		    end
+		respond_to do |format|
+	        format.html
+	        format.js
+	    end
 	end
 end
