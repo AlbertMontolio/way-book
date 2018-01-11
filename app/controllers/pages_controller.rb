@@ -3,8 +3,14 @@ class PagesController < ApplicationController
 
   def home
   	puts "-----------------------------------"
+  	puts "current_user"
   	puts current_user
+  	puts "------------------------------------"
+  	puts "current_user.profile"
   	puts current_user.profile
+  	puts "------------------------------------"
+  	puts "current_user.profile.first_name"
   	puts current_user.profile.first_name
+  	puts "------------------------------------"
   end
 end
