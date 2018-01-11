@@ -21,6 +21,10 @@
 						<i class="fa fa-phone" aria-hidden="true"></i>
 						<%= @profile.phone_number %>
 					</div>
+					<div class="detail">
+						<i class="fa fa-birthday-cake" aria-hidden="true"></i>
+						Was born on the <%= @profile.birthday %>
+					</div>
 				</div>
 				<div class="block2 block">
 					<div class="detail">
@@ -31,15 +35,23 @@
 						<i class="fa fa-male" aria-hidden="true"></i>
 						My boss is <%= @profile.team %>
 					</div>
+					<div class="detail">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+						Is by WAY since <%= @profile.startway %>
+					</div>
 				</div>
 				<div class="block3 block">
 					<div class="detail">
 						<i class="fa fa-flag" aria-hidden="true"></i>
-						I am from Spain
+						From <%= @profile.nationality %>
 					</div>
 					<div class="detail">
 						<i class="fa fa-map-marker" aria-hidden="true"></i>
-						I work in Germany
+						Works in Germany
+					</div>
+					<div class="detail">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+						Left WAY on the <%= @profile.endway %>
 					</div>
 				</div>
 			</div>

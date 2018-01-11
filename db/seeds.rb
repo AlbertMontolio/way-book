@@ -80,9 +80,6 @@ i = 1
 divisions_hash.each do |division_hash|
 	division_hash[:skills].each do |skill|
 		category = Category.new(name: skill[:category])
-		puts "it-#{i}"
-		puts category.name
-		puts "***************************"
 		category.save
 		i = i + 1
 	end
@@ -121,8 +118,9 @@ COUNTRIES = ["Spain", "Germany", "Poland", "Italy", "Greece", "France", "Croatia
 
 	nationality = COUNTRIES.sample
 	birthday = Faker::Date.between(65.years.ago, 18.years.ago)
-	startway = Faker::Date.between(20.years.ago, 10.years.ago)
-	endway = Faker::Date.between(9.years.ago, 1.months.ago)
+	startway = Faker::Date.between(12.years.ago, 1.years.ago)
+	possibilities = [true, true, true, false, false, false, false, false, false, false].sample
+	endway = possibilities ? Faker::Date.between(9.years.ago, 1.months.ago) : ""
 
 	profile = Profile.new(division: division_name, team: division_team, position: division_position, first_name: first_name, last_name: last_name, phone_number: phone_number, nationality: nationality, birthday: birthday, startway: startway, endway: endway)
 	profile.user = user
@@ -160,7 +158,7 @@ user.save
 
 nationality = COUNTRIES.sample
 birthday = Faker::Date.between(65.years.ago, 18.years.ago)
-startway = Faker::Date.between(20.years.ago, 10.years.ago)
+startway = Faker::Date.between(12.years.ago, 1.years.ago)
 endway = Faker::Date.between(9.years.ago, 1.months.ago)
 
 profile = Profile.new(division: "WAY Engineering GmbH", team: "Brigitte Schulz", position: "SE-Team Leiter", first_name: first_name, last_name: last_name, phone_number: "+494525252", nationality: nationality, birthday: birthday, startway: startway, endway: endway)
