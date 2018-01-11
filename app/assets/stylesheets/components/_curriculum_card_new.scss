@@ -1,5 +1,9 @@
-.new-project-form {
+.curriculum-card-new {
+	margin-bottom: 1px;
+	// height: 340px;
+	background-color: white;
 	text-align: center;
+	padding: 0px 10px;
 	.title {
 		font-weight: bold;
 		font-size: 14px;
@@ -8,20 +12,13 @@
 	}
 	padding-bottom: 20px;
 	border-bottom: 1px solid #e6e6e6;
+	box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
 }
 
-#new_project {
+#new_curriculum {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
-	.project_title {
-		margin: 0px 10px;
-	}
-
-	.project_client {
-		margin: 15px 10px;
-	}
 	.form-control, .btn-submit {
 		border-radius: 300px;
 		height: 30px;
@@ -29,16 +26,12 @@
 		color: rgb(80,80,80);
 		text-align: center;
 	}
-	.to {
-		margin: 0px 10px;
-		height: 30px;
-		font-size: 14px;
-		color: rgb(80,80,80);
-		line-height: 30px;
+	.curriculum_document {
+		overflow: auto;
 	}
 	.btn-submit {
 		margin: 10px auto;
-		width: 120px;
+		// width: 120px;
 		line-height: 16px;
 		background-color: #19b724;
 		color: white;
@@ -46,5 +39,4 @@
 			background-color: green;
 		}
 	}
-
 }

@@ -59,15 +59,16 @@
 	</div>
 
 	<div class="profile-wrapper">
-
 		<div class="curriculum-cards">
-
 			<div class="curriculum-card-new">
+				<div class="title">
+					Introduce your curriculum
+				</div>
 				<%= simple_form_for @curriculum do |f| %>
-					<%= f.input :title %>
-					<%= f.input :document %>
+					<%= f.input :title, placeholder: "curriculum title", label: false %>
+					<%= f.input :document, label: false %>
 					<%= f.input :document_cache, as: :hidden %>
-					<%= f.button :submit %>
+					<%= f.button :submit, class: "btn-submit" %>
 				<% end %>
 			</div>
 			
@@ -90,7 +91,7 @@
 		</div>
 
 		<div class="skills-wrapper">
-			<div class="">
+			<div class="categories">
 				<%= link_to profile_filter_profile_per_categories_path(@profile, category: "all"), remote: true do %>
 					<div class="category-link-wrapper big active">
 						<div class="category-name">All</div>
