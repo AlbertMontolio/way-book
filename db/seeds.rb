@@ -149,8 +149,8 @@ COUNTRIES = ["Spain", "Germany", "Poland", "Italy", "Greece", "France", "Croatia
 end
 
 # init user
-first_name = "Albert"
-last_name = "Montolio"
+first_name = "albert"
+last_name = "montolio"
 email = "#{first_name}.#{last_name}@waygroup.de"
 
 user = User.new(email: email, password: email)
