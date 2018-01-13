@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   	puts "PagesController home"
   	puts "-----------------------------------"
   	if user_signed_in?
+  		puts "i am sign in"
   		puts "current_user.id"
   		puts current_user.id
   		puts "---------------------------------"
