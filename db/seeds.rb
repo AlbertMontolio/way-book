@@ -101,11 +101,11 @@ end
 COUNTRIES = ["Spain", "Germany", "Poland", "Italy", "Greece", "France", "Croatia", "Algeria", "Turkey", "Holland", "Belgium"]
 
 200.times do
-	first_name = Faker::Name.first_name
-	last_name = Faker::Name.last_name
-	email = "#{first_name}.#{last_name}@waygroup.de"
+	first_name = Faker::Name.first_name.capitalize
+	last_name = Faker::Name.last_name.capitalize
+	email = "#{first_name.downcase}.#{last_name.downcase}@waygroup.de"
 
-	user = User.new(email: email, password: 123456)
+	user = User.new(email: email, password: email)
 	user.save
 
 	# data for profile
@@ -149,21 +149,26 @@ COUNTRIES = ["Spain", "Germany", "Poland", "Italy", "Greece", "France", "Croatia
 end
 
 # init user
-first_name = "albert"
-last_name = "montolio"
-email = "#{first_name}.#{last_name}@waygroup.de"
+first_names = ["Albert", "Carlos", "Albert", "Carlos"]
+last_names = ["Montolio", "Montolio", "Aguado", "Ruiz"]
 
-user = User.new(email: email, password: email)
-user.save
+first_names.each_with_index do |first_name, index|
+	first_name = first_name.capitalize
+	last_name = last_names[index].capitalize
+	email = "#{first_name.downcase}.#{last_name.downcase}@waygroup.de"
 
-nationality = COUNTRIES.sample
-birthday = Faker::Date.between(65.years.ago, 18.years.ago)
-startway = Faker::Date.between(12.years.ago, 1.years.ago)
-endway = Faker::Date.between(9.years.ago, 1.months.ago)
+	user = User.new(email: email, password: email)
+	user.save
 
-profile = Profile.new(division: "WAY Engineering GmbH", team: "Brigitte Schulz", position: "SE-Team Leiter", first_name: first_name, last_name: last_name, phone_number: "+494525252", nationality: nationality, birthday: birthday, startway: startway, endway: endway)
-profile.user = user
-profile.save
+	nationality = COUNTRIES.sample
+	birthday = Faker::Date.between(65.years.ago, 18.years.ago)
+	startway = Faker::Date.between(12.years.ago, 1.years.ago)
+	endway = Faker::Date.between(9.years.ago, 1.months.ago)
+
+	profile = Profile.new(division: "WAY Engineering GmbH", team: "Brigitte Schulz", position: "SE-Team Leiter", first_name: first_name, last_name: last_name, phone_number: "+494525252", nationality: nationality, birthday: birthday, startway: startway, endway: endway)
+	profile.user = user
+	profile.save
+end
 
 
 
