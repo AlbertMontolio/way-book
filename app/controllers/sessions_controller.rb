@@ -17,16 +17,10 @@ class SessionsController < Devise::SessionsController
 			# merge = a b, and you put b c, you get abc
 		end
 
-		puts "before warden.authenticate"
 	    self.resource = warden.authenticate!(auth_options)
-	    puts "after warden.authenticate"
 	    set_flash_message!(:notice, :signed_in)
-	    puts "before sign_in"
 	    sign_in(resource_name, resource)
-	    puts "after sign_in"
-	    puts "before yield resource"
 	    yield resource if block_given?
-	    puts "after yield resource"
 
 	    ### why?
 	    # Started GET "/api/v1/profiles" for 127.0.0.1 at 2018-01-13 12:06:44 +0100
@@ -37,7 +31,8 @@ class SessionsController < Devise::SessionsController
 
 		respond_with resource, :location => after_sign_in_path_for(resource) do |format|
 	      format.json { render :json => resource } # this code will get executed for json request
-	      format.html { redirect_to after_sign_in_path_for(resource) }
+	      # format.html { redirect_to after_sign_in_path_for(resource) }
+	      format.html { redirect_to profiles_path }
 	    end
 	end
 
