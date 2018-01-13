@@ -12,13 +12,15 @@ class SearchsController < ApplicationController
 		end
 	end
 
-	### where to put this searchh? class method, and then call it in the own_company_skills?
+	### where to put this search? class method, and then call it in the own_company_skills?
 	### is bad pactice to group all the search functions in the search controller?
 	def search_skills
 		sel_company_skill_name = params[:skills]
+
 		sel_company_skill = CompanySkill.where('lower(name) = ?', sel_company_skill_name.downcase).first
-		authorize sel_company_skill
-		if sel_company_skill.nil?
+
+		if sel_company_skill.nil? or params[:skills] == ""
+			sel_company_skill = CompanySkill.new
 			session[:category] = Category.new
 			session[:company_skills] = []
 		else
@@ -28,6 +30,8 @@ class SearchsController < ApplicationController
 			session[:company_skills] = []
 			session[:company_skills] << sel_company_skill
 		end
+
+		authorize sel_company_skill
 
 		redirect_to own_company_skills_path
 	end
