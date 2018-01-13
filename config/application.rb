@@ -13,6 +13,7 @@ module WayBook
       generate.helper false
     end
 
+    ### added. i don't need it anymore
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  	protect_from_forgery with: :exception
+  	protect_from_forgery with: :exception ### uncommment it
+    # before_action :sample_test # before any controller
   	before_action :authenticate_user!
     # after_filter :cors_set_access_control_headers, :cors_preflight_check
     # before_filter :cors_set_access_control_headers
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
     #     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     #     render :text => '', :content_type => 'application/json'
     #   end
+    # end
+
+    # def sample_test
+    #     binding.pry
     # end
 
   	include Pundit
