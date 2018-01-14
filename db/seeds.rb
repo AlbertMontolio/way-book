@@ -1,6 +1,6 @@
 require "faker"
 
-divisions_hash = [
+divisions_array = [
 	{
 		name: "WAY Engineering GmbH",
 		teams: ["Brigitte Schulz", "Christian Sailer"],
@@ -75,21 +75,26 @@ divisions_hash = [
 	},
 ]
 
-# create category
-i = 1
-divisions_hash.each do |division_hash|
+# create divisions
+divisions_array.each do |division_hash|
+	Division.create(division_hash[:name])
+end
+
+# create categories
+divisions_array.each do |division_hash|
+	division = Division.where(name: division_hash[:name])[0]
 	division_hash[:skills].each do |skill|
 		category = Category.new(name: skill[:category])
+		category.division = division
 		category.save
-		i = i + 1
 	end
 end
 
 # create company_skill, for every category
-divisions_hash.each do |division_hash|
-	division_hash[:skills].each do |pair|
-		category = Category.where(name: pair[:category])[0]
-		category_skills = pair[:category_skills]
+divisions_array.each do |division_hash|
+	division_hash[:skills].each do |skill|
+		category = Category.where(name: skill[:category])[0]
+		category_skills = skill[:category_skills]
 		category_skills.each do |category_skill_name|
 			company_skill = CompanySkill.new(name: category_skill_name)
 			company_skill.category = category
@@ -109,8 +114,8 @@ COUNTRIES = ["Spain", "Germany", "Poland", "Italy", "Greece", "France", "Croatia
 	user.save
 
 	# data for profile
-	division_hash = divisions_hash.sample
-	division_name = division_hash[:name]
+	division_hash = divisions_array.sample
+	division = Division.where(name: division_hash[:name])[0]
 	division_team = division_hash[:teams].sample
 	division_position = division_hash[:positions].sample
 
@@ -122,8 +127,9 @@ COUNTRIES = ["Spain", "Germany", "Poland", "Italy", "Greece", "France", "Croatia
 	possibilities = [true, true, true, false, false, false, false, false, false, false].sample
 	endway = possibilities ? Faker::Date.between(9.years.ago, 1.months.ago) : ""
 
-	profile = Profile.new(division: division_name, team: division_team, position: division_position, first_name: first_name, last_name: last_name, phone_number: phone_number, nationality: nationality, birthday: birthday, startway: startway, endway: endway)
+	profile = Profile.new(team: division_team, position: division_position, first_name: first_name, last_name: last_name, phone_number: phone_number, nationality: nationality, birthday: birthday, startway: startway, endway: endway)
 	profile.user = user
+	profile.division = division
 	profile.save
 
 	division_skills = division_hash[:skills]
@@ -140,15 +146,9 @@ COUNTRIES = ["Spain", "Germany", "Poland", "Italy", "Greece", "France", "Croatia
 			end
 		end
 	end
-
-	# employee[:projects].each do |project|
-	# 	project = Project.new(title: project[:title], client: project[:client], start: project[:start], finish: project[:finish])
-	# 	project.profile = profile
-	# 	project.save
-	# end
 end
 
-# init user
+# init users
 first_names = ["Albert", "Carlos", "Albert", "Carlos"]
 last_names = ["Montolio", "Montolio", "Aguado", "Ruiz"]
 
@@ -160,13 +160,16 @@ first_names.each_with_index do |first_name, index|
 	user = User.new(email: email, password: email)
 	user.save
 
+	division = Division.first
+
 	nationality = COUNTRIES.sample
 	birthday = Faker::Date.between(65.years.ago, 18.years.ago)
 	startway = Faker::Date.between(12.years.ago, 1.years.ago)
 	endway = Faker::Date.between(9.years.ago, 1.months.ago)
 
-	profile = Profile.new(division: "WAY Engineering GmbH", team: "Brigitte Schulz", position: "SE-Team Leiter", first_name: first_name, last_name: last_name, phone_number: "+494525252", nationality: nationality, birthday: birthday, startway: startway, endway: endway)
+	profile = Profile.new(team: "Brigitte Schulz", position: "SE-Team Leiter", first_name: first_name, last_name: last_name, phone_number: "+494525252", nationality: nationality, birthday: birthday, startway: startway, endway: endway)
 	profile.user = user
+	profile.division = division
 	profile.save
 end
 
