@@ -77,7 +77,7 @@ divisions_array = [
 
 # create divisions
 divisions_array.each do |division_hash|
-	Division.create(division_hash[:name])
+	Division.create(name: division_hash[:name])
 end
 
 # create categories
