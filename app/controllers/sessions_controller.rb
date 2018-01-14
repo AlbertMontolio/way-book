@@ -49,12 +49,7 @@ class SessionsController < Devise::SessionsController
 	end
 end
 
-# in the console
-# User.find_by_email(user_params[:email])
-# u = _
-# u.valid_password? user_params[:password]
-# u.valid_password? request.params[:user][:password]
-# request.params[:user].merge!(user_params)
+
 
 
 
