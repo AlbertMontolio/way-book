@@ -52,6 +52,7 @@ class OwnCompanySkillsController < ApplicationController
 		end
 
 		@categories = Category.all
+		@divisions = Division.all
 		# binding.pry
 	end
 

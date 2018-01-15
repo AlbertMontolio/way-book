@@ -1,0 +1,14 @@
+.btn-division {
+	border: 1px solid #b4b4b4;
+	border-radius: 2px;
+	padding: 5px 10px;
+	font-size: 14px;
+	margin: 8px 3px;
+	color: #b4b4b4;
+	box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.06);
+	&:hover {
+		border: 1px solid black;
+		color: black;
+		cursor: pointer;
+	}
+}

@@ -7,56 +7,68 @@
 	</div>
 </div>
 
-<!-- header with filtered results -->
-<div class="index-filter-results-panels title">
-	Filter profiles per skills
-</div>
 
-<div class="general-filter-all-profiles">
-	<!-- general categories -->
-	<div class="categories js-categories">
-		<%= link_to remove_category_session_path, remote: true, class: "test-height" do %>
-			<div class="category-link-wrapper big <%= "active" if session[:category]["id"].nil? %> js-index-general-category-btn">
-				<div class="category-name">All</div>
+
+<div class="own-company-skills-index-page">
+
+	<div class="index-filter-results-panels">
+		<% @divisions.each do |division| %>
+			<div class="btn-division">
+				<%= division.name %>
 			</div>
 		<% end %>
-		<% @categories.each do |category| %>
-			<%= link_to add_category_session_path(category: category), remote: true, class: "test-height" do %>
-				<div class="category-link-wrapper big <%= "active" if session[:category]["name"] == category.name %> js-index-general-category-btn">
-					<div class="category-name"><%= category.name %></div>
+	</div>
+
+	<!-- header with filtered results -->
+	<div class="index-filter-results-panels title">
+		Filter profiles per skills
+	</div>
+
+	<div class="general-filter-all-profiles">
+		<!-- general categories -->
+		<div class="categories js-categories">
+			<%= link_to remove_category_session_path, remote: true, class: "test-height" do %>
+				<div class="category-link-wrapper big <%= "active" if session[:category]["id"].nil? %> js-index-general-category-btn">
+					<div class="category-name">All</div>
 				</div>
 			<% end %>
-		<% end %>
-	</div>
+			<% @categories.each do |category| %>
+				<%= link_to add_category_session_path(category: category), remote: true, class: "test-height" do %>
+					<div class="category-link-wrapper big <%= "active" if session[:category]["name"] == category.name %> js-index-general-category-btn">
+						<div class="category-name"><%= category.name %></div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
 
-	<!-- general company skills -->
-	<div class="round-btns-grid max-height" id="js-index-general-company-skills">
-		<%= render "own_company_skills/index_general_company_skills", company_skills: @company_skills %>
-	</div>
-</div>
-
-<!-- company skills selected / filtered by the user -->
-<div class="filtered_company_skills index-filter-results-panels" id="js-filtered_company_skills">
-	<% company_skills = session[:company_skills] %>
-	<%= render "company_skills/filtered_company_skills", company_skills: company_skills %>
-</div>
-
-<!-- number of matched profiles -->
-<div class="filter_results index-filter-results-panels">
-	<i class="fa fa-filter" aria-hidden="true"></i>
-	<div class="message">
-		number of matched profiles: 
-		<div id="js-num-profiles" class="num-profiles">
-			<%= @profiles.count %>
+		<!-- general company skills -->
+		<div class="round-btns-grid max-height" id="js-index-general-company-skills">
+			<%= render "own_company_skills/index_general_company_skills", company_skills: @company_skills %>
 		</div>
 	</div>
-</div>
 
-<!-- profiles -->
-<div id="js-profiles-wrapper">
-	<%= render "own_company_skills/profiles", profiles: @profiles  %>
-</div>
+	<!-- company skills selected / filtered by the user -->
+	<div class="filtered_company_skills index-filter-results-panels" id="js-filtered_company_skills">
+		<% company_skills = session[:company_skills] %>
+		<%= render "company_skills/filtered_company_skills", company_skills: company_skills %>
+	</div>
 
+	<!-- number of matched profiles -->
+	<div class="filter_results index-filter-results-panels">
+		<i class="fa fa-filter" aria-hidden="true"></i>
+		<div class="message">
+			number of matched profiles: 
+			<div id="js-num-profiles" class="num-profiles">
+				<%= @profiles.count %>
+			</div>
+		</div>
+	</div>
+
+	<!-- profiles -->
+	<div id="js-profiles-wrapper">
+		<%= render "own_company_skills/profiles", profiles: @profiles  %>
+	</div>
+</div>
 
 
 
