@@ -22,13 +22,6 @@ class SessionsController < Devise::SessionsController
 	    sign_in(resource_name, resource)
 	    yield resource if block_given?
 
-	    ### why?
-	    # Started GET "/api/v1/profiles" for 127.0.0.1 at 2018-01-13 12:06:44 +0100
-	    # Processing by Api::V1::ProfilesController#index as JSON
-	    #   Parameters: {"profile"=>{}}
-	    #   User Load (0.7ms)  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2  [["email", "albert.montolio@waygroup.de"], ["LIMIT", 1]]
-	    # Completed 401 Unauthorized in 5ms (ActiveRecord: 0.7ms)
-
 		respond_with resource, :location => after_sign_in_path_for(resource) do |format|
 	      format.json { render :json => resource } # this code will get executed for json request
 	      # format.html { redirect_to after_sign_in_path_for(resource) }

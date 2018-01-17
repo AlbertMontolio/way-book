@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :profiles, only: [ :index ]
+      resources :divisions, only: [ :index, :create, :destroy, :update ]
+      resources :categories, only: [ :create, :index, :update, :destroy ]
+      resources :company_skills, only: [ :create, :update, :destroy ]
       resources :users, only: [ :index, :create ]
     end
   end
