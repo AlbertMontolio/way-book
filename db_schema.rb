@@ -185,7 +185,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1150" y="870" name="divisions">
+<table x="953" y="577" name="divisions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
