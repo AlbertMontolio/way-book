@@ -1,11 +1,11 @@
 class Profile < ApplicationRecord
   belongs_to :user
   belongs_to :division
-  has_many :curriculums
-  has_many :own_skills
-  has_many :own_company_skills
-  has_many :company_skills
-  has_many :projects
+  has_many :curriculums, dependent: :destroy
+  has_many :own_skills, dependent: :destroy
+  has_many :own_company_skills, dependent: :destroy
+  # has_many :company_skills, dependent: :destroy
+  has_many :projects, dependent: :destroy
 
   def self.search(employee)
     ### how can i improve the ifs?

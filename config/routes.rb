@@ -42,9 +42,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :profiles, only: [ :index ]
       resources :divisions, only: [ :index, :create, :destroy, :update ]
+      patch "users/:id/update_admin", to: "users#update_admin", as: "users_update_admin"
       resources :categories, only: [ :create, :index, :update, :destroy ]
       resources :company_skills, only: [ :create, :update, :destroy ]
-      resources :users, only: [ :index, :create ]
+      resources :users, only: [ :index, :create, :update, :destroy ]
     end
   end
 
