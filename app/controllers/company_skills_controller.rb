@@ -21,8 +21,8 @@ class CompanySkillsController < ApplicationController
 		@sel_company_skills = session[:company_skills].uniq
 		sel_category = session[:category]
 		
-		### dksajöfa
 		@profiles = Profile.filter_by_company_skills(@sel_company_skills)
+		# @profiels = [profile 1, profile 2, profile 3, profile 4]
 		@profiles.each do |profile|
 			authorize profile
 		end

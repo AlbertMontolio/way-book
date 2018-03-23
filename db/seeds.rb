@@ -1,9 +1,8 @@
 require "faker"
-
 divisions_array = [
 	{
 		name: "WAY Engineering GmbH",
-		teams: ["Brigitte Schulz", "Christian Sailer"],
+		teams: ["Team A", "Team B"],
 		positions: ["SE-Team Leiter", "Modul Leiter", "Konstruktor", "Modulplanner"],
 		skills: [
 			{
@@ -167,7 +166,7 @@ first_names.each_with_index do |first_name, index|
 	startway = Faker::Date.between(12.years.ago, 1.years.ago)
 	endway = Faker::Date.between(9.years.ago, 1.months.ago)
 
-	profile = Profile.new(team: "Brigitte Schulz", position: "SE-Team Leiter", first_name: first_name, last_name: last_name, phone_number: "+494525252", nationality: nationality, birthday: birthday, startway: startway, endway: endway)
+	profile = Profile.new(team: "Team A", position: "SE-Team Leiter", first_name: first_name, last_name: last_name, phone_number: "+494525252", nationality: nationality, birthday: birthday, startway: startway, endway: endway)
 	profile.user = user
 	profile.division = division
 	profile.save

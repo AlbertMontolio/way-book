@@ -53,17 +53,16 @@ class CategoriesController < ApplicationController
 		session[:category] = sel_category
 		sel_company_skills = session[:company_skills]
 		
-		### dksajöfa
-		### buf, it works, but refactor the method filter_by_company_skills,
+		### it works, but refactor the method filter_by_company_skills,
 		### so that it does not return an array, but an AR collection
-		### then you can use policy_scope and not these inefficient loop
+		### then you can use policy_scope and not these ineficient loop
 		@profiles = Profile.filter_by_company_skills(sel_company_skills)
 		@profiles.each do |profile|
 			authorize profile
 		end
 
 		@company_skills = CompanySkill.filter_company_skills_by_category(sel_category)
-		### why pundit is not complaing about showing the company_skills?
+		### why pundit is not complaining about showing the company_skills?
 		### i thought it uses white approach. first nothing works, and you have to
 		### give policies to everything to make it work. why here not?
 
