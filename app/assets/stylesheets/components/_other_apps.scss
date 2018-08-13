@@ -33,6 +33,9 @@
 			font-size: 30px;
 			margin-bottom: 7px;
 		}
+    .text {
+      text-align: center;
+    }
 		&:hover {
 			text-decoration: none;
 			cursor: pointer;
@@ -42,5 +45,5 @@
 				color: #19b724;
 			}
 		}
-	}	
+	}
 }

@@ -1,9 +1,11 @@
 class SessionsController < Devise::SessionsController
     skip_before_action :verify_authenticity_token, only: [:create]
-	
+
 	def create
 		# we expand the create method from devise
+    puts "hello worrld"
 		if request.format.json?
+
 			password = decrypt_password(params[:user][:password])
 			# binding.pry
 			user_params = {

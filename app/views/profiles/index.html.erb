@@ -1,20 +1,20 @@
 <div class="search-employee-page">
 	<div class="divisions-wrapper">
 
-		<%= link_to "WAY People+ GmbH", profiles_path(division: "WAY People+ GmbH"), class: "division" %>
+		<%= link_to "People+ GmbH", profiles_path(division: "WAY People+ GmbH"), class: "division" %>
 		<div class="team">Team A</div>
 		<div class="team">Team B</div>
 		<div class="team">Team C</div>
 
-		<div class="division">WAY HR Professionals & Experts GmbH</div>
+		<div class="division">HR Professionals & Experts GmbH</div>
 		<div class="team">Team D</div>
 		<div class="team">Team E</div>
 
-		<%= link_to "WAY IT Solutions GmbH", profiles_path(division: "WAY IT Solutions GmbH"), class: "division" %>
+		<%= link_to "IT Solutions GmbH", profiles_path(division: "WAY IT Solutions GmbH"), class: "division" %>
 		<%= link_to "Team F", profiles_path(team: "Michael Dreisbach"), class: "team" %>
 		<div class="team">Team G</div>
 
-		<%= link_to "WAY Engineering GmbH", profiles_path(division: "WAY Engineering GmbH"), class: "division" %>
+		<%= link_to "Engineering GmbH", profiles_path(division: "WAY Engineering GmbH"), class: "division" %>
 		<%= link_to "Team H", profiles_path(team: "Brigitte Schulz"), class: "team" %>
 		<%= link_to "Team I", profiles_path(team: "Christian Sailer"), class: "team" %>
 
@@ -36,11 +36,11 @@
 						<div class="avatar"></div>
 						<div class="info-blocks">
 							<div class="block-50 paddings-search_employee">
-								
+
 								<%= link_to profile_path(profile), class: "profile-link" do  %>
 									<%= "#{profile.first_name} #{profile.last_name}" %>
 								<% end %>
-								
+
 								<div class="info position">
 									<%= profile.position %>
 								</div>

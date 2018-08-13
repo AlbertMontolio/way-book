@@ -1,7 +1,7 @@
 require "faker"
 divisions_array = [
 	{
-		name: "WAY Engineering GmbH",
+		name: "Engineering GmbH",
 		teams: ["Team A", "Team B"],
 		positions: ["SE-Team Leiter", "Modul Leiter", "Konstruktor", "Modulplanner"],
 		skills: [
@@ -40,7 +40,7 @@ divisions_array = [
 		]
 	},
 	{
-		name: "WAY People+ GmbH",
+		name: "People+ GmbH",
 		teams: ["People A", "People B"],
 		positions: ["People Position A", "People Position B", "People Position C", "People Position D", "People Position E",],
 		skills: [
@@ -51,7 +51,7 @@ divisions_array = [
 		]
 	},
 	{
-		name: "WAY HR Professionals & Experts GmbH",
+		name: "HR Professionals & Experts GmbH",
 		teams: ["Pro Team A", "Pro Team B"],
 		positions: ["Pro Pos A", "Pro Pos B", "Pro Pos C", "Pro Pos D"],
 		skills: [
@@ -62,7 +62,7 @@ divisions_array = [
 		]
 	},
 	{
-		name: "WAY IT Solutions GmbH",
+		name: "IT Solutions GmbH",
 		teams: ["Michael Dreisbach", "Team B"],
 		positions: ["System Admin", "Internet Admin", "Servers Admin"],
 		skills: [
@@ -107,7 +107,7 @@ COUNTRIES = ["Spain", "Germany", "Poland", "Italy", "Greece", "France", "Croatia
 200.times do
 	first_name = Faker::Name.first_name.capitalize
 	last_name = Faker::Name.last_name.capitalize
-	email = "#{first_name.downcase}.#{last_name.downcase}@waygroup.de"
+	email = "#{first_name.downcase}.#{last_name.downcase}@yahoo.de"
 
 	user = User.new(email: email, password: email)
 	user.save
@@ -154,7 +154,7 @@ last_names = ["Montolio", "Montolio", "Aguado", "Ruiz"]
 first_names.each_with_index do |first_name, index|
 	first_name = first_name.capitalize
 	last_name = last_names[index].capitalize
-	email = "#{first_name.downcase}.#{last_name.downcase}@waygroup.de"
+	email = "#{first_name.downcase}.#{last_name.downcase}@yahoo.de"
 
 	user = User.new(email: email, password: email)
 	user.save

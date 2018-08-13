@@ -5,7 +5,7 @@
 			<%= image_tag "http://kitt.lewagon.com/placeholder/users/albertmontolio", class: "avatar-big pos-avatar" %>
 			<div class="borders-big pos-borders-big"></div>
 		</div>
-		
+
 		<div class="info-wrapper">
 			<div class="header">
 				<div class="name"><%= "#{@profile.first_name} #{@profile.last_name}" %></div>
@@ -37,7 +37,7 @@
 					</div>
 					<div class="detail">
 						<i class="fa fa-calendar" aria-hidden="true"></i>
-						Is by WAY since <%= @profile.startway %>
+						Joined on the <%= @profile.startway %>
 					</div>
 				</div>
 				<div class="block3 block">
@@ -51,7 +51,7 @@
 					</div>
 					<div class="detail">
 						<i class="fa fa-calendar" aria-hidden="true"></i>
-						Left WAY on the <%= @profile.endway %>
+						Left on the <%= @profile.endway %>
 					</div>
 				</div>
 			</div>
@@ -71,7 +71,7 @@
 					<%= f.button :submit, class: "btn-submit" %>
 				<% end %>
 			</div>
-			
+
 			<% @curriculums.each do |curriculum| %>
 				<div class="curriculum-card">
 					<div class="title-date-wrapper">
@@ -87,7 +87,7 @@
 					<% end %>
 				</div>
 			<% end %>
-			
+
 		</div>
 
 		<div class="skills-wrapper">

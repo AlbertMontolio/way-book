@@ -46,6 +46,18 @@
 	}
 }
 
+.avatar-wrapper {
+  overflow: hidden;
+  height: 35px;
+  width: 35px;
+  border-radius: 100px;
+  background-size: cover;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+
 
 
 

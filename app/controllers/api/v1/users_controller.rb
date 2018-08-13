@@ -7,6 +7,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
     def create
     	if request.format.json?
+        # binding.pry
     		email = params["email"]
     		password = params["password"]
     		@user = User.new(email: email, password: password)

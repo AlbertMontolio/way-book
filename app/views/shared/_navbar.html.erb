@@ -70,16 +70,18 @@
 			<div class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 				<div class="other-apps-content">
 					<div class="roww">
-						<%= link_to root_path, class: "link colo1" do  %>
-							<i class="fa fa-pie-chart icon" aria-hidden="true"></i>
-							<div class="text">
-								WAY Data
-							</div>
-						<% end %>
+            <a target="_blank" href="http://localhost:3001/" class="link colo1">
+              <i class="fa fa-pie-chart icon" aria-hidden="true"></i>
+              <div class="text">
+                Data Analysis
+              </div>
+
+            </a>
+
 						<a target="_blank" href="http://www.zep.de/" class="link colo2">
 							<i class="fa fa-clock-o icon" aria-hidden="true"></i>
 							<div class="text">
-								WAY ZEP
+								Timesheet manager
 							</div>
 						</a>
 					</div>
@@ -87,13 +89,13 @@
 						<a target="_blank" href="https://schulungssystem.waygroup.de/" class="link colo3">
 							<i class="fa fa-file-text-o icon" aria-hidden="true"></i>
 							<div class="text">
-								W.H.A.T.
+								Training system
 							</div>
 						</a>
 						<a target="_blank" href="http://www.waygroup.de/" class="link colo4">
 							<i class="fa fa-home icon" aria-hidden="true"></i>
 							<div class="text">
-								Way Group
+								Skills book
 							</div>
 						</a>
 					</div>
@@ -105,7 +107,13 @@
 	    <!-- Profile picture with dropdown list -->
 	    <% if user_signed_in? %>
 		    <div class="dropdown">
-		        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar avatar-cursor dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+            <!-- <div class="avatar avatar-cursor dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"> -->
+            <div class="avatar-wrapper dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown" style="background-image: url('<%= image_path("albert-crazy") %>');">
+
+            </div>
+
+
+		        <!-- <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar avatar-cursor dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"> -->
 
 		        <div class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 		        	<div class="avatar-navbar-content-wrapper">
